@@ -1,4 +1,4 @@
-# Implementation Of Object Oriented Designs
+# Implementation Of Object Oriented Designs Group Assignment
 Group Assignment for Implementation of Object Oriented Designs Module for Advanced Computer Science (MSc)
 
 Members:
