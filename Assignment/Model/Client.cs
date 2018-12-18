@@ -15,7 +15,7 @@ namespace Model
         /// <summary>
         /// Clients ID number.
         /// </summary>
-        private int m_ClientID;
+        private int m_clientID;
 
         /// <summary>
         /// Name of the client.
@@ -31,8 +31,8 @@ namespace Model
         /// </summary>
         public int ClientID
         {
-            get { return m_ClientID; }
-            set { m_ClientID = value; }
+            get { return m_clientID; }
+            set { m_clientID = value; }
         }
         
     }
