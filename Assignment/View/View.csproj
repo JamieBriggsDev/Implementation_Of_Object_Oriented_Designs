@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenter\RegisterClientPresenter.cs" />
+    <Compile Include="View\IAssignStaffToJob.cs" />
+    <Compile Include="View\ICloseJob.cs" />
+    <Compile Include="View\IRecordJobProgress.cs" />
+    <Compile Include="View\IRegisterClient.cs" />
+    <Compile Include="View\IRegisterJob.cs" />
+    <Compile Include="View\IViewCurrentJobs.cs" />
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +84,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presenter\" />
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{f4626845-42ec-4f5e-9675-49d33f1f45af}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
