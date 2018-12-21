@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
 
-    class Job
+    public class Job
     {
         /// <summary>
         /// Primary Key Unique Identifier for the job.

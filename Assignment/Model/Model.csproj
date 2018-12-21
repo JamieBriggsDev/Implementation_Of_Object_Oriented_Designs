@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DatabaseController.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="IDatabaseController.cs" />
     <Compile Include="IRegisteredClientsModel.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

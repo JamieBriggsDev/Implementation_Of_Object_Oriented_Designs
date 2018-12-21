@@ -1,6 +1,6 @@
 ﻿namespace View.View
 {
-    partial class AssignStaffToJobForm
+    partial class AssignStaffToJob
     {
         /// <summary>
         /// Required designer variable.

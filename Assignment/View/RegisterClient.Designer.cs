@@ -1,6 +1,6 @@
 ﻿namespace View.View
 {
-    partial class RegisterClientForm
+    partial class RegisterClient
     {
         /// <summary>
         /// Required designer variable.

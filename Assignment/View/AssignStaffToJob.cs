@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace View.View
 {
-    public partial class AssignStaffToJobForm : Form
+    public partial class AssignStaffToJob : Form, IAssignStaffToJob
     {
-        public AssignStaffToJobForm()
+        private Presenter m_presenter;
+
+        public AssignStaffToJob()
         {
             InitializeComponent();
+        }
+
+        public void OpenChild(Home home)
+        {
+            ShowDialog(home);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -32,7 +39,30 @@ namespace View.View
         private void AssignButton_Click(object sender, EventArgs e)
         {
             // Close this form and focus parent
+            // TODO: JAMIE: Be able to grab name from form on 'Assign' button clicked
+            m_presenter.AssignStaffToJob("Egg", "Yolk");
             this.DialogResult = DialogResult.OK;
+        }
+
+        public void FillStaffNames(List<string> _names)
+        {
+            foreach (var name in _names)
+            {
+                StaffNameComboBox.Items.Add(name);
+            }
+        }
+
+        public void FillJobs(List<string> _jobs)
+        {
+            foreach (var job in _jobs)
+            {
+                JobComboBox.Items.Add(job);
+            }
+        }
+
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
         }
     }
 }

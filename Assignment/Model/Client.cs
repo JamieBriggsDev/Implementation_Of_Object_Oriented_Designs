@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    // TODO: BRANDON: Change Client class to be integrated into the datebase
     public class Client
     {
         /// <summary>

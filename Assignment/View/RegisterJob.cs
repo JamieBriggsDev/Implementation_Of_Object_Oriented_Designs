@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace View.View
 {
-    public partial class RegisterJobForm : Form, IRegisterJob
+    public partial class RegisterJob : Form, IRegisterJob
     {
+        private Presenter m_presenter;
         // TODO: JAMIE: Add component to add attachments to the job listing to RegisterJob.
-        public RegisterJobForm()
+        public RegisterJob()
         {
             InitializeComponent();
+        }
+
+        public void OpenChild(Home home)
+        {
+            ShowDialog(home);
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -74,6 +80,27 @@ namespace View.View
         {
             //TODO: JAMIE: Add new Create Machine Form
 
+        }
+
+        public void GetAllClients()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetAllClientMachines(string _client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewMachineForm()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
         }
     }
 }

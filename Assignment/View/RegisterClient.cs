@@ -10,14 +10,20 @@ using System.Windows.Forms;
 
 namespace View.View
 {
-    public partial class RegisterClientForm : Form
+    public partial class RegisterClient : Form, IRegisterClient
     {
+        private Presenter m_presenter;
         /// <summary>
         /// RegisterClient constructor
         /// </summary>
-        public RegisterClientForm()
+        public RegisterClient()
         {
             InitializeComponent();
+        }
+
+        public void OpenChild(Home home)
+        {
+            ShowDialog(home);
         }
 
         /// <summary>
@@ -61,7 +67,7 @@ namespace View.View
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             // Add new client
-            //TODO: JAMIE: Make sure a new client is entered and added to the ClientModel.
+            m_presenter.RegisterClient(ClientNameTextBox.Text.ToString());
 
             // Close this form and focus parent
             this.DialogResult = DialogResult.OK;
@@ -96,6 +102,9 @@ namespace View.View
         }
 
 
-
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
+        }
     }
 }

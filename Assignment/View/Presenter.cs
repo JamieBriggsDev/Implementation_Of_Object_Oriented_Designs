@@ -1,0 +1,78 @@
+﻿using Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using View.View;
+
+namespace View
+{
+    public class Presenter
+    {
+        // Database controller
+        private IDatabaseController m_databaseController;
+        // Forms
+        private IHome m_home;
+        private IRegisterClient m_registerClient;
+        private IRegisterJob m_registerJob;
+        private IAssignStaffToJob m_assignStaff;
+
+        public Presenter()
+        {
+            // Initialise Database Controller
+            m_databaseController = new DatabaseController();
+            // Setup home form
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            m_home = new Home();
+            m_home.RegisterPresenter(this);    
+            m_home.RunForm();
+        }
+
+        public void OpenRegisterClient()
+        {
+            m_registerClient = new RegisterClient();
+            m_registerClient.RegisterPresenter(this);
+            m_registerClient.OpenChild(m_home as Home);
+        }
+
+        public void OpenRegisterJob()
+        {
+            m_registerJob = new RegisterJob();
+            m_registerJob.RegisterPresenter(this);
+            m_registerJob.OpenChild(m_home as Home);
+        }
+
+        public void OpenAssignStaff()
+        {
+            m_assignStaff = new AssignStaffToJob();
+            m_assignStaff.RegisterPresenter(this);
+            m_assignStaff.OpenChild(m_home as Home);
+        }
+
+        // Register Client Stuff
+        public void RegisterClient(string name)
+        {
+            m_databaseController.AddClient(name);
+        }
+
+        // Register Job stuff
+        public void RegisterJob()
+        {
+            // TODO: ANY: Register job function needs doing
+            m_databaseController.RegisterJob(new Job());
+        }
+
+        // Assign staff to job stuff
+        public void AssignStaffToJob(string forename, string surname)
+        {
+            int StaffID = m_databaseController.GetStaffID(forename, surname);
+            m_databaseController.AssignStaffToJob(StaffID);
+        }
+
+
+    }
+}

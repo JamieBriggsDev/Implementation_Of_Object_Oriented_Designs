@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace View.View
 {
-    public interface IRegisterJob
+    interface IHome
     {
+        void GetAllJobs();
+
+        void RegisterPresenter(Presenter presenter);
+
+        void RunForm();
     }
 }

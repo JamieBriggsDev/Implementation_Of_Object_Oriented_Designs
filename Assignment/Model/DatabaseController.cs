@@ -6,45 +6,74 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class DatabaseController
+    public class DatabaseController : IDatabaseController
     {
         private List<Job> m_jobsList;
-        
-        bool GetAllJobs()
-        {
 
-            return true;
+        // TODO: BRANDON: Get all jobs implemented
+        public bool GetAllJobs()
+        {
+            throw new NotImplementedException("Get all jobs has not been implemented yet.");
         }
 
-        bool GetJobsSpecificMachine(int OID)
+        // TODO: BRANDON: Get specific machine to job
+        public bool GetJobsSpecificMachine(int OID)
         {
-
-            return true;
+            throw new NotImplementedException("Get job specific machine has not been implemented yet.");
         }
 
-        bool AssignStaffToJob(int staffID)
+        // TODO: BRANDON: Assign staff to job
+        public bool AssignStaffToJob(int staffID)
         {
-
-            return true;
+            throw new NotImplementedException("Assign staff to job has not been implemented yet.");
         }
 
-        bool CloseJob(int JobID)
+        // TODO: BRANDON: Close job
+        public bool CloseJob(int JobID)
         {
-
-            return true;
+            throw new NotImplementedException("Close job has not been implemented yet.");
         }
 
-        // TODO: BRANDON: Function to add a new job to the database (state always "Estimate Needed") on first creation
+        // TODO: BRANDON: Register a new job
+        public bool RegisterJob(Job job)
+        {
+            throw new NotImplementedException("Register job has not been implemented yet.");
+        }
 
-        // TODO: BRANDON: Function to edit a job entrys' state with a new string
+        // TODO: BRANDON: Edit job entrys state
+        public bool EditJobEntry(int JobID, string state)
+        {
+            throw new NotImplementedException("Edit job entry has not been implemented yet.");
+        }
 
-        // TODO: BRANDON: Function to grab all staff names
+        // TODO: BRANDON: Get all staff names
+        public void GetAllStaffNames()
+        {
+            throw new NotImplementedException("Get all staff names has not been implemented yet.");
+        }
 
-        // TODO: BRANDON: Function to grab all currents jobs.
+        // TODO: BRANDON: Get all machines dependant of client
+        public void GetClientSpecificMachines(int ClientID)
+        {
+            throw new NotImplementedException("Get client specific machines has not been implemented yet.");
+        }
 
-        // TODO: BRANDON: Function to grab all machines based on clientID
+        // TODO BRANDON: Add new machine
+        public bool AddMachine()
+        {
+            throw new NotImplementedException("Add machine has not been implemented yet.");
+        }
 
-        // TODO: BRANDON: Function to add a machine to machine database
 
+        public bool AddClient(string clientName)
+        {
+            throw new NotImplementedException("Add client has not been implemented yet.");
+        }
+
+
+        public int GetStaffID(string forname, string surname)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
