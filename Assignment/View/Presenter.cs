@@ -50,6 +50,17 @@ namespace View
         {
             m_assignStaff = new AssignStaffToJob();
             m_assignStaff.RegisterPresenter(this);
+
+            // TODO: JAMIE: Fill staff names and jobs
+            List<string> names = new List<string>();
+            names.Add("Jamie");
+            m_assignStaff.FillStaffNames(names);
+
+            List<string> jobs = new List<string>();
+            jobs.Add("Egg");
+            m_assignStaff.FillJobs(jobs);
+
+
             m_assignStaff.OpenChild(m_home as Home);
         }
 
@@ -72,7 +83,6 @@ namespace View
             int StaffID = m_databaseController.GetStaffID(forename, surname);
             m_databaseController.AssignStaffToJob(StaffID);
         }
-
 
     }
 }

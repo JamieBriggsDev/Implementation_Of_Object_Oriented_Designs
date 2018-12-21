@@ -44,6 +44,29 @@ namespace View.View
             this.DialogResult = DialogResult.OK;
         }
 
+        private void StaffNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateAssignButton();
+        }
+
+        private void JobComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateAssignButton();
+        }
+
+        private void ValidateAssignButton()
+        {
+            if(!string.IsNullOrEmpty(StaffNameComboBox.Text) &&
+                !string.IsNullOrEmpty(JobComboBox.Text))
+            {
+                AssignButton.Enabled = true;
+            }
+            else
+            {
+                AssignButton.Enabled = false;
+            }
+        }
+
         public void FillStaffNames(List<string> _names)
         {
             foreach (var name in _names)

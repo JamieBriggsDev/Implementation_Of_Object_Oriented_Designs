@@ -64,16 +64,16 @@ namespace Model
             throw new NotImplementedException("Add machine has not been implemented yet.");
         }
 
-
+        // TODO BRANDON: Add client
         public bool AddClient(string clientName)
         {
             throw new NotImplementedException("Add client has not been implemented yet.");
         }
 
-
+        // TODO BRANDON: Get staff ID
         public int GetStaffID(string forname, string surname)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Get staff ID has not been implemented yet.");
         }
     }
 }

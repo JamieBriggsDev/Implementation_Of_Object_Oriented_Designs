@@ -52,6 +52,7 @@
             this.StaffNameComboBox.Name = "StaffNameComboBox";
             this.StaffNameComboBox.Size = new System.Drawing.Size(237, 21);
             this.StaffNameComboBox.TabIndex = 1;
+            this.StaffNameComboBox.SelectedIndexChanged += new System.EventHandler(this.StaffNameComboBox_SelectedIndexChanged);
             // 
             // JobLabel
             // 
@@ -69,6 +70,7 @@
             this.JobComboBox.Name = "JobComboBox";
             this.JobComboBox.Size = new System.Drawing.Size(237, 21);
             this.JobComboBox.TabIndex = 3;
+            this.JobComboBox.SelectedIndexChanged += new System.EventHandler(this.JobComboBox_SelectedIndexChanged);
             // 
             // CancelButton
             // 
@@ -85,6 +87,7 @@
             // AssignButton
             // 
             this.AssignButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AssignButton.Enabled = false;
             this.AssignButton.Location = new System.Drawing.Point(162, 58);
             this.AssignButton.Name = "AssignButton";
             this.AssignButton.Size = new System.Drawing.Size(75, 23);
@@ -93,12 +96,11 @@
             this.AssignButton.UseVisualStyleBackColor = true;
             this.AssignButton.Click += new System.EventHandler(this.AssignButton_Click);
             // 
-            // AssignStaffToJobForm
+            // AssignStaffToJob
             // 
             this.AcceptButton = this.AssignButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(330, 93);
             this.Controls.Add(this.AssignButton);
             this.Controls.Add(this.CancelButton);
@@ -109,7 +111,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AssignStaffToJobForm";
+            this.Name = "AssignStaffToJob";
             this.Text = "Assign Staff To Job";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignStaffToJobForm_FormClosing);
             this.ResumeLayout(false);
