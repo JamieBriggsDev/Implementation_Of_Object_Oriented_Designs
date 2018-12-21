@@ -1,6 +1,6 @@
 ﻿namespace View.View
 {
-    partial class RegisterClient
+    partial class RegisterClientForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,86 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.clientNameLabel = new System.Windows.Forms.Label();
-            this.clientNameTextBox = new System.Windows.Forms.TextBox();
-            this.termsConditionsLabel = new System.Windows.Forms.Label();
-            this.agreeTermsConditionsCheckBox = new System.Windows.Forms.CheckBox();
-            this.registerButton = new System.Windows.Forms.Button();
-            this.registerCancelButton = new System.Windows.Forms.Button();
+            this.ClientNameLabel = new System.Windows.Forms.Label();
+            this.ClientNameTextBox = new System.Windows.Forms.TextBox();
+            this.TermsConditionsLabel = new System.Windows.Forms.Label();
+            this.AgreeTermsConditionsCheckBox = new System.Windows.Forms.CheckBox();
+            this.RegisterButton = new System.Windows.Forms.Button();
+            this.RegisterCancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // clientNameLabel
+            // ClientNameLabel
             // 
-            this.clientNameLabel.AutoSize = true;
-            this.clientNameLabel.Location = new System.Drawing.Point(12, 9);
-            this.clientNameLabel.Name = "clientNameLabel";
-            this.clientNameLabel.Size = new System.Drawing.Size(67, 13);
-            this.clientNameLabel.TabIndex = 0;
-            this.clientNameLabel.Text = "Client Name:";
+            this.ClientNameLabel.AutoSize = true;
+            this.ClientNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.ClientNameLabel.Name = "ClientNameLabel";
+            this.ClientNameLabel.Size = new System.Drawing.Size(67, 13);
+            this.ClientNameLabel.TabIndex = 0;
+            this.ClientNameLabel.Text = "Client Name:";
             // 
-            // clientNameTextBox
+            // ClientNameTextBox
             // 
-            this.clientNameTextBox.Location = new System.Drawing.Point(85, 6);
-            this.clientNameTextBox.Name = "clientNameTextBox";
-            this.clientNameTextBox.Size = new System.Drawing.Size(230, 20);
-            this.clientNameTextBox.TabIndex = 1;
+            this.ClientNameTextBox.Location = new System.Drawing.Point(85, 6);
+            this.ClientNameTextBox.Name = "ClientNameTextBox";
+            this.ClientNameTextBox.Size = new System.Drawing.Size(230, 20);
+            this.ClientNameTextBox.TabIndex = 1;
+            this.ClientNameTextBox.TextChanged += new System.EventHandler(this.ClientNameTextBox_TextChanged);
             // 
-            // termsConditionsLabel
+            // TermsConditionsLabel
             // 
-            this.termsConditionsLabel.AutoSize = true;
-            this.termsConditionsLabel.Location = new System.Drawing.Point(36, 29);
-            this.termsConditionsLabel.Name = "termsConditionsLabel";
-            this.termsConditionsLabel.Size = new System.Drawing.Size(173, 13);
-            this.termsConditionsLabel.TabIndex = 2;
-            this.termsConditionsLabel.Text = "Agree to the Terms and Conditions:";
+            this.TermsConditionsLabel.AutoSize = true;
+            this.TermsConditionsLabel.Location = new System.Drawing.Point(36, 29);
+            this.TermsConditionsLabel.Name = "TermsConditionsLabel";
+            this.TermsConditionsLabel.Size = new System.Drawing.Size(173, 13);
+            this.TermsConditionsLabel.TabIndex = 2;
+            this.TermsConditionsLabel.Text = "Agree to the Terms and Conditions:";
             // 
-            // agreeTermsConditionsCheckBox
+            // AgreeTermsConditionsCheckBox
             // 
-            this.agreeTermsConditionsCheckBox.AutoSize = true;
-            this.agreeTermsConditionsCheckBox.Location = new System.Drawing.Point(15, 29);
-            this.agreeTermsConditionsCheckBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.agreeTermsConditionsCheckBox.Name = "agreeTermsConditionsCheckBox";
-            this.agreeTermsConditionsCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.agreeTermsConditionsCheckBox.TabIndex = 3;
-            this.agreeTermsConditionsCheckBox.UseVisualStyleBackColor = true;
+            this.AgreeTermsConditionsCheckBox.AutoSize = true;
+            this.AgreeTermsConditionsCheckBox.Location = new System.Drawing.Point(15, 29);
+            this.AgreeTermsConditionsCheckBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.AgreeTermsConditionsCheckBox.Name = "AgreeTermsConditionsCheckBox";
+            this.AgreeTermsConditionsCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.AgreeTermsConditionsCheckBox.TabIndex = 3;
+            this.AgreeTermsConditionsCheckBox.UseVisualStyleBackColor = true;
+            this.AgreeTermsConditionsCheckBox.CheckedChanged += new System.EventHandler(this.agreeTermsConditionsCheckBox_CheckedChanged);
             // 
-            // registerButton
+            // RegisterButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(164, 45);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(75, 23);
-            this.registerButton.TabIndex = 4;
-            this.registerButton.Text = "Register";
-            this.registerButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Enabled = false;
+            this.RegisterButton.Location = new System.Drawing.Point(164, 45);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(75, 23);
+            this.RegisterButton.TabIndex = 4;
+            this.RegisterButton.Text = "Register";
+            this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
-            // registerCancelButton
+            // RegisterCancelButton
             // 
-            this.registerCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.registerCancelButton.Location = new System.Drawing.Point(245, 45);
-            this.registerCancelButton.Name = "registerCancelButton";
-            this.registerCancelButton.Size = new System.Drawing.Size(75, 23);
-            this.registerCancelButton.TabIndex = 5;
-            this.registerCancelButton.Text = "Cancel";
-            this.registerCancelButton.UseVisualStyleBackColor = true;
+            this.RegisterCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.RegisterCancelButton.Location = new System.Drawing.Point(245, 45);
+            this.RegisterCancelButton.Name = "RegisterCancelButton";
+            this.RegisterCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.RegisterCancelButton.TabIndex = 5;
+            this.RegisterCancelButton.Text = "Cancel";
+            this.RegisterCancelButton.UseVisualStyleBackColor = true;
+            this.RegisterCancelButton.Click += new System.EventHandler(this.RegisterCancelButton_Click);
             // 
-            // RegisterClient
+            // RegisterClientForm
             // 
-            this.AcceptButton = this.registerButton;
+            this.AcceptButton = this.RegisterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.registerCancelButton;
+            this.CancelButton = this.RegisterCancelButton;
             this.ClientSize = new System.Drawing.Size(330, 78);
-            this.Controls.Add(this.registerCancelButton);
-            this.Controls.Add(this.registerButton);
-            this.Controls.Add(this.agreeTermsConditionsCheckBox);
-            this.Controls.Add(this.termsConditionsLabel);
-            this.Controls.Add(this.clientNameTextBox);
-            this.Controls.Add(this.clientNameLabel);
+            this.Controls.Add(this.RegisterCancelButton);
+            this.Controls.Add(this.RegisterButton);
+            this.Controls.Add(this.AgreeTermsConditionsCheckBox);
+            this.Controls.Add(this.TermsConditionsLabel);
+            this.Controls.Add(this.ClientNameTextBox);
+            this.Controls.Add(this.ClientNameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RegisterClient";
+            this.Name = "RegisterClientForm";
             this.Text = "Register Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterClient_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,11 +121,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label clientNameLabel;
-        private System.Windows.Forms.TextBox clientNameTextBox;
-        private System.Windows.Forms.Label termsConditionsLabel;
-        private System.Windows.Forms.CheckBox agreeTermsConditionsCheckBox;
-        private System.Windows.Forms.Button registerButton;
-        private System.Windows.Forms.Button registerCancelButton;
+        private System.Windows.Forms.Label ClientNameLabel;
+        private System.Windows.Forms.TextBox ClientNameTextBox;
+        private System.Windows.Forms.Label TermsConditionsLabel;
+        private System.Windows.Forms.CheckBox AgreeTermsConditionsCheckBox;
+        private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.Button RegisterCancelButton;
     }
 }

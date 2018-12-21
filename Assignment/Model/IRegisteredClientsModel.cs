@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    // TODO: BRANDON: Create registered clients model class and implement interface.
     public interface IRegisteredClientsModel
     {
         /// <summary>
