@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,11 @@ namespace Model
         bool AddMachine();
 
         bool AddClient(string clientName);
+    }
+
+    public class DatabaseContext: DbContext
+    {
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Machine> Machines { get; set; }
     }
 }
