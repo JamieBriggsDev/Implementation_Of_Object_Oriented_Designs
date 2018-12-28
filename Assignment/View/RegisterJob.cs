@@ -78,7 +78,7 @@ namespace View.View
 
         private void CreateNewMachine_Click(object sender, EventArgs e)
         {
-            //TODO: JAMIE: Add new Create Machine Form
+            m_presenter.OpenRegisterMachine();
 
         }
 

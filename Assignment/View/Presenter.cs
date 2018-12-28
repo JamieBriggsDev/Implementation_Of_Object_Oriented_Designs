@@ -18,6 +18,7 @@ namespace View
         private IRegisterClient m_registerClient;
         private IRegisterJob m_registerJob;
         private IAssignStaffToJob m_assignStaff;
+        private IRegisterMachine m_registerMachine;
 
         public Presenter()
         {
@@ -46,12 +47,19 @@ namespace View
             m_registerJob.OpenChild(m_home as Home);
         }
 
+        public void OpenRegisterMachine()
+        {
+            m_registerMachine = new RegisterMachine();
+            m_registerMachine.RegisterPresenter(this);
+            m_registerMachine.OpenChild(m_registerJob as RegisterJob);
+        }
+
         public void OpenAssignStaff()
         {
             m_assignStaff = new AssignStaffToJob();
             m_assignStaff.RegisterPresenter(this);
 
-            // TODO: JAMIE: Fill staff names and jobs
+            // TODO -JAMIE: Fill staff names and jobs
             List<string> names = new List<string>();
             names.Add("Jamie");
             m_assignStaff.FillStaffNames(names);
@@ -73,7 +81,7 @@ namespace View
         // Register Job stuff
         public void RegisterJob()
         {
-            // TODO: ANY: Register job function needs doing
+            // TODO -ANY: Register job function needs doing
             m_databaseController.RegisterJob(new Job());
         }
 

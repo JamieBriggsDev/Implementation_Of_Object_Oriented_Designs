@@ -189,7 +189,6 @@
             this.AcceptButton = this.RegisterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(330, 319);
             this.Controls.Add(this.CreateNewMachine);
             this.Controls.Add(this.RegisterButton);

@@ -46,37 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AssignStaffToJob.cs">
+    <Compile Include="AssignStaffToJob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AssignStaffToJob.Designer.cs">
+    <Compile Include="AssignStaffToJob.Designer.cs">
       <DependentUpon>AssignStaffToJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home.cs">
+    <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home.Designer.cs">
+    <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IAssignStaffToJob.cs" />
-    <Compile Include="Interfaces\IHome.cs" />
-    <Compile Include="Interfaces\IRegisterClient.cs" />
-    <Compile Include="Interfaces\IRegisterJob.cs" />
+    <Compile Include="RegisterMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterMachine.Designer.cs">
+      <DependentUpon>RegisterMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IAssignStaffToJob.cs" />
+    <Compile Include="IHome.cs" />
+    <Compile Include="IRegisterClient.cs" />
+    <Compile Include="IRegisterMachine.cs" />
+    <Compile Include="IRegisterJob.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\RegisterClient.cs">
+    <Compile Include="RegisterClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RegisterClient.Designer.cs">
+    <Compile Include="RegisterClient.Designer.cs">
       <DependentUpon>RegisterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RegisterJob.cs">
+    <Compile Include="RegisterJob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RegisterJob.Designer.cs">
+    <Compile Include="RegisterJob.Designer.cs">
       <DependentUpon>RegisterJob.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegisterMachine.resx">
+      <DependentUpon>RegisterMachine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,16 +96,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\AssignStaffToJob.resx">
+    <EmbeddedResource Include="AssignStaffToJob.resx">
       <DependentUpon>AssignStaffToJob.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home.resx">
+    <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegisterClient.resx">
+    <EmbeddedResource Include="RegisterClient.resx">
       <DependentUpon>RegisterClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegisterJob.resx">
+    <EmbeddedResource Include="RegisterJob.resx">
       <DependentUpon>RegisterJob.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
