@@ -15,7 +15,7 @@ namespace Model
 
         bool AssignStaffToJob(int staffID);
 
-        bool CloseJob(int JobID);
+        void CloseJob(int jobID);
 
         bool RegisterJob(Job job);
 
