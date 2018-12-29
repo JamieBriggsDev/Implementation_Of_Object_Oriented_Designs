@@ -36,15 +36,40 @@ namespace Model
         }
 
         // Gets the machines specific jobs past and current.
-        public bool GetMachineSpecificJobs(int OID)
+        public List<Job> GetMachineSpecificJobs(int OID)
         {
-            throw new NotImplementedException("Get job specific machine has not been implemented yet.");
+            List<Job> listOfJobs = new List<Job>();
+
+            using (var db = new DatabaseContext())
+            {
+                // Get all of the machines 
+                var jobs = from j in db.Jobs
+                               where j.MachineID == OID
+                               select j;
+               
+               foreach (var item in jobs)
+                {
+                    listOfJobs.Add(item);
+                }
+
+            }
+            return listOfJobs;
         }
 
-        // TODO - BRANDON: Assign staff to job
-        public bool AssignStaffToJob(int staffID)
+        // Assigns staff to job
+        public bool AssignStaffToJob(int staffID, int jobID)
         {
-            throw new NotImplementedException("Assign staff to job has not been implemented yet.");
+            using (var db = new DatabaseContext())
+            {
+                var job = db.Jobs.SingleOrDefault(j => j.JobID == jobID);
+
+                if (job != null)
+                {
+                    job.StaffID = staffID;
+                    db.SaveChanges();
+                }
+            }
+            return true;
         }
 
         // Sets the specified job status to closed.
@@ -62,24 +87,36 @@ namespace Model
             }
         }
 
-        // TODO - BRANDON: Register a new job
+        // Registers a new job
         public bool RegisterJob(Job job)
         {
             using (var db = new DatabaseContext())
             {
                 db.Jobs.Add(job);
+                db.SaveChanges();
             }
 
             return true;
         }
 
-        // TODO - BRANDON: Edit job entrys state
+        // Edit job entrys 
+
         public bool EditJobEntry(int JobID, string state)
         {
-            throw new NotImplementedException("Edit job entry has not been implemented yet.");
+            using (var db = new DatabaseContext())
+            {
+                var job = db.Jobs.SingleOrDefault(j => j.JobID == JobID);
+
+                if (job != null)
+                {
+                    job.State = state;
+                    db.SaveChanges();
+                }
+            }
+            return true;
         }
 
-        // TODO - BRANDON: Get all staff names
+        //  Gets all staff members.
         public List<Staff> GetAllStaff()
         {
             List<Staff> listOfStaff = new List<Staff>();
@@ -99,21 +136,47 @@ namespace Model
             return listOfStaff;
         }
 
-        // TODO - BRANDON: Get all machines dependant of client
-        public void GetClientSpecificMachines(int ClientID)
+        // Gets all machines related to client.
+        public List<Machine> GetClientSpecificMachines(int ClientID)
         {
-            throw new NotImplementedException("Get client specific machines has not been implemented yet.");
+            List<Machine> listOfMachines = new List<Machine>();
+
+            using (var db = new DatabaseContext())
+            {
+                var machines = from m in db.Machines
+                               where m.ClientID == ClientID
+                               select m;
+
+                foreach(var item in machines)
+                {
+                    listOfMachines.Add(item);
+                }
+            }
+
+            return listOfMachines;
         }
 
-        // TODO - BRANDON: Add new machine
-        public bool AddMachine()
+        // Adds a new machine to the database.
+        public bool AddMachine(Machine machine)
         {
-            throw new NotImplementedException("Add machine has not been implemented yet.");
+            using (var db = new DatabaseContext())
+            {
+                db.Machines.Add(machine);
+                db.SaveChanges();
+            }
+
+            return true;
         }
 
-        // TODO - BRANDON: Add client
-        public bool AddClient(string clientName)
+        // Adds a new client to the database.
+        public bool AddClient(string name)
         {
+            using (var db = new DatabaseContext())
+            {
+                db.Clients.Add(new Client(name));
+                db.SaveChanges();
+            }
+
             return true;
         }
 
@@ -138,7 +201,7 @@ namespace Model
     public partial class DatabaseContext : DbContext
     {
         public DbSet<Job> Jobs { get; set; }
-       // public DbSet<Machine> Machines { get; set; }
+        public DbSet<Machine> Machines { get; set; }
         public DbSet<Staff> Stafflist { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Client> Clients { get; set; }

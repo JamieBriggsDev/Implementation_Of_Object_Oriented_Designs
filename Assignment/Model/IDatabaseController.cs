@@ -11,9 +11,9 @@ namespace Model
     {
         List<Job> GetAllJobs();
 
-        bool GetMachineSpecificJobs(int OID);
+        List<Job> GetMachineSpecificJobs(int OID);
 
-        bool AssignStaffToJob(int staffID);
+        bool AssignStaffToJob(int staffID, int jobID);
 
         void CloseJob(int jobID);
 
@@ -25,10 +25,10 @@ namespace Model
 
         int GetStaffID(string forename, string surname);
 
-        void GetClientSpecificMachines(int ClientID);
+        List<Machine> GetClientSpecificMachines(int ClientID);
 
-        bool AddMachine();
+        bool AddMachine(Machine machine);
 
-        bool AddClient(string clientName);
+        bool AddClient(string name);
     }
 }

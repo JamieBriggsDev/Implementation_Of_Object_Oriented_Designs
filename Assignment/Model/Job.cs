@@ -17,7 +17,10 @@ namespace Model
         [Key]
         public int JobID { get; set; }
 
-
+        /// <summary>
+        /// Date the job was created.
+        /// </summary>
+        public DateTime JobCreated { get; set; }
 
         public int ClientID { get; set; }
         /// <summary>
@@ -35,14 +38,35 @@ namespace Model
         [Required]
         public virtual Machine Machine { get; set; }
 
+        public int StaffID { get; set; }
+        /// <summary>
+        /// Unique identifer for the staff member.
+        /// </summary>
+        [ForeignKey("StaffID")]
+        public virtual Staff Staff { get; set; }
+
+        public string Location { get; set; }
+        /// <summary>
+        /// The address of the job.
+        /// </summary>
+        [ForeignKey("Location")]
+        public virtual Address Address { get; set; }
+
         /// <summary>
         /// Description for the job requested.
         /// </summary>
         [MinLength(0), MaxLength(255)]
         public string FaultDescription { get; set; }
 
-        [MinLength(0), MaxLength(155)]
-        public string Attachment { get; set; }
+        /// <summary>
+        /// The state the job is currently in.
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
+        /// An image of the issue described.
+        /// </summary>
+        public byte[] Attachment { get; set; }
 
         /// <summary>
         /// The severity of the job.

@@ -16,6 +16,14 @@ namespace Model
         [Key]
         public int MachineID { get; set; }
 
+        public int ClientID { get; set; }
+        /// <summary>
+        /// Unique Identifier for the client who created the job.
+        /// </summary>
+        [ForeignKey("ClientID")]
+        [Required]
+        public virtual Client Client { get; set; }
+
         [MaxLength(10)]
         public string MachineName { get; set; }
 

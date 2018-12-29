@@ -163,7 +163,7 @@ namespace View
             try
             {
                 int StaffID = m_databaseController.GetStaffID(forename, surname);
-                m_databaseController.AssignStaffToJob(StaffID);
+                m_databaseController.AssignStaffToJob(StaffID, 1);
             }
             catch (Exception)
             {
