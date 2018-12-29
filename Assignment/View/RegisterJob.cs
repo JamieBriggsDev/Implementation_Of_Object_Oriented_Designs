@@ -50,6 +50,7 @@ namespace View.View
             if(ClientComboBox.SelectedItem != null &&
                 (ExistingMachineComboBox.SelectedItem != null || NewMachineRadioButton.Checked) &&
                 FaultDescriptionTextBox.TextLength > 0 &&
+                FaultDescriptionTextBox.TextLength <= 155 &&
                 UrgencyComboBox.SelectedItem != null)
             {
                 RegisterButton.Enabled = true;
@@ -101,6 +102,22 @@ namespace View.View
         public void RegisterPresenter(Presenter presenter)
         {
             m_presenter = presenter;
+        }
+
+        private void FaultDescriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string fault = FaultDescriptionTextBox.Text;
+
+            // Make text red goes over the character limit
+            if (fault.Length > 155)
+            {
+                FaultDescriptionTextBox.BackColor = Color.IndianRed;
+            }
+            // If not over character limit, ensure text is black
+            else
+            {
+                FaultDescriptionTextBox.BackColor = Color.White;
+            }
         }
     }
 }

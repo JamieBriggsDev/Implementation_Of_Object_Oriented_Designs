@@ -55,6 +55,7 @@
             // 
             // ClientComboBox
             // 
+            this.ClientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClientComboBox.FormattingEnabled = true;
             this.ClientComboBox.Location = new System.Drawing.Point(103, 6);
             this.ClientComboBox.Name = "ClientComboBox";
@@ -96,6 +97,7 @@
             // 
             // ExistingMachineComboBox
             // 
+            this.ExistingMachineComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ExistingMachineComboBox.Enabled = false;
             this.ExistingMachineComboBox.FormattingEnabled = true;
             this.ExistingMachineComboBox.Location = new System.Drawing.Point(139, 92);
@@ -128,6 +130,7 @@
             this.FaultDescriptionTextBox.Size = new System.Drawing.Size(214, 134);
             this.FaultDescriptionTextBox.TabIndex = 8;
             this.FaultDescriptionTextBox.Text = "";
+            this.FaultDescriptionTextBox.TextChanged += new System.EventHandler(this.FaultDescriptionTextBox_TextChanged);
             // 
             // UrgencyLabel
             // 
@@ -140,6 +143,7 @@
             // 
             // UrgencyComboBox
             // 
+            this.UrgencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UrgencyComboBox.FormattingEnabled = true;
             this.UrgencyComboBox.Items.AddRange(new object[] {
             "1",

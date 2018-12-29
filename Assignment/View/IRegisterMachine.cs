@@ -11,5 +11,7 @@ namespace View.View
         void OpenChild(RegisterJob job);
 
         void RegisterPresenter(Presenter presenter);
+
+        void FillClients();
     }
 }

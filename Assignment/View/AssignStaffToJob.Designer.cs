@@ -47,6 +47,7 @@
             // 
             // StaffNameComboBox
             // 
+            this.StaffNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StaffNameComboBox.FormattingEnabled = true;
             this.StaffNameComboBox.Location = new System.Drawing.Point(81, 6);
             this.StaffNameComboBox.Name = "StaffNameComboBox";
@@ -65,6 +66,7 @@
             // 
             // JobComboBox
             // 
+            this.JobComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JobComboBox.FormattingEnabled = true;
             this.JobComboBox.Location = new System.Drawing.Point(81, 30);
             this.JobComboBox.Name = "JobComboBox";

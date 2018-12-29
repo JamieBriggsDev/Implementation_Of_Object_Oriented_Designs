@@ -33,11 +33,11 @@
             this.MachineDescriptionLabel = new System.Windows.Forms.Label();
             this.ClientsComboBox = new System.Windows.Forms.ComboBox();
             this.ComplexityComboBox = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.MachineDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.CancelButton = new System.Windows.Forms.Button();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.MachineNameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.GeneratedNameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ClientLabel
@@ -69,14 +69,17 @@
             // 
             // ClientsComboBox
             // 
+            this.ClientsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClientsComboBox.FormattingEnabled = true;
             this.ClientsComboBox.Location = new System.Drawing.Point(123, 13);
             this.ClientsComboBox.Name = "ClientsComboBox";
             this.ClientsComboBox.Size = new System.Drawing.Size(178, 21);
             this.ClientsComboBox.TabIndex = 3;
+            this.ClientsComboBox.SelectedIndexChanged += new System.EventHandler(this.ClientsComboBox_SelectedIndexChanged);
             // 
             // ComplexityComboBox
             // 
+            this.ComplexityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComplexityComboBox.FormattingEnabled = true;
             this.ComplexityComboBox.Items.AddRange(new object[] {
             "0",
@@ -90,13 +93,14 @@
             this.ComplexityComboBox.Size = new System.Drawing.Size(51, 21);
             this.ComplexityComboBox.TabIndex = 4;
             // 
-            // richTextBox1
+            // MachineDescriptionTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(123, 63);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(178, 158);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.MachineDescriptionTextBox.Location = new System.Drawing.Point(123, 63);
+            this.MachineDescriptionTextBox.Name = "MachineDescriptionTextBox";
+            this.MachineDescriptionTextBox.Size = new System.Drawing.Size(178, 158);
+            this.MachineDescriptionTextBox.TabIndex = 5;
+            this.MachineDescriptionTextBox.Text = "";
+            this.MachineDescriptionTextBox.TextChanged += new System.EventHandler(this.MachineDescriptionTextBox_TextChanged);
             // 
             // CancelButton
             // 
@@ -128,27 +132,25 @@
             this.MachineNameLabel.TabIndex = 8;
             this.MachineNameLabel.Text = "Machine Name:";
             // 
-            // label1
+            // GeneratedNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(123, 234);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "MACHINENAME";
+            this.GeneratedNameLabel.AutoSize = true;
+            this.GeneratedNameLabel.Location = new System.Drawing.Point(123, 234);
+            this.GeneratedNameLabel.Name = "GeneratedNameLabel";
+            this.GeneratedNameLabel.Size = new System.Drawing.Size(87, 13);
+            this.GeneratedNameLabel.TabIndex = 9;
+            this.GeneratedNameLabel.Text = "MACHINENAME";
             // 
             // RegisterMachine
             // 
-            this.AcceptButton = this.AcceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(307, 301);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.GeneratedNameLabel);
             this.Controls.Add(this.MachineNameLabel);
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.MachineDescriptionTextBox);
             this.Controls.Add(this.ComplexityComboBox);
             this.Controls.Add(this.ClientsComboBox);
             this.Controls.Add(this.MachineDescriptionLabel);
@@ -172,10 +174,10 @@
         private System.Windows.Forms.Label MachineDescriptionLabel;
         private System.Windows.Forms.ComboBox ClientsComboBox;
         private System.Windows.Forms.ComboBox ComplexityComboBox;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox MachineDescriptionTextBox;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.Label MachineNameLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label GeneratedNameLabel;
     }
 }
