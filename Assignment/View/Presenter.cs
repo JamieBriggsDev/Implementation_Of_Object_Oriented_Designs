@@ -116,7 +116,7 @@ namespace View
             // TODO - JAMIE: Remove temp staff class
             Staff temp = new Staff()
             {
-                StaffID = 123,
+                //StaffID = 123,
                 Forename = "Jamie",
                 Surname = "Briggs"
 

@@ -43,6 +43,8 @@
             this.Attachment = new System.Windows.Forms.DataGridViewImageColumn();
             this.Urgency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Open = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.JobCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HomeToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             this.AssignStaffButton});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
-            this.HomeToolStrip.Size = new System.Drawing.Size(935, 25);
+            this.HomeToolStrip.Size = new System.Drawing.Size(1217, 25);
             this.HomeToolStrip.TabIndex = 0;
             this.HomeToolStrip.Text = "toolStrip1";
             // 
@@ -111,10 +113,12 @@
             this.FaultDescription,
             this.Attachment,
             this.Urgency,
-            this.Open});
+            this.Open,
+            this.JobCreated,
+            this.DateDue});
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(935, 428);
+            this.dataGridView1.Size = new System.Drawing.Size(1217, 581);
             this.dataGridView1.TabIndex = 1;
             // 
             // JobID
@@ -172,13 +176,25 @@
             this.Open.ReadOnly = true;
             this.Open.Width = 39;
             // 
+            // JobCreated
+            // 
+            this.JobCreated.HeaderText = "Job Created";
+            this.JobCreated.Name = "JobCreated";
+            // 
+            // DateDue
+            // 
+            this.DateDue.HeaderText = "Date Due";
+            this.DateDue.Name = "DateDue";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 457);
+            this.ClientSize = new System.Drawing.Size(1217, 621);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.HomeToolStrip);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
             this.HomeToolStrip.ResumeLayout(false);
@@ -205,5 +221,7 @@
         private System.Windows.Forms.DataGridViewImageColumn Attachment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Urgency;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Open;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JobCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateDue;
     }
 }

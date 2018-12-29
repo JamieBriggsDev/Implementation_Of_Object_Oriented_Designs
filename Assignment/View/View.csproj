@@ -102,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="AssignStaffToJob.resx">
       <DependentUpon>AssignStaffToJob.cs</DependentUpon>
@@ -135,6 +136,11 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Media\NoPictureUploaded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\closeButton.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

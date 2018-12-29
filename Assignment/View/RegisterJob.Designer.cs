@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterJob));
             this.ClientNameLabel = new System.Windows.Forms.Label();
             this.ClientComboBox = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,11 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.CreateNewMachine = new System.Windows.Forms.Button();
+            this.JobPicture = new System.Windows.Forms.PictureBox();
+            this.BrowsePictureButton = new System.Windows.Forms.Button();
+            this.RemoveImageButton = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).BeginInit();
             this.SuspendLayout();
             // 
             // ClientNameLabel
@@ -135,7 +141,7 @@
             // UrgencyLabel
             // 
             this.UrgencyLabel.AutoSize = true;
-            this.UrgencyLabel.Location = new System.Drawing.Point(51, 259);
+            this.UrgencyLabel.Location = new System.Drawing.Point(51, 472);
             this.UrgencyLabel.Name = "UrgencyLabel";
             this.UrgencyLabel.Size = new System.Drawing.Size(50, 13);
             this.UrgencyLabel.TabIndex = 9;
@@ -151,7 +157,7 @@
             "3",
             "4",
             "5"});
-            this.UrgencyComboBox.Location = new System.Drawing.Point(108, 256);
+            this.UrgencyComboBox.Location = new System.Drawing.Point(108, 469);
             this.UrgencyComboBox.Name = "UrgencyComboBox";
             this.UrgencyComboBox.Size = new System.Drawing.Size(54, 21);
             this.UrgencyComboBox.TabIndex = 10;
@@ -159,7 +165,7 @@
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(247, 284);
+            this.CancelButton.Location = new System.Drawing.Point(247, 497);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 11;
@@ -170,7 +176,7 @@
             // RegisterButton
             // 
             this.RegisterButton.Enabled = false;
-            this.RegisterButton.Location = new System.Drawing.Point(166, 284);
+            this.RegisterButton.Location = new System.Drawing.Point(166, 497);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(75, 23);
             this.RegisterButton.TabIndex = 12;
@@ -188,12 +194,46 @@
             this.CreateNewMachine.UseVisualStyleBackColor = true;
             this.CreateNewMachine.Click += new System.EventHandler(this.CreateNewMachine_Click);
             // 
+            // JobPicture
+            // 
+            this.JobPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.JobPicture.Image = global::View.Properties.Resources.NoPictureUploaded;
+            this.JobPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("JobPicture.InitialImage")));
+            this.JobPicture.Location = new System.Drawing.Point(108, 260);
+            this.JobPicture.Name = "JobPicture";
+            this.JobPicture.Size = new System.Drawing.Size(214, 203);
+            this.JobPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.JobPicture.TabIndex = 14;
+            this.JobPicture.TabStop = false;
+            // 
+            // BrowsePictureButton
+            // 
+            this.BrowsePictureButton.Location = new System.Drawing.Point(25, 260);
+            this.BrowsePictureButton.Name = "BrowsePictureButton";
+            this.BrowsePictureButton.Size = new System.Drawing.Size(75, 23);
+            this.BrowsePictureButton.TabIndex = 15;
+            this.BrowsePictureButton.Text = "Browse...";
+            this.BrowsePictureButton.UseVisualStyleBackColor = true;
+            // 
+            // RemoveImageButton
+            // 
+            this.RemoveImageButton.Image = global::View.Properties.Resources.closeButton;
+            this.RemoveImageButton.Location = new System.Drawing.Point(70, 289);
+            this.RemoveImageButton.Name = "RemoveImageButton";
+            this.RemoveImageButton.Size = new System.Drawing.Size(30, 30);
+            this.RemoveImageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RemoveImageButton.TabIndex = 16;
+            this.RemoveImageButton.TabStop = false;
+            // 
             // RegisterJob
             // 
             this.AcceptButton = this.RegisterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 319);
+            this.ClientSize = new System.Drawing.Size(330, 532);
+            this.Controls.Add(this.RemoveImageButton);
+            this.Controls.Add(this.BrowsePictureButton);
+            this.Controls.Add(this.JobPicture);
             this.Controls.Add(this.CreateNewMachine);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.CancelButton);
@@ -214,6 +254,8 @@
             this.Name = "RegisterJob";
             this.Text = "Register Job";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterJob_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +277,8 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button CreateNewMachine;
+        private System.Windows.Forms.PictureBox JobPicture;
+        private System.Windows.Forms.Button BrowsePictureButton;
+        private System.Windows.Forms.PictureBox RemoveImageButton;
     }
 }
