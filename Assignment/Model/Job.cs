@@ -34,13 +34,24 @@ namespace Model
 
         /// <summary>
         /// Unique Identifier for the client who created the job.
+        /// We don't have setters for foreign keys.
         /// </summary>
         public int ClientID
         {
             get { return m_clientID; }
-            set { m_clientID = value; }
         }
 
+        /// <summary>
+        /// Unique identifer for the machine the job is related to.
+        /// </summary>
+        [ForeignKey("MachineID")]
+        private string m_machineID;
+
+        /// <summary>
+        /// Getter for the machine ID.
+        /// No setters for foreign keys.
+        /// </summary>
+         
         /// <summary>
         /// Description for the job requested.
         /// </summary>

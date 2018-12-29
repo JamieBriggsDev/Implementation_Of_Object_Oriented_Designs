@@ -9,9 +9,9 @@ namespace Model
 {
     public interface IDatabaseController
     {
-        bool GetAllJobs();
+        List<Job> GetAllJobs();
 
-        bool GetJobsSpecificMachine(int OID);
+        bool GetMachineSpecificJobs(int OID);
 
         bool AssignStaffToJob(int staffID);
 
@@ -21,20 +21,14 @@ namespace Model
 
         bool EditJobEntry(int JobID, string state);
 
-        void GetAllStaffNames();
+        List<Staff> GetAllStaff();
 
-        int GetStaffID(string forname, string surname);
+        int GetStaffID(string forename, string surname);
 
         void GetClientSpecificMachines(int ClientID);
 
         bool AddMachine();
 
         bool AddClient(string clientName);
-    }
-
-    public class DatabaseContext: DbContext
-    {
-        public DbSet<Job> Jobs { get; set; }
-        public DbSet<Machine> Machines { get; set; }
     }
 }
