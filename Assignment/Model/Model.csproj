@@ -52,6 +52,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="IDatabaseController.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Machine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
