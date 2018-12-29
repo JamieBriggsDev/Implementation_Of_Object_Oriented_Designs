@@ -34,6 +34,20 @@ namespace View
             m_home.RunForm();
         }
 
+        public List<Job> GetAllJobs()
+        {
+            try
+            {
+                List<Job> AllJobs = m_databaseController.GetAllJobs();
+                return AllJobs;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         public bool ValidateDatabaseController()
         {
             if (m_databaseController == null)
@@ -95,10 +109,30 @@ namespace View
             m_assignStaff = new AssignStaffToJob();
             m_assignStaff.RegisterPresenter(this);
 
-            // TODO -JAMIE: Fill staff names and jobs
-            List<string> names = new List<string>();
-            names.Add("Jamie");
-            m_assignStaff.FillStaffNames(names);
+            // TODO - JAMIE: Fill staff names and jobs
+            List<string> Names = new List<string>();
+            List<Staff> StaffMembers = m_databaseController.GetAllStaff();
+
+            // TODO - JAMIE: Remove temp staff class
+            Staff temp = new Staff()
+            {
+                StaffID = 123,
+                Forename = "Jamie",
+                Surname = "Briggs"
+
+            };
+
+            StaffMembers.Add(temp);
+
+            foreach (var Staff in StaffMembers)
+            {
+                string ID = Staff.StaffID.ToString();
+                string Forname = Staff.Forename;
+                string Surname = Staff.Surname;
+                Names.Add($"{ID}: {Surname}, {Forname}");
+            }
+
+            m_assignStaff.FillStaffNames(Names);
 
             List<string> jobs = new List<string>();
             jobs.Add("Egg");

@@ -13,7 +13,7 @@ namespace Model
         /// Unique identifier for staff member.
         /// </summary>
         [Key]
-        private int m_staffID;
+        public int m_staffID;
 
         public int StaffID
         {
@@ -35,7 +35,7 @@ namespace Model
         /// <summary>
         /// Surname of the staff member.
         /// </summary>
-        private string m_surname;
+        public string m_surname;
 
         public string Surname
         {

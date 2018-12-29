@@ -15,97 +15,45 @@ namespace Model
         /// Primary Key Unique Identifier for the job.
         /// </summary>
         [Key]
-        private int m_jobID;
+        public int JobID { get; set; }
 
-        /// <summary>
-        /// Primary Key Unique Identifier for the job.
-        /// </summary>
-        public int JobID
-        {
-            get { return m_jobID; }
-            set { m_jobID = value; }
-        }
 
+
+        public int ClientID { get; set; }
         /// <summary>
         /// Unique Identifier for the client who created the job.
         /// </summary>
         [ForeignKey("ClientID")]
-        private int m_clientID;
+        [Required]
+        public virtual Client Client { get; set; }
 
-        /// <summary>
-        /// Unique Identifier for the client who created the job.
-        /// We don't have setters for foreign keys.
-        /// </summary>
-        public int ClientID
-        {
-            get { return m_clientID; }
-        }
-
+        public int MachineID { get; set; }
         /// <summary>
         /// Unique identifer for the machine the job is related to.
         /// </summary>
         [ForeignKey("MachineID")]
-        private string m_machineID;
+        [Required]
+        public virtual Machine Machine { get; set; }
 
-        /// <summary>
-        /// Getter for the machine ID.
-        /// No setters for foreign keys.
-        /// </summary>
-         
         /// <summary>
         /// Description for the job requested.
         /// </summary>
         [MinLength(0), MaxLength(255)]
-        private string m_faultDescription;
-
-        /// <summary>
-        /// Description for the job requested.
-        /// </summary>
-        public string FaultDescription
-        {
-            get { return m_faultDescription; }
-            set { m_faultDescription = value; }
-        }
+        public string FaultDescription { get; set; }
 
         [MinLength(0), MaxLength(155)]
-        private string m_attachment;
-
-        /// <summary>
-        /// Any URL string attachments for media.
-        /// </summary>
-        public string Attachment
-        {
-            get { return m_attachment; }
-            set { m_attachment = value; }
-        }
+        public string Attachment { get; set; }
 
         /// <summary>
         /// The severity of the job.
         /// </summary>
-        private int m_urgency;
-
-        /// <summary>
-        /// The severity of the job.
-        /// </summary>
-        public int Urgency
-        {
-            get { return m_urgency; }
-            set { m_urgency = value; }
-        }
+        public int Urgency { get; set; }
 
         /// <summary>
         /// Whether the job is currently open or not.
         /// </summary>
-        private bool m_open;
+        public bool Open { get; set; }
 
-        /// <summary>
-        /// Whether the job is currently open or not.
-        /// </summary>
-        public bool Open
-        {
-            get { return m_open; }
-            set { m_open = value; }
-        }
 
-    }
+}
 }
