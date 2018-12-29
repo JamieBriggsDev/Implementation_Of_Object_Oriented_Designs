@@ -22,36 +22,72 @@ namespace View
 
         public Presenter()
         {
-            // Initialise Database Controller
-            m_databaseController = new DatabaseController();
             // Setup home form
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Initialise Database Controller
+            m_databaseController = new DatabaseController();
 
             m_home = new Home();
             m_home.RegisterPresenter(this);    
             m_home.RunForm();
         }
 
-        public void OpenRegisterClient()
+        public bool ValidateDatabaseController()
         {
-            m_registerClient = new RegisterClient();
-            m_registerClient.RegisterPresenter(this);
-            m_registerClient.OpenChild(m_home as Home);
+            if (m_databaseController == null)
+                return false;
+            else
+                return true;
         }
 
-        public void OpenRegisterJob()
+        public bool OpenRegisterClient()
         {
-            m_registerJob = new RegisterJob();
-            m_registerJob.RegisterPresenter(this);
-            m_registerJob.OpenChild(m_home as Home);
+            try
+            {
+                m_registerClient = new RegisterClient();
+                m_registerClient.RegisterPresenter(this);
+                m_registerClient.OpenChild(m_home as Home);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        public void OpenRegisterMachine()
+        public bool OpenRegisterJob()
         {
-            m_registerMachine = new RegisterMachine();
-            m_registerMachine.RegisterPresenter(this);
-            m_registerMachine.OpenChild(m_registerJob as RegisterJob);
+            try
+            {
+                m_registerJob = new RegisterJob();
+                m_registerJob.RegisterPresenter(this);
+                m_registerJob.OpenChild(m_home as Home);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool OpenRegisterMachine()
+        {
+            try
+            {
+                m_registerMachine = new RegisterMachine();
+                m_registerMachine.RegisterPresenter(this);
+                m_registerMachine.OpenChild(m_registerJob as RegisterJob);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public void OpenAssignStaff()
@@ -79,17 +115,28 @@ namespace View
         }
 
         // Register Job stuff
-        public void RegisterJob()
+        public bool RegisterJob()
         {
             // TODO -ANY: Register job function needs doing
-            m_databaseController.RegisterJob(new Job());
+            bool success = m_databaseController.RegisterJob(new Job());
+
+            return success;
         }
 
         // Assign staff to job stuff
-        public void AssignStaffToJob(string forename, string surname)
+        public bool AssignStaffToJob(string forename, string surname)
         {
-            int StaffID = m_databaseController.GetStaffID(forename, surname);
-            m_databaseController.AssignStaffToJob(StaffID);
+            try
+            {
+                int StaffID = m_databaseController.GetStaffID(forename, surname);
+                m_databaseController.AssignStaffToJob(StaffID);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
     }
