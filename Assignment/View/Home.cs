@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,7 @@ namespace View
 {
     public partial class Home : Form, IHome
     {
-        // TODO: JAMIE: Create table for current jobs
-        // TODO: JAMIE: Create form to close a job
+        // TODO: JAMIE: Create form to close a job (DO LAST ONCE DATABASE IS WORKING)
         private Presenter m_presenter;
 
         public Home()
@@ -42,7 +42,9 @@ namespace View
 
         public void GetAllJobs()
         {
-            throw new NotImplementedException();
+            List<Job> AllJobs = m_presenter.GetAllJobs();
+
+            
         }
 
 

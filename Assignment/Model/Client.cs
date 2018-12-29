@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,31 +11,18 @@ namespace Model
     public class Client
     {
         /// <summary>
-        /// Name of the client.
-        /// </summary>
-        private string m_name;
-        /// <summary>
         /// Clients ID number.
         /// </summary>
-        private int m_clientID;
+        /// 
+        [Key]
+        public int ClientID { get; set; } 
 
         /// <summary>
         /// Name of the client.
         /// </summary>
-        public string Name
-        {
-            get { return m_name; }
-            set { m_name = value; }
-        }
+        public string Name { get; set; }
 
-        /// <summary>
-        /// Clients ID number.
-        /// </summary>
-        public int ClientID
-        {
-            get { return m_clientID; }
-            set { m_clientID = value; }
-        }
+        
         
     }
 }
