@@ -23,15 +23,7 @@ namespace Model
             {
 
                 // Query to get all the jobs and order by open.
-                var jobs = from j in db.Jobs
-                           orderby j.Open
-                           select j;
-
-                // Go through each of them and add them to the list.
-                foreach (var item in jobs)
-                {
-                    listOfJobs.Add(item);
-                }
+                listOfJobs = db.Jobs.ToList();
             }
 
             return listOfJobs;
@@ -45,15 +37,7 @@ namespace Model
             using (var db = new DatabaseContext())
             {
                 // Get all of the machines 
-                var jobs = from j in db.Jobs
-                               where j.MachineID == OID
-                               select j;
-               
-               foreach (var item in jobs)
-                {
-                    listOfJobs.Add(item);
-                }
-
+                listOfJobs = db.Jobs.Where(j => j.MachineID == OID).ToList();
             }
             return listOfJobs;
         }
@@ -107,7 +91,7 @@ namespace Model
         {
             using (var db = new DatabaseContext())
             {
-                var job = db.Jobs.SingleOrDefault(j => j.JobID == JobID);
+                Job job = db.Jobs.SingleOrDefault(j => j.JobID == JobID);
 
                 if (job != null)
                 {
@@ -125,14 +109,7 @@ namespace Model
 
             using (var db = new DatabaseContext())
             {
-                var staff = from s in db.Stafflist
-                            orderby s.Surname
-                            select s;
-
-                foreach(var item in staff)
-                {
-                    listOfStaff.Add(item);
-                }
+                listOfStaff = db.Stafflist.ToList();
             }
 
             return listOfStaff;
@@ -145,14 +122,7 @@ namespace Model
 
             using (var db = new DatabaseContext())
             {
-                var machines = from m in db.Machines
-                               where m.ClientID == ClientID
-                               select m;
-
-                foreach(var item in machines)
-                {
-                    listOfMachines.Add(item);
-                }
+                listOfMachines = db.Machines.Where(m => m.ClientID == ClientID).ToList();
             }
 
             return listOfMachines;
@@ -189,8 +159,9 @@ namespace Model
 
             using (var db = new DatabaseContext())
             {
-                var staff = db.Stafflist.SingleOrDefault(s => s.Forename == forename && s.Surname == surname);
-                staffID = staff.StaffID;
+
+                // We want to grab the singular value for the staff unique identifier.
+                staffID = db.Stafflist.SingleOrDefault(s => s.Forename == forename && s.Surname == surname).StaffID;
             }
 
             return staffID;
