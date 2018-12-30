@@ -31,7 +31,7 @@ namespace View
 
             m_home = new Home();
             m_home.RegisterPresenter(this);    
-            m_home.RunForm();
+            m_home.OpenForm();
         }
         public bool ValidateDatabaseController()
         {
@@ -78,6 +78,17 @@ namespace View
             return clientNames;
         }
 
+        public int GetClientID(string name)
+        {
+            int ID = m_databaseController.GetAllClients().Find(c => c.Name == name).ClientID;
+
+            return ID;
+        }
+
+        public List<Machine> GetAllClientSpecificMachines(int clientID)
+        {
+            return m_databaseController.GetClientSpecificMachines(clientID);
+        }
 
         public bool OpenRegisterClient()
         {
@@ -85,7 +96,7 @@ namespace View
             {
                 m_registerClient = new RegisterClient();
                 m_registerClient.RegisterPresenter(this);
-                m_registerClient.OpenChild(m_home as Home);
+                m_registerClient.OpenForm(m_home as Home);
             }
             catch (Exception)
             {
@@ -101,7 +112,7 @@ namespace View
             {
                 m_registerJob = new RegisterJob();
                 m_registerJob.RegisterPresenter(this);
-                m_registerJob.OpenChild(m_home as Home);
+                m_registerJob.OpenForm(m_home as Home);
             }
             catch (Exception)
             {
@@ -117,7 +128,7 @@ namespace View
             {
                 m_registerMachine = new RegisterMachine();
                 m_registerMachine.RegisterPresenter(this);
-                m_registerMachine.OpenChild(m_registerJob as RegisterJob);
+                m_registerMachine.OpenForm(m_registerJob as RegisterJob);
             }
             catch (Exception)
             {
@@ -167,7 +178,7 @@ namespace View
             //m_assignStaff.FillJobs(jobs);
 
 
-            m_assignStaff.OpenChild(m_home as Home);
+            m_assignStaff.OpenForm(m_home as Home);
         }
 
         // Register Client Stuff
@@ -183,6 +194,21 @@ namespace View
             bool success = m_databaseController.RegisterJob(new Job());
 
             return success;
+        }
+
+        public bool RegisterMachine(Machine machine)
+        {
+            try
+            {
+                m_databaseController.AddMachine(machine);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            return true;
         }
 
         // Assign staff to job stuff

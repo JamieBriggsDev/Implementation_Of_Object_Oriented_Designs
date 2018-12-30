@@ -21,7 +21,7 @@ namespace View.View
             InitializeComponent();
         }
 
-        public void OpenChild(Home home)
+        public void OpenForm(Home home)
         {
             ShowDialog(home);
         }

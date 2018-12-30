@@ -8,7 +8,7 @@ namespace View.View
 {
     public interface IRegisterMachine
     {
-        void OpenChild(RegisterJob job);
+        void OpenForm(RegisterJob job);
 
         void Initialise();
 

@@ -30,7 +30,7 @@ namespace View.View
             GetAllClients();
         }
 
-        public void OpenChild(Home home)
+        public void OpenForm(Home home)
         {
             Initialise();
             ShowDialog(home);

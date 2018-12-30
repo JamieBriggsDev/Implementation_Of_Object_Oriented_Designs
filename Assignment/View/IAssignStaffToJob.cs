@@ -8,7 +8,7 @@ namespace View.View
 {
     public interface IAssignStaffToJob
     {
-        void OpenChild(Home home);
+        void OpenForm(Home home);
 
         void RegisterPresenter(Presenter presenter);
 

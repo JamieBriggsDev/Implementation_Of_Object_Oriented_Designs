@@ -53,7 +53,7 @@ namespace View
             m_presenter = presenter;
         }
 
-        public void RunForm()
+        public void OpenForm()
         {
             Application.Run(this);
         }

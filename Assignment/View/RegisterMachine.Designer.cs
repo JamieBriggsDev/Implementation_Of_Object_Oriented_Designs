@@ -92,6 +92,7 @@
             this.ComplexityComboBox.Name = "ComplexityComboBox";
             this.ComplexityComboBox.Size = new System.Drawing.Size(51, 21);
             this.ComplexityComboBox.TabIndex = 4;
+            this.ComplexityComboBox.SelectedIndexChanged += new System.EventHandler(this.ComplexityComboBox_SelectedIndexChanged);
             // 
             // MachineDescriptionTextBox
             // 
