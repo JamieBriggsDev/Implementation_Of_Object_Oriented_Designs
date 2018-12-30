@@ -42,7 +42,7 @@ namespace View
 
         public void GetAllJobs()
         {
-            List<Job> AllJobs = m_presenter.GetAllJobs();
+            //TODO List<Job> AllJobs = m_presenter.GetAllJobs();
 
             
         }

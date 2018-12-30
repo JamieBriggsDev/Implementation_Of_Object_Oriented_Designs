@@ -25,9 +25,16 @@ namespace View.View
             RemoveImageButton.Visible = false;
         }
 
+        public void Initialise()
+        {
+            GetAllClients();
+        }
+
         public void OpenChild(Home home)
         {
+            Initialise();
             ShowDialog(home);
+
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -91,7 +98,9 @@ namespace View.View
 
         public void GetAllClients()
         {
-            throw new NotImplementedException();
+            List<string> clients = new List<string>();
+            clients = m_presenter.GetAllClients();
+            ClientComboBox.DataSource = clients;
         }
 
         public void GetAllClientMachines(string _client)

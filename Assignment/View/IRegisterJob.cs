@@ -12,6 +12,8 @@ namespace View.View
 
         void RegisterPresenter(Presenter presenter);
 
+        void Initialise();
+
         void GetAllClients();
 
         void GetAllClientMachines(string _client);

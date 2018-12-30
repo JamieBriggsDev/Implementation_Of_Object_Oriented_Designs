@@ -186,14 +186,17 @@ namespace Model
 
             using (var db = new DatabaseContext())
             {
-                var client = from c in db.Clients
-                             orderby c.Name
-                             select c;
+                //var client = from c in db.Clients
+                //             orderby c.Name
+                //             select c;
 
-                foreach(var item in client)
-                {
-                    listOfClient.Add(item);
-                }
+                listOfClient = db.Clients.ToList();
+                //db.Clients.
+
+                //foreach(var item in client)
+                //{
+                //    listOfClient.Add(item);
+                //}
             }
 
             return listOfClient;

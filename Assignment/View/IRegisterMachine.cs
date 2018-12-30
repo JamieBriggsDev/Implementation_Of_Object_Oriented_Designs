@@ -10,6 +10,8 @@ namespace View.View
     {
         void OpenChild(RegisterJob job);
 
+        void Initialise();
+
         void RegisterPresenter(Presenter presenter);
 
         void FillClients();

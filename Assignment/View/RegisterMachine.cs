@@ -18,33 +18,39 @@ namespace View.View
         {
             InitializeComponent();
 
-            // Fill clients combo box
-            FillClients();
             // Empty generated name field
             GeneratedNameLabel.Text = "";
+        }
+
+        public void Initialise()
+        {
+            // Fill clients combo box
+            FillClients();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             // Cancel register machine, close this form and focus parent
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
             // Accept register machine, close this form and focus parent
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
         }
 
         private void RegisterMachine_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Cancel register machine, close this form and focus parent
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
         }
 
         public void OpenChild(RegisterJob job)
         {
+            Initialise();
             ShowDialog(job);
+
         }
 
         public void RegisterPresenter(Presenter presenter)
@@ -69,21 +75,23 @@ namespace View.View
             // TODO - JAMIE: Get number of machines client has and use that number in string
             int TotalMachines = 0;
 
+            string name = ClientsComboBox.Text.Replace(" ", string.Empty).ToUpper();
             // Label is first three letters of client name plus total machines client has plus 1
             // e.g. "MICRO12"
-            GeneratedNameLabel.Text = ClientsComboBox.Text.Substring(0, 5).ToUpper() + (TotalMachines + 1).ToString();
+            if (name.Length > 5)
+                GeneratedNameLabel.Text = name.Substring(0, 5) + (TotalMachines + 1).ToString();
+            else
+                GeneratedNameLabel.Text = name + (TotalMachines + 1).ToString();
         }
 
         public void FillClients()
         {
             // TODO - JAMIE: Use presenter to grab all machines
             // temp code
-            List<string> temp = m_presenter.GetAllClients();
+            List<string> clients = new List<string>();
+            clients = m_presenter.GetAllClients();
 
-            foreach (var name in temp)
-            {
-                ClientsComboBox.Items.Add(name);
-            }
+            ClientsComboBox.DataSource = clients;
         }
     }
 }
