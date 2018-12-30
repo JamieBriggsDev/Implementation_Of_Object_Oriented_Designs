@@ -61,14 +61,15 @@ namespace View.View
 
         private void ValidateRegisterButton()
         {
-            //TODO: JAMIE: Make sure ValidateRegisterButton works when database is intergrated into this form.
-            if(ClientComboBox.SelectedItem != null &&
-                (ExistingMachineComboBox.SelectedItem != null || NewMachineRadioButton.Checked) &&
-                FaultDescriptionTextBox.TextLength > 0 &&
-                FaultDescriptionTextBox.TextLength <= 155 &&
-                UrgencyComboBox.SelectedItem != null)
+            //TODO: JAMIE: Make sure ValidateRegisterButton works
+            if (FaultDescriptionTextBox.TextLength > 0 &&
+                FaultDescriptionTextBox.TextLength <= 155)
             {
                 RegisterButton.Enabled = true;
+            }
+            else
+            {
+                RegisterButton.Enabled = false;
             }
         }
 
@@ -80,6 +81,8 @@ namespace View.View
             CreateNewMachine.Enabled = false;
             // Enable existing machine options
             ExistingMachineComboBox.Enabled = true;
+
+            ValidateRegisterButton();
         }
 
         private void NewMachineRadioButton_Click(object sender, EventArgs e)
@@ -90,6 +93,8 @@ namespace View.View
             // Enable new machine options
             NewMachineNameLabel.Enabled = true;
             CreateNewMachine.Enabled = true;
+
+            ValidateRegisterButton();
         }
 
         private void CreateNewMachine_Click(object sender, EventArgs e)
@@ -135,6 +140,8 @@ namespace View.View
             {
                 FaultDescriptionTextBox.BackColor = Color.White;
             }
+
+            ValidateRegisterButton();
         }
 
         private void BrowsePictureButton_Click(object sender, EventArgs e)
@@ -166,6 +173,8 @@ namespace View.View
         private void ClientComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateMachinesComboBox();
+
+            ValidateRegisterButton();
         }
 
         public void UpdateMachinesComboBox()
