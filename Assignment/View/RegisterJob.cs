@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,7 @@ namespace View.View
         public void Initialise()
         {
             GetAllClients();
+            UpdateMachinesComboBox();
         }
 
         public void OpenForm(Home home)
@@ -93,7 +95,7 @@ namespace View.View
         private void CreateNewMachine_Click(object sender, EventArgs e)
         {
             m_presenter.OpenRegisterMachine();
-
+            UpdateMachinesComboBox();
         }
 
         public void GetAllClients()
@@ -159,6 +161,19 @@ namespace View.View
             RemoveImageButton.Enabled = false;
 
             JobPicture.Image = JobPicture.InitialImage;
+        }
+
+        private void ClientComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateMachinesComboBox();
+        }
+
+        public void UpdateMachinesComboBox()
+        {
+            int ClientID = m_presenter.GetClientID(ClientComboBox.Text);
+            List<string> AllMachines = m_presenter.GetAllClientSpecificMachines(ClientID);
+            
+            ExistingMachineComboBox.DataSource = AllMachines;
         }
     }
 }

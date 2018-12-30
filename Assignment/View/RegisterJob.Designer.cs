@@ -67,6 +67,7 @@
             this.ClientComboBox.Name = "ClientComboBox";
             this.ClientComboBox.Size = new System.Drawing.Size(219, 21);
             this.ClientComboBox.TabIndex = 1;
+            this.ClientComboBox.SelectedIndexChanged += new System.EventHandler(this.ClientComboBox_SelectedIndexChanged);
             // 
             // Label1
             // 

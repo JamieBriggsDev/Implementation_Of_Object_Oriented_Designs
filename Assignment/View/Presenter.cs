@@ -85,9 +85,14 @@ namespace View
             return ID;
         }
 
-        public List<Machine> GetAllClientSpecificMachines(int clientID)
+        public List<string> GetAllClientSpecificMachines(int clientID)
         {
-            return m_databaseController.GetClientSpecificMachines(clientID);
+            List<string> MachineNames = new List<string>();
+            foreach(var machine in m_databaseController.GetClientSpecificMachines(clientID))
+            {
+                MachineNames.Add(machine.MachineName);
+            }
+            return MachineNames;
         }
 
         public bool OpenRegisterClient()

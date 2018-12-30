@@ -116,6 +116,7 @@
             // 
             // AcceptButton
             // 
+            this.AcceptButton.Enabled = false;
             this.AcceptButton.Location = new System.Drawing.Point(145, 266);
             this.AcceptButton.Name = "AcceptButton";
             this.AcceptButton.Size = new System.Drawing.Size(75, 23);
@@ -144,8 +145,10 @@
             // 
             // RegisterMachine
             // 
+            this.AcceptButton = this.AcceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(307, 301);
             this.Controls.Add(this.GeneratedNameLabel);
             this.Controls.Add(this.MachineNameLabel);
