@@ -198,7 +198,14 @@ namespace Model
 
         public List<Client> GetAllClients()
         {
-            throw new NotImplementedException();
+            List<Client> listOfClients = new List<Client>();
+
+            using (var db = new DatabaseContext())
+            {
+                listOfClients = db.Clients.ToList();
+            }
+
+            return listOfClients;
         }
     }
 
