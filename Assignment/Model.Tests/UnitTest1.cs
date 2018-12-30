@@ -97,15 +97,7 @@ namespace Model.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            Job testJob = new Job
-            {
-                FaultDescription = "Server is actually on fire.",
-                Open = true,
-                Urgency = 5,
-                Location = "Mount Doom.",
-            };
-
-            Assert.IsTrue(m_db.RegisterJob(testJob), "Failed to register new Job.");
+            Assert.IsTrue(m_db.AddClient("Death INC"), "Failed to register new Job.");
         }
     }
 }
