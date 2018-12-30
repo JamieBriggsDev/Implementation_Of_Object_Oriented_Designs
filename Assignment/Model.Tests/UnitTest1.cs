@@ -13,82 +13,78 @@ namespace Model.Tests
         {
             m_db = new DatabaseController();
 
-            Job job1 = new Job
-            {
-                FaultDescription = "Accidentally disconnected the server cable.",
-                Open = true,
-                Urgency = 1,
-                Location = "Your mums house.",
-            };
-
-            Job job2 = new Job
-            {
-                FaultDescription = "Don't have right software.",
-                Open = true,
-                Urgency = 2,
-                Location = "Northumbria University.",
-            };
-
-            Job job3 = new Job
-            {
-                FaultDescription = "I damaged one of the drives.",
-                Open = true,
-                Urgency = 3,
-                Location = "London.",
-            };
-
-            Job job4 = new Job
-            {
-                FaultDescription = "The server box is completely destroyed..",
-                Open = true,
-                Urgency = 4,
-                Location = "Murica'",
-            };
+            m_db.AddClient("Eddie & Co");
+            m_db.AddClient("Rise Newcastle");
+            m_db.AddClient("Pandon 24/7");
+            m_db.AddClient("CIS Sucks INC");
 
             Machine machine1 = new Machine
             {
-                JobID = 0,
                 MachineDescription = "This is a machine.",
-                MachineName = "MAC" + job1.JobID.ToString(),
+                MachineName = "MAC",
                 SizeAndComplexity = 1,
+                ClientID = 1,
 
             };
 
             Machine machine2 = new Machine
             {
-                JobID = 1,
                 MachineDescription = "This is a machine.",
-                MachineName = "MAC" + job1.JobID.ToString(),
+                MachineName = "MAC1",
                 SizeAndComplexity = 1,
+                ClientID = 1,
 
             };
 
             Machine machine3 = new Machine
             {
-                JobID = 2,
                 MachineDescription = "This is a machine.",
-                MachineName = "MAC" + job1.JobID.ToString(),
+                MachineName = "MAC2",
                 SizeAndComplexity = 1,
+                ClientID = 2,
 
             };
 
             Machine machine4 = new Machine
             {
-                JobID = 3,
                 MachineDescription = "This is a machine.",
-                MachineName = "MAC" + job1.JobID.ToString(),
+                MachineName = "MAC3",
                 SizeAndComplexity = 1,
+                ClientID = 3,
 
             };
 
             Machine machine5 = new Machine
             {
-                JobID = 4,
                 MachineDescription = "This is a machine.",
-                MachineName = "MAC" + job1.JobID.ToString(),
+                MachineName = "MAC4",
                 SizeAndComplexity = 1,
+                ClientID = 4,
 
             };
+
+            m_db.AddMachine(machine1);
+            m_db.AddMachine(machine2);
+            m_db.AddMachine(machine3);
+            m_db.AddMachine(machine4);
+            m_db.AddMachine(machine5);
+
+            Job job1 = new Job
+            {
+                FaultDescription = "It's fucked.",
+                MachineID = 1,
+                Location = "Northumbria Univerity"
+            };
+
+            Job job2 = new Job
+            {
+                FaultDescription = "It's missing a drive.",
+                MachineID = 2,
+                Location = "I don't actually know.",
+            };
+
+            m_db.RegisterJob(job1);
+            m_db.RegisterJob(job2);
 
 
         }
@@ -97,7 +93,6 @@ namespace Model.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.IsTrue(m_db.AddClient("Death INC"), "Failed to register new Job.");
         }
     }
 }

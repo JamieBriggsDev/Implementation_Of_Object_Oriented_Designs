@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -180,28 +182,6 @@ namespace Model
             return true;
         }
 
-        public List<Client> GetAllClients()
-        {
-            List<Client> listOfClient = new List<Client>();
-
-            using (var db = new DatabaseContext())
-            {
-                //var client = from c in db.Clients
-                //             orderby c.Name
-                //             select c;
-
-                listOfClient = db.Clients.ToList();
-                //db.Clients.
-
-                //foreach(var item in client)
-                //{
-                //    listOfClient.Add(item);
-                //}
-            }
-
-            return listOfClient;
-        }
-
         // Returns the staff ID of specified staff member.
         public int GetStaffID(string forename, string surname)
         {
@@ -215,6 +195,11 @@ namespace Model
 
             return staffID;
         }
+
+        public List<Client> GetAllClients()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>
@@ -227,6 +212,28 @@ namespace Model
         public DbSet<Staff> Stafflist { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Client> Clients { get; set; }
-        
+
+        public override int SaveChanges()
+        {
+            try
+            {
+               base.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+            return 0;
+        }
+
     }
 }

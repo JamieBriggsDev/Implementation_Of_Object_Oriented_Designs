@@ -21,8 +21,6 @@ namespace Model
         [MaxLength(10)]
         public string MachineName { get; set; }
 
-        public int JobID { get; set; }
-
         /// <summary>
         /// How complex the job is.
         /// </summary>
