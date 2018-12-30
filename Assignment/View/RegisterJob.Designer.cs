@@ -43,11 +43,11 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.CreateNewMachine = new System.Windows.Forms.Button();
-            this.JobPicture = new System.Windows.Forms.PictureBox();
             this.BrowsePictureButton = new System.Windows.Forms.Button();
             this.RemoveImageButton = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).BeginInit();
+            this.JobPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // ClientNameLabel
@@ -194,18 +194,6 @@
             this.CreateNewMachine.UseVisualStyleBackColor = true;
             this.CreateNewMachine.Click += new System.EventHandler(this.CreateNewMachine_Click);
             // 
-            // JobPicture
-            // 
-            this.JobPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.JobPicture.Image = global::View.Properties.Resources.NoPictureUploaded;
-            this.JobPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("JobPicture.InitialImage")));
-            this.JobPicture.Location = new System.Drawing.Point(108, 260);
-            this.JobPicture.Name = "JobPicture";
-            this.JobPicture.Size = new System.Drawing.Size(214, 203);
-            this.JobPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.JobPicture.TabIndex = 14;
-            this.JobPicture.TabStop = false;
-            // 
             // BrowsePictureButton
             // 
             this.BrowsePictureButton.Location = new System.Drawing.Point(25, 260);
@@ -214,16 +202,31 @@
             this.BrowsePictureButton.TabIndex = 15;
             this.BrowsePictureButton.Text = "Browse...";
             this.BrowsePictureButton.UseVisualStyleBackColor = true;
+            this.BrowsePictureButton.Click += new System.EventHandler(this.BrowsePictureButton_Click);
             // 
             // RemoveImageButton
             // 
-            this.RemoveImageButton.Image = global::View.Properties.Resources.closeButton;
+            this.RemoveImageButton.Enabled = false;
+            this.RemoveImageButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveImageButton.Image")));
             this.RemoveImageButton.Location = new System.Drawing.Point(70, 289);
             this.RemoveImageButton.Name = "RemoveImageButton";
             this.RemoveImageButton.Size = new System.Drawing.Size(30, 30);
             this.RemoveImageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.RemoveImageButton.TabIndex = 16;
             this.RemoveImageButton.TabStop = false;
+            this.RemoveImageButton.Click += new System.EventHandler(this.RemoveImageButton_Click);
+            // 
+            // JobPicture
+            // 
+            this.JobPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.JobPicture.Image = global::View.Properties.Resources.NoJobPicture;
+            this.JobPicture.InitialImage = global::View.Properties.Resources.NoJobPicture;
+            this.JobPicture.Location = new System.Drawing.Point(108, 260);
+            this.JobPicture.Name = "JobPicture";
+            this.JobPicture.Size = new System.Drawing.Size(214, 203);
+            this.JobPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.JobPicture.TabIndex = 14;
+            this.JobPicture.TabStop = false;
             // 
             // RegisterJob
             // 
@@ -254,8 +257,8 @@
             this.Name = "RegisterJob";
             this.Text = "Register Job";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterJob_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

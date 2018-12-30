@@ -63,9 +63,9 @@ namespace View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap closeButton {
+        internal static System.Drawing.Bitmap CloseButton {
             get {
-                object obj = ResourceManager.GetObject("closeButton", resourceCulture);
+                object obj = ResourceManager.GetObject("CloseButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NoPictureUploaded {
+        internal static System.Drawing.Bitmap NoJobPicture {
             get {
-                object obj = ResourceManager.GetObject("NoPictureUploaded", resourceCulture);
+                object obj = ResourceManager.GetObject("NoJobPicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

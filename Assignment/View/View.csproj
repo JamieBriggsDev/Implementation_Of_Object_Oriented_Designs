@@ -142,5 +142,8 @@
   <ItemGroup>
     <None Include="Media\closeButton.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoJobPicture.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
