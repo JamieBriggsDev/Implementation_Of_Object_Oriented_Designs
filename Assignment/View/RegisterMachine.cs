@@ -78,9 +78,7 @@ namespace View.View
         {
             // TODO - JAMIE: Use presenter to grab all machines
             // temp code
-            List<string> temp = new List<string>();
-            temp.Add("JAMIE .CO");
-            temp.Add("BRANDON .inc");
+            List<string> temp = m_presenter.GetAllClients();
 
             foreach (var name in temp)
             {

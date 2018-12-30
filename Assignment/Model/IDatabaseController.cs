@@ -30,5 +30,7 @@ namespace Model
         bool AddMachine(Machine machine);
 
         bool AddClient(string name);
+
+        List<Client> GetAllClients();
     }
 }

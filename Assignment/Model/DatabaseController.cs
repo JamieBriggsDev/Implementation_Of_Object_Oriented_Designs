@@ -180,6 +180,25 @@ namespace Model
             return true;
         }
 
+        public List<Client> GetAllClients()
+        {
+            List<Client> listOfClient = new List<Client>();
+
+            using (var db = new DatabaseContext())
+            {
+                var client = from c in db.Clients
+                             orderby c.Name
+                             select c;
+
+                foreach(var item in client)
+                {
+                    listOfClient.Add(item);
+                }
+            }
+
+            return listOfClient;
+        }
+
         // Returns the staff ID of specified staff member.
         public int GetStaffID(string forename, string surname)
         {

@@ -33,21 +33,6 @@ namespace View
             m_home.RegisterPresenter(this);    
             m_home.RunForm();
         }
-
-        public List<Job> GetAllJobs()
-        {
-            try
-            {
-                List<Job> AllJobs = m_databaseController.GetAllJobs();
-                return AllJobs;
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-        }
-
         public bool ValidateDatabaseController()
         {
             if (m_databaseController == null)
@@ -55,6 +40,44 @@ namespace View
             else
                 return true;
         }
+
+        /// <summary>
+        /// TODO - JAMIE: Using the database controller, grabs all jobs.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetAllJobs()
+        {
+            //try
+            //{
+            //    List<Job> AllJobs = m_databaseController.GetAllJobs();
+            //    return AllJobs;
+            //}
+            //catch (Exception)
+            //{
+
+            //    return null;
+            //}
+
+            return null;
+        }
+
+        /// <summary>
+        /// Using the database controller, grabs all the clients.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetAllClients()
+        {
+            List<string> clientNames = new List<string>();
+            List<Client> clients = m_databaseController.GetAllClients();
+
+            foreach (var client in clients)
+            {
+                clientNames.Add(client.Name);
+            }
+
+            return clientNames;
+        }
+
 
         public bool OpenRegisterClient()
         {
@@ -121,7 +144,6 @@ namespace View
                 Surname = "Briggs"
 
             };
-
             StaffMembers.Add(temp);
 
             foreach (var Staff in StaffMembers)
@@ -134,9 +156,15 @@ namespace View
 
             m_assignStaff.FillStaffNames(Names);
 
-            List<string> jobs = new List<string>();
-            jobs.Add("Egg");
-            m_assignStaff.FillJobs(jobs);
+            //List<string> JobNames = new List<string>();
+            //List<Job> AllJobs = new List<Job>();
+            //foreach (var job in AllJobs)
+            //{
+
+            //}
+
+            //jobs.Add("Egg");
+            //m_assignStaff.FillJobs(jobs);
 
 
             m_assignStaff.OpenChild(m_home as Home);
@@ -148,7 +176,7 @@ namespace View
             m_databaseController.AddClient(name);
         }
 
-        // Register Job stuff
+
         public bool RegisterJob()
         {
             // TODO -ANY: Register job function needs doing
@@ -172,6 +200,7 @@ namespace View
 
             return true;
         }
+
 
     }
 }
