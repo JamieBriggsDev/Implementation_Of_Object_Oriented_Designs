@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// An interface for an object to access data from a database.
+    /// </summary>
     public interface IDatabaseController
     {
         List<Job> GetAllJobs();

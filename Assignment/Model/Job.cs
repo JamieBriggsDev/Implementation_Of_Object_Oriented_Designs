@@ -9,6 +9,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
 
+    /// <summary>
+    /// A class made to hold information about jobs.
+    /// </summary>
     public class Job
     {
         /// <summary>
@@ -22,10 +25,19 @@ namespace Model
         /// </summary>
         public DateTime JobCreated { get; set; } = DateTime.Now;
 
+        /// <summary>
+        /// Contains the machineID of which the job was created for.
+        /// </summary>
         public int MachineID { get; set; }
 
+        /// <summary>
+        /// If assigned, holds the staffID of the staff member.
+        /// </summary>
         public int StaffID { get; set; }
 
+        /// <summary>
+        /// Holds the location of the job.
+        /// </summary>
         public string Location { get; set; }
 
         /// <summary>
@@ -49,6 +61,11 @@ namespace Model
         /// </summary>
         public int Urgency { get; set; }
 
+        /// <summary>
+        /// Time for completion.
+        /// </summary>
+        public DateTime CompletionDate { get; set; }
+        
         /// <summary>
         /// Whether the job is currently open or not.
         /// </summary>
