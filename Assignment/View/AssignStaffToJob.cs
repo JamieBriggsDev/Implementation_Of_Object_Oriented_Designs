@@ -40,7 +40,6 @@ namespace View.View
         {
             // Close this form and focus parent
             // TODO: JAMIE: Be able to grab name from form on 'Assign' button clicked
-            m_presenter.AssignStaffToJob("Egg", "Yolk");
             this.DialogResult = DialogResult.OK;
         }
 

@@ -32,10 +32,7 @@
             this.ClientNameLabel = new System.Windows.Forms.Label();
             this.ClientComboBox = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
-            this.ExistingMachineRadioButton = new System.Windows.Forms.RadioButton();
-            this.NewMachineRadioButton = new System.Windows.Forms.RadioButton();
             this.ExistingMachineComboBox = new System.Windows.Forms.ComboBox();
-            this.NewMachineNameLabel = new System.Windows.Forms.Label();
             this.FaultDescriptionLabel = new System.Windows.Forms.Label();
             this.FaultDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.UrgencyLabel = new System.Windows.Forms.Label();
@@ -46,6 +43,8 @@
             this.BrowsePictureButton = new System.Windows.Forms.Button();
             this.RemoveImageButton = new System.Windows.Forms.PictureBox();
             this.JobPicture = new System.Windows.Forms.PictureBox();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.DatePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JobPicture)).BeginInit();
             this.SuspendLayout();
@@ -78,48 +77,14 @@
             this.Label1.TabIndex = 2;
             this.Label1.Text = "Machine:";
             // 
-            // ExistingMachineRadioButton
-            // 
-            this.ExistingMachineRadioButton.AutoSize = true;
-            this.ExistingMachineRadioButton.Location = new System.Drawing.Point(103, 69);
-            this.ExistingMachineRadioButton.Name = "ExistingMachineRadioButton";
-            this.ExistingMachineRadioButton.Size = new System.Drawing.Size(105, 17);
-            this.ExistingMachineRadioButton.TabIndex = 3;
-            this.ExistingMachineRadioButton.Text = "Existing Machine";
-            this.ExistingMachineRadioButton.UseVisualStyleBackColor = true;
-            this.ExistingMachineRadioButton.Click += new System.EventHandler(this.ExistingMachineRadioButton_Click);
-            // 
-            // NewMachineRadioButton
-            // 
-            this.NewMachineRadioButton.AutoSize = true;
-            this.NewMachineRadioButton.Checked = true;
-            this.NewMachineRadioButton.Location = new System.Drawing.Point(103, 33);
-            this.NewMachineRadioButton.Name = "NewMachineRadioButton";
-            this.NewMachineRadioButton.Size = new System.Drawing.Size(91, 17);
-            this.NewMachineRadioButton.TabIndex = 4;
-            this.NewMachineRadioButton.TabStop = true;
-            this.NewMachineRadioButton.Text = "New Machine";
-            this.NewMachineRadioButton.UseVisualStyleBackColor = true;
-            this.NewMachineRadioButton.Click += new System.EventHandler(this.NewMachineRadioButton_Click);
-            // 
             // ExistingMachineComboBox
             // 
             this.ExistingMachineComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ExistingMachineComboBox.Enabled = false;
             this.ExistingMachineComboBox.FormattingEnabled = true;
-            this.ExistingMachineComboBox.Location = new System.Drawing.Point(139, 92);
+            this.ExistingMachineComboBox.Location = new System.Drawing.Point(103, 32);
             this.ExistingMachineComboBox.Name = "ExistingMachineComboBox";
-            this.ExistingMachineComboBox.Size = new System.Drawing.Size(179, 21);
+            this.ExistingMachineComboBox.Size = new System.Drawing.Size(219, 21);
             this.ExistingMachineComboBox.TabIndex = 5;
-            // 
-            // NewMachineNameLabel
-            // 
-            this.NewMachineNameLabel.AutoSize = true;
-            this.NewMachineNameLabel.Location = new System.Drawing.Point(136, 53);
-            this.NewMachineNameLabel.Name = "NewMachineNameLabel";
-            this.NewMachineNameLabel.Size = new System.Drawing.Size(108, 13);
-            this.NewMachineNameLabel.TabIndex = 6;
-            this.NewMachineNameLabel.Text = "GENERATEDNAME:";
             // 
             // FaultDescriptionLabel
             // 
@@ -187,11 +152,11 @@
             // 
             // CreateNewMachine
             // 
-            this.CreateNewMachine.Location = new System.Drawing.Point(247, 48);
+            this.CreateNewMachine.Location = new System.Drawing.Point(217, 59);
             this.CreateNewMachine.Name = "CreateNewMachine";
-            this.CreateNewMachine.Size = new System.Drawing.Size(75, 23);
+            this.CreateNewMachine.Size = new System.Drawing.Size(105, 23);
             this.CreateNewMachine.TabIndex = 13;
-            this.CreateNewMachine.Text = "New..";
+            this.CreateNewMachine.Text = "New Machine...";
             this.CreateNewMachine.UseVisualStyleBackColor = true;
             this.CreateNewMachine.Click += new System.EventHandler(this.CreateNewMachine_Click);
             // 
@@ -229,12 +194,31 @@
             this.JobPicture.TabIndex = 14;
             this.JobPicture.TabStop = false;
             // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(68, 91);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(33, 13);
+            this.DateLabel.TabIndex = 17;
+            this.DateLabel.Text = "Date:";
+            // 
+            // DatePicker
+            // 
+            this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DatePicker.Location = new System.Drawing.Point(103, 88);
+            this.DatePicker.Name = "DatePicker";
+            this.DatePicker.Size = new System.Drawing.Size(219, 20);
+            this.DatePicker.TabIndex = 18;
+            // 
             // RegisterJob
             // 
             this.AcceptButton = this.RegisterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 532);
+            this.Controls.Add(this.DatePicker);
+            this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.RemoveImageButton);
             this.Controls.Add(this.BrowsePictureButton);
             this.Controls.Add(this.JobPicture);
@@ -245,10 +229,7 @@
             this.Controls.Add(this.UrgencyLabel);
             this.Controls.Add(this.FaultDescriptionTextBox);
             this.Controls.Add(this.FaultDescriptionLabel);
-            this.Controls.Add(this.NewMachineNameLabel);
             this.Controls.Add(this.ExistingMachineComboBox);
-            this.Controls.Add(this.NewMachineRadioButton);
-            this.Controls.Add(this.ExistingMachineRadioButton);
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.ClientComboBox);
             this.Controls.Add(this.ClientNameLabel);
@@ -270,10 +251,7 @@
         private System.Windows.Forms.Label ClientNameLabel;
         private System.Windows.Forms.ComboBox ClientComboBox;
         private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.RadioButton ExistingMachineRadioButton;
-        private System.Windows.Forms.RadioButton NewMachineRadioButton;
         private System.Windows.Forms.ComboBox ExistingMachineComboBox;
-        private System.Windows.Forms.Label NewMachineNameLabel;
         private System.Windows.Forms.Label FaultDescriptionLabel;
         private System.Windows.Forms.RichTextBox FaultDescriptionTextBox;
         private System.Windows.Forms.Label UrgencyLabel;
@@ -284,5 +262,7 @@
         private System.Windows.Forms.PictureBox JobPicture;
         private System.Windows.Forms.Button BrowsePictureButton;
         private System.Windows.Forms.PictureBox RemoveImageButton;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.DateTimePicker DatePicker;
     }
 }

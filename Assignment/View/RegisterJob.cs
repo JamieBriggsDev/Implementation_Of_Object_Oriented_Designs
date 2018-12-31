@@ -41,10 +41,25 @@ namespace View.View
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            int jobID = m_presenter.GetAllJobs().Count + 1;
+            int machineID = 0; // TODO - JAMIE: When get all machines is implemented, get machine ID
+            byte[] attachment = ImageSerializer.Instance.SerializeImage(JobPicture.Image);
+            int urgency = int.Parse(UrgencyComboBox.Text);
             // Add new job
-            // TODO: Make sure a new job is entered and added to the database.
-            // Register job, close this form and focus parent
-            this.DialogResult = DialogResult.OK;
+            Job newJob = new Job()
+            {
+                JobID = jobID,
+                MachineID = machineID,
+                FaultDescription = FaultDescriptionTextBox.Text,
+                Attachment = attachment,
+                Urgency = urgency,
+                Open = false,
+                JobCreated = DatePicker.Value
+            };
+
+            m_presenter.RegisterJob(newJob);
+
+            DialogResult = DialogResult.OK;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -73,30 +88,6 @@ namespace View.View
             }
         }
 
-        private void ExistingMachineRadioButton_Click(object sender, EventArgs e)
-        {
-            // Disable new machine options
-            NewMachineRadioButton.Checked = false;
-            NewMachineNameLabel.Enabled = false;
-            CreateNewMachine.Enabled = false;
-            // Enable existing machine options
-            ExistingMachineComboBox.Enabled = true;
-
-            ValidateRegisterButton();
-        }
-
-        private void NewMachineRadioButton_Click(object sender, EventArgs e)
-        {
-            // Disable existing machine options
-            ExistingMachineRadioButton.Checked = false;
-            ExistingMachineComboBox.Enabled = false;
-            // Enable new machine options
-            NewMachineNameLabel.Enabled = true;
-            CreateNewMachine.Enabled = true;
-
-            ValidateRegisterButton();
-        }
-
         private void CreateNewMachine_Click(object sender, EventArgs e)
         {
             m_presenter.OpenRegisterMachine();
@@ -105,21 +96,16 @@ namespace View.View
 
         public void GetAllClients()
         {
-            List<string> clients = new List<string>();
-            clients = m_presenter.GetAllClients();
-            ClientComboBox.DataSource = clients;
-        }
+            List<string> clientNames = new List<string>();
+            List<Client> clients = m_presenter.GetAllClients();
 
-        public void GetAllClientMachines(string _client)
-        {
-            throw new NotImplementedException();
-        }
+            foreach (var client in clients)
+            {
+                clientNames.Add(client.Name);
+            }
 
-        public void CreateNewMachineForm()
-        {
-            throw new NotImplementedException();
+            ClientComboBox.DataSource = clientNames;
         }
-
 
         public void RegisterPresenter(Presenter presenter)
         {

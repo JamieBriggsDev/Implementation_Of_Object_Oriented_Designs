@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HomeToolStrip = new System.Windows.Forms.ToolStrip();
             this.RegisterClientButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.RegisterJob = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MachineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FaultDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Attachment = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Urgency = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Open = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.JobCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JobsDataView = new System.Windows.Forms.DataGridView();
             this.HomeToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JobsDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // HomeToolStrip
@@ -59,7 +51,7 @@
             this.AssignStaffButton});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
-            this.HomeToolStrip.Size = new System.Drawing.Size(1217, 25);
+            this.HomeToolStrip.Size = new System.Drawing.Size(1539, 25);
             this.HomeToolStrip.TabIndex = 0;
             this.HomeToolStrip.Text = "toolStrip1";
             // 
@@ -103,103 +95,40 @@
             this.AssignStaffButton.Text = "Assign Staff";
             this.AssignStaffButton.Click += new System.EventHandler(this.AssignStaffButton_Click);
             // 
-            // dataGridView1
+            // JobsDataView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.JobID,
-            this.ClientName,
-            this.MachineName,
-            this.FaultDescription,
-            this.Attachment,
-            this.Urgency,
-            this.Open,
-            this.JobCreated,
-            this.DateDue});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1217, 581);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // JobID
-            // 
-            this.JobID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.JobID.HeaderText = "Job ID";
-            this.JobID.MaxInputLength = 32;
-            this.JobID.Name = "JobID";
-            this.JobID.ReadOnly = true;
-            this.JobID.Width = 63;
-            // 
-            // ClientName
-            // 
-            this.ClientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ClientName.HeaderText = "Client Name";
-            this.ClientName.MaxInputLength = 100;
-            this.ClientName.Name = "ClientName";
-            this.ClientName.ReadOnly = true;
-            this.ClientName.Width = 89;
-            // 
-            // MachineName
-            // 
-            this.MachineName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MachineName.HeaderText = "Machine Name";
-            this.MachineName.Name = "MachineName";
-            this.MachineName.ReadOnly = true;
-            this.MachineName.Width = 96;
-            // 
-            // FaultDescription
-            // 
-            this.FaultDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FaultDescription.HeaderText = "Fault Description";
-            this.FaultDescription.Name = "FaultDescription";
-            this.FaultDescription.ReadOnly = true;
-            // 
-            // Attachment
-            // 
-            this.Attachment.HeaderText = "Attachment";
-            this.Attachment.Name = "Attachment";
-            this.Attachment.ReadOnly = true;
-            // 
-            // Urgency
-            // 
-            this.Urgency.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Urgency.HeaderText = "Urgency";
-            this.Urgency.Name = "Urgency";
-            this.Urgency.ReadOnly = true;
-            this.Urgency.Width = 72;
-            // 
-            // Open
-            // 
-            this.Open.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Open.HeaderText = "Open";
-            this.Open.Name = "Open";
-            this.Open.ReadOnly = true;
-            this.Open.Width = 39;
-            // 
-            // JobCreated
-            // 
-            this.JobCreated.HeaderText = "Job Created";
-            this.JobCreated.Name = "JobCreated";
-            // 
-            // DateDue
-            // 
-            this.DateDue.HeaderText = "Date Due";
-            this.DateDue.Name = "DateDue";
+            this.JobsDataView.AllowUserToAddRows = false;
+            this.JobsDataView.AllowUserToDeleteRows = false;
+            this.JobsDataView.AllowUserToResizeColumns = false;
+            this.JobsDataView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.JobsDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.JobsDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.JobsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.JobsDataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JobsDataView.Location = new System.Drawing.Point(0, 25);
+            this.JobsDataView.MultiSelect = false;
+            this.JobsDataView.Name = "JobsDataView";
+            this.JobsDataView.ReadOnly = true;
+            this.JobsDataView.Size = new System.Drawing.Size(1539, 596);
+            this.JobsDataView.TabIndex = 1;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 621);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1539, 621);
+            this.Controls.Add(this.JobsDataView);
             this.Controls.Add(this.HomeToolStrip);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.HomeToolStrip.ResumeLayout(false);
             this.HomeToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JobsDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,15 +142,6 @@
         private System.Windows.Forms.ToolStripButton RegisterJob;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton AssignStaffButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MachineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FaultDescription;
-        private System.Windows.Forms.DataGridViewImageColumn Attachment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Urgency;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Open;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JobCreated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateDue;
+        private System.Windows.Forms.DataGridView JobsDataView;
     }
 }

@@ -30,7 +30,7 @@ namespace View
             m_databaseController = new DatabaseController();
 
             m_home = new Home();
-            m_home.RegisterPresenter(this);    
+            m_home.RegisterPresenter(this);
             m_home.OpenForm();
         }
         public bool ValidateDatabaseController()
@@ -45,27 +45,25 @@ namespace View
         /// TODO - JAMIE: Using the database controller, grabs all jobs.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetAllJobs()
+        public List<Job> GetAllJobs()
         {
-            //try
-            //{
-            //    List<Job> AllJobs = m_databaseController.GetAllJobs();
-            //    return AllJobs;
-            //}
-            //catch (Exception)
-            //{
+            try
+            {
+                List<Job> AllJobs = m_databaseController.GetAllJobs();
+                return AllJobs;
+            }
+            catch (Exception)
+            {
 
-            //    return null;
-            //}
-
-            return null;
+                return null;
+            }
         }
 
         /// <summary>
         /// Using the database controller, grabs all the clients.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetAllClients()
+        public List<Client> GetAllClients()
         {
             List<string> clientNames = new List<string>();
             List<Client> clients = m_databaseController.GetAllClients();
@@ -75,14 +73,23 @@ namespace View
                 clientNames.Add(client.Name);
             }
 
-            return clientNames;
+            return clients;
         }
 
         public int GetClientID(string name)
         {
-            int ID = m_databaseController.GetAllClients().Find(c => c.Name == name).ClientID;
+            try
+            {
 
-            return ID;
+                int ID = m_databaseController.GetAllClients().Find(c => c.Name == name).ClientID;
+                return ID;
+
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+
         }
 
         public List<string> GetAllClientSpecificMachines(int clientID)
@@ -193,10 +200,10 @@ namespace View
         }
 
 
-        public bool RegisterJob()
+        public bool RegisterJob(Job job)
         {
             // TODO -ANY: Register job function needs doing
-            bool success = m_databaseController.RegisterJob(new Job());
+            bool success = m_databaseController.RegisterJob(job);
 
             return success;
         }
@@ -232,6 +239,41 @@ namespace View
             return true;
         }
 
+
+        // Gets the client name from a machine
+        public string GetClientNameThroughMachineID(int id)
+        {
+            try
+            {
+                int clientID = 
+                    m_databaseController.GetAllMachines().Find(m => m.MachineID == id).ClientID;
+                string clientName =
+                    m_databaseController.GetAllClients().Find(c => c.ClientID == clientID).Name;
+
+                return clientName;
+            }
+            catch(Exception)
+            {
+                return "ERROR GETTING CLIENT NAME";
+            }
+
+        }
+
+        // Get machine name through machine ID
+        public string GetMachineNameThroughMachineID(int id)
+        {
+            try
+            {
+                string machineName =
+                    m_databaseController.GetAllMachines().Find(m => m.MachineID == id).MachineName;
+
+                return machineName;
+            }
+            catch(Exception)
+            {
+                return "ERROR GETTING MACHINE NAME";
+            }
+        }
 
     }
 }

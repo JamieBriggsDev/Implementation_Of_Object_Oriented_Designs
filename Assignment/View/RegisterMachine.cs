@@ -184,11 +184,13 @@ namespace View.View
         /// </summary>
         public void FillClients()
         {
-            // TODO - JAMIE: Use presenter to grab all machines
-            // temp code
-            List<string> clients = new List<string>();
-            clients = m_presenter.GetAllClients();
+            List<string> clientNames = new List<string>();
+            List<Client> clients = m_presenter.GetAllClients();
 
+            foreach (var client in clients)
+            {
+                clientNames.Add(client.Name);
+            }
             ClientsComboBox.DataSource = clients;
         }
 

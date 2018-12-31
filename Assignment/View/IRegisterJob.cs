@@ -16,8 +16,5 @@ namespace View.View
 
         void GetAllClients();
 
-        void GetAllClientMachines(string _client);
-
-        void CreateNewMachineForm();
     }
 }

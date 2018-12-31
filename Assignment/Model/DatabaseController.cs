@@ -178,6 +178,18 @@ namespace Model
 
             return listOfClients;
         }
+
+        public List<Machine> GetAllMachines()
+        {
+            List<Machine> listOfMachines = new List<Machine>();
+
+            using (var db = new DatabaseContext())
+            {
+                listOfMachines = db.Machines.ToList();
+            }
+
+            return listOfMachines;
+        }
     }
 
     /// <summary>
