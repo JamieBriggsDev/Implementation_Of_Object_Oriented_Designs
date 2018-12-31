@@ -43,10 +43,17 @@ namespace Model
         public Image DeserializeImage(byte[] _image)
         {
             Image image = null;
-            using (MemoryStream myStream = new MemoryStream(_image))
+            if (_image != null)
             {
-                image = Image.FromStream(myStream);
+                using (MemoryStream myStream = new MemoryStream(_image))
+                {
+                    image = Image.FromStream(myStream);
 
+                    return image;
+                }
+            }
+            else
+            {
                 return image;
             }
         }

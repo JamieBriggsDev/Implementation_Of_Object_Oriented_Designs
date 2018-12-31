@@ -13,35 +13,22 @@ namespace Model
         /// Unique identifier for staff member.
         /// </summary>
         [Key]
-        public int m_staffID;
-
-        public int StaffID
-        {
-            get { return m_staffID; }
-            set { m_staffID = value; }
-        }
+        public int StaffID { get; set; }
 
         /// <summary>
         /// Forename of the staff member.
         /// </summary>
-        private string m_forename;
-
-        public string Forename
-        {
-            get { return m_forename; }
-            set { m_forename = value; }
-        }
+        public string Forename { get; set; }
 
         /// <summary>
         /// Surname of the staff member.
         /// </summary>
-        public string m_surname;
+        public string Surname { get; set; }
 
-        public string Surname
-        {
-            get { return m_surname; }
-            set { m_surname = value; }
-        }
+        /// <summary>
+        /// What role the staff member has.
+        /// </summary>
+        public string Role { get; set; }
 
 
 
