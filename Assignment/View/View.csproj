@@ -65,6 +65,18 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobControlSmallTitles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobControlSmallTitles.Designer.cs">
+      <DependentUpon>JobControlSmallTitles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobControlSmall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobControlSmall.Designer.cs">
+      <DependentUpon>JobControlSmall.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterMachine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,12 @@
     <Compile Include="RegisterJob.Designer.cs">
       <DependentUpon>RegisterJob.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="JobControlSmall.resx">
+      <DependentUpon>JobControlSmall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobControlSmallTitles.resx">
+      <DependentUpon>JobControlSmallTitles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterMachine.resx">
       <DependentUpon>RegisterMachine.cs</DependentUpon>
     </EmbeddedResource>

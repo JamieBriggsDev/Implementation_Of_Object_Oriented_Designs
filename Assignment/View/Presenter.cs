@@ -42,7 +42,7 @@ namespace View
         }
 
         /// <summary>
-        /// TODO - JAMIE: Using the database controller, grabs all jobs.
+        /// Grabs all the jobs using the database controller.
         /// </summary>
         /// <returns></returns>
         public List<Job> GetAllJobs()
@@ -202,7 +202,7 @@ namespace View
 
         public bool RegisterJob(Job job)
         {
-            // TODO -ANY: Register job function needs doing
+            // Registers job
             bool success = m_databaseController.RegisterJob(job);
 
             return success;
@@ -259,23 +259,8 @@ namespace View
 
         }
 
-        // Get machine name through machine ID
+
         public string GetMachineNameThroughMachineID(int id)
-        {
-            try
-            {
-                string machineName =
-                    m_databaseController.GetMachineNameFromID(id).MachineName;
-
-                return machineName;
-            }
-            catch(Exception)
-            {
-                return "ERROR GETTING MACHINE NAME";
-            }
-        }
-
-        public string GetMachineNameThroughMachineID(int id, bool fuck)
         {
             try
             {
@@ -286,7 +271,7 @@ namespace View
             catch(Exception)
             {
 
-                return "";
+                return "ERROR GETTING MACHINE NAME";
             }
 
         }

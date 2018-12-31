@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HomeToolStrip = new System.Windows.Forms.ToolStrip();
             this.RegisterClientButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.RegisterJob = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
-            this.JobsDataView = new System.Windows.Forms.DataGridView();
+            this.JobPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.HomeToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.JobsDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // HomeToolStrip
@@ -51,7 +49,7 @@
             this.AssignStaffButton});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
-            this.HomeToolStrip.Size = new System.Drawing.Size(1539, 25);
+            this.HomeToolStrip.Size = new System.Drawing.Size(1272, 25);
             this.HomeToolStrip.TabIndex = 0;
             this.HomeToolStrip.Text = "toolStrip1";
             // 
@@ -95,31 +93,22 @@
             this.AssignStaffButton.Text = "Assign Staff";
             this.AssignStaffButton.Click += new System.EventHandler(this.AssignStaffButton_Click);
             // 
-            // JobsDataView
+            // JobPanel
             // 
-            this.JobsDataView.AllowUserToAddRows = false;
-            this.JobsDataView.AllowUserToDeleteRows = false;
-            this.JobsDataView.AllowUserToResizeColumns = false;
-            this.JobsDataView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.JobsDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.JobsDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.JobsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.JobsDataView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JobsDataView.Location = new System.Drawing.Point(0, 25);
-            this.JobsDataView.MultiSelect = false;
-            this.JobsDataView.Name = "JobsDataView";
-            this.JobsDataView.ReadOnly = true;
-            this.JobsDataView.Size = new System.Drawing.Size(1539, 596);
-            this.JobsDataView.TabIndex = 1;
+            this.JobPanel.AutoScroll = true;
+            this.JobPanel.AutoSize = true;
+            this.JobPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JobPanel.Location = new System.Drawing.Point(0, 25);
+            this.JobPanel.Name = "JobPanel";
+            this.JobPanel.Size = new System.Drawing.Size(1272, 431);
+            this.JobPanel.TabIndex = 1;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1539, 621);
-            this.Controls.Add(this.JobsDataView);
+            this.ClientSize = new System.Drawing.Size(1272, 456);
+            this.Controls.Add(this.JobPanel);
             this.Controls.Add(this.HomeToolStrip);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -128,7 +117,6 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.HomeToolStrip.ResumeLayout(false);
             this.HomeToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.JobsDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +130,6 @@
         private System.Windows.Forms.ToolStripButton RegisterJob;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton AssignStaffButton;
-        private System.Windows.Forms.DataGridView JobsDataView;
+        private System.Windows.Forms.FlowLayoutPanel JobPanel;
     }
 }
