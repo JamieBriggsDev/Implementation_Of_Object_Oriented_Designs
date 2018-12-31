@@ -9,27 +9,35 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Controls data in and out of the database.
+    /// Inherits from IDatabaseController.
+    /// </summary>
     public class DatabaseController : IDatabaseController
     {
 
-        // Returns a list of jobs.
+        /// <summary>
+        /// Gets a list of jobs.
+        /// </summary>
+        /// <returns>Returns a list of jobs.</returns>
         public List<Job> GetAllJobs()
         {
-            // The list of jobs to return for the form to display.
             List<Job> listOfJobs = new List<Job>();
 
-            // Use the database context to access data.
             using (var db = new DatabaseContext())
             {
 
-                // Query to get all the jobs and order by open.
                 listOfJobs = db.Jobs.ToList();
             }
 
             return listOfJobs;
         }
 
-        // Returns a specific machine.
+        /// <summary>
+        /// Returns a specific machine.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns>Returns a machine.</returns>
         public Machine GetMachineNameFromID(int ID)
         {
             Machine machine;
@@ -41,7 +49,11 @@ namespace Model
             return machine;
         }
 
-        // Gets the machines specific jobs past and current.
+        /// <summary>
+        /// Get's all specific jobs for the specified machine.
+        /// </summary>
+        /// <param name="OID"></param>
+        /// <returns>Returns a job list.</returns>
         public List<Job> GetMachineSpecificJobs(int OID)
         {
             List<Job> listOfJobs = new List<Job>();
@@ -54,7 +66,12 @@ namespace Model
             return listOfJobs;
         }
 
-        // Assigns staff to job
+        /// <summary>
+        /// Assigns a staff member to a specified job.
+        /// </summary>
+        /// <param name="staffID"></param>
+        /// <param name="jobID"></param>
+        /// <returns>Returns true if successful.</returns>
         public bool AssignStaffToJob(int staffID, int jobID)
         {
             using (var db = new DatabaseContext())
@@ -70,7 +87,10 @@ namespace Model
             return true;
         }
 
-        // Sets the specified job status to closed.
+        /// <summary>
+        /// Closes a specified job.
+        /// </summary>
+        /// <param name="jobID"></param>
         public void CloseJob(int jobID)
         {
             using (var db = new DatabaseContext())
@@ -85,20 +105,59 @@ namespace Model
             }
         }
 
-        // Registers a new job
+        /// <summary>
+        /// Registers a new job to the database.
+        /// </summary>
+        /// <param name="job"></param>
+        /// <returns>Returns true if successful.</returns>
         public bool RegisterJob(Job job)
         {
             using (var db = new DatabaseContext())
             {
-                db.Jobs.Add(job);
-                db.SaveChanges();
+
+                if (job != null)
+                {
+
+                    // Need to make sure that the completion date is automated based on urgency.
+                    int days;
+                    switch (job.Urgency)
+                    {
+                        case 1:
+                            days = 40;
+                            break;
+                        case 2:
+                            days = 14;
+                            break;
+                        case 3:
+                            days = 7;
+                            break;
+                        case 4:
+                            days = 3;
+                            break;
+                        case 5:
+                            days = 1;
+                            break;
+
+                        default:
+                            days = 90;
+                            break;
+                    }
+
+                    job.CompletionDate = job.JobCreated.AddDays(days);
+                    db.Jobs.Add(job);
+                    db.SaveChanges();
+                }
             }
 
             return true;
         }
 
-        // Edit job entrys 
-
+        /// <summary>
+        /// Edits the specified job
+        /// </summary>
+        /// <param name="JobID"></param>
+        /// <param name="state"></param>
+        /// <returns>Returns true if successfull.</returns>
         public bool EditJobEntry(int JobID, string state)
         {
             using (var db = new DatabaseContext())
@@ -114,7 +173,10 @@ namespace Model
             return true;
         }
 
-        //  Gets all staff members.
+        /// <summary>
+        /// Returns a list of staff members.
+        /// </summary>
+        /// <returns>A staff list object.</returns>
         public List<Staff> GetAllStaff()
         {
             List<Staff> listOfStaff = new List<Staff>();
@@ -127,7 +189,11 @@ namespace Model
             return listOfStaff;
         }
 
-        // Gets all machines related to client.
+        /// <summary>
+        /// Returns a list of machines related to the client passed.
+        /// </summary>
+        /// <param name="ClientID"></param>
+        /// <returns>List of machines.</returns>
         public List<Machine> GetClientSpecificMachines(int ClientID)
         {
             List<Machine> listOfMachines = new List<Machine>();
@@ -140,7 +206,11 @@ namespace Model
             return listOfMachines;
         }
 
-        // Adds a new machine to the database.
+        /// <summary>
+        /// Adds a new machine to the database.
+        /// </summary>
+        /// <param name="machine"></param>
+        /// <returns>Returns true </returns>
         public bool AddMachine(Machine machine)
         {
             using (var db = new DatabaseContext())
@@ -152,7 +222,11 @@ namespace Model
             return true;
         }
 
-        // Adds a new client to the database.
+        /// <summary>
+        /// Adds a new client to the database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>Returns true if successful.</returns>
         public bool AddClient(string name)
         {
             using (var db = new DatabaseContext())
@@ -164,7 +238,12 @@ namespace Model
             return true;
         }
 
-        // Returns the staff ID of specified staff member.
+        /// <summary>
+        /// Gets a specific staff ID.
+        /// </summary>
+        /// <param name="forename"></param>
+        /// <param name="surname"></param>
+        /// <returns>Returns the staffID of the staff member provided.</returns>
         public int GetStaffID(string forename, string surname)
         {
             int staffID;
@@ -179,6 +258,10 @@ namespace Model
             return staffID;
         }
 
+        /// <summary>
+        /// Get's all of the clients.
+        /// </summary>
+        /// <returns>Returns a list of clients.</returns>
         public List<Client> GetAllClients()
         {
             List<Client> listOfClients = new List<Client>();
@@ -191,6 +274,10 @@ namespace Model
             return listOfClients;
         }
 
+        /// <summary>
+        /// Get's all the machines.
+        /// </summary>
+        /// <returns>Returns a list of machines.</returns>
         public List<Machine> GetAllMachines()
         {
             List<Machine> listOfMachines = new List<Machine>();
@@ -203,6 +290,11 @@ namespace Model
             return listOfMachines;
         }
 
+        /// <summary>
+        /// Adds a staff member to the database.
+        /// </summary>
+        /// <param name="staff"></param>
+        /// <returns>Returns true if successfull.</returns>
         public bool AddStaff(Staff staff)
         {
             using (var db = new DatabaseContext())
@@ -216,26 +308,39 @@ namespace Model
     }
 
     /// <summary>
-    /// Database context used to access data.
+    /// Database context used to access and query data.
     /// </summary>
     public partial class DatabaseContext : DbContext
     {
-        // Holds all the jobs.
+        /// <summary>
+        /// Holds all of the jobs in the database.
+        /// </summary>
         public DbSet<Job> Jobs { get; set; }
 
-        // Holds all the machines.
+        /// <summary>
+        /// Holds all of the machines in the database.
+        /// </summary>
         public DbSet<Machine> Machines { get; set; }
 
-        // Holds the members of staff.
+        /// <summary>
+        /// Holds all of the staff members in the database.
+        /// </summary>
         public DbSet<Staff> Stafflist { get; set; }
 
-        // Holds the addresses of the companies.
+        /// <summary>
+        /// Holds all of the addresses in the database.
+        /// </summary>
         public DbSet<Address> Addresses { get; set; }
 
-        // Holds all the clients.
+        /// <summary>
+        /// Holds all of the clients in the database.
+        /// </summary>
         public DbSet<Client> Clients { get; set; }
 
-        // Helpful test output whenever save changes fails due to validation exceptions.
+        /// <summary>
+        /// Override of save changes to report on any data validation errors.
+        /// </summary>
+        /// <returns>Returns 0 regardless of outcome.</returns>
         public override int SaveChanges()
         {
             try

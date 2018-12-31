@@ -22,8 +22,14 @@ namespace Model
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Default initialiser.
+        /// </summary>
         public Client() { }
 
+        /// <summary>
+        /// Easy initialisation of a client.
+        /// </summary>
         public Client(string name)
         {
             Name = name;

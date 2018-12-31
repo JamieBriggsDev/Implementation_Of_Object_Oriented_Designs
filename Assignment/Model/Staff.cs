@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// A class designed to hold information about staff members.
+    /// </summary>
     public class Staff
     {
         /// <summary>

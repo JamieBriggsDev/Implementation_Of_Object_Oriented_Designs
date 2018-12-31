@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// A class designed to hold information about a machine location.
+    /// </summary>
     public class Address
     {
         /// <summary>

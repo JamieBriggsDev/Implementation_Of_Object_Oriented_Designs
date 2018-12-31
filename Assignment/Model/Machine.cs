@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Holds information about machines related to clients and jobs.
+    /// </summary>
     public class Machine
     {
         /// <summary>
@@ -16,8 +19,14 @@ namespace Model
         [Key]
         public int MachineID { get; set; }
 
+        /// <summary>
+        /// Holds the clientID.
+        /// </summary>
         public int ClientID { get; set; }
 
+        /// <summary>
+        /// Holds the name of the machine.
+        /// </summary>
         [MaxLength(10)]
         public string MachineName { get; set; }
 

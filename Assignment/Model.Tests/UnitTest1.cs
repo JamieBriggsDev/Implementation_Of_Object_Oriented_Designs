@@ -8,6 +8,9 @@ namespace Model.Tests
     public class UnitTest1
     {
         DatabaseController m_db;
+        /// <summary>
+        /// Dummy data.
+        /// </summary>
         [TestInitialize]
         public void Init()
         {
@@ -73,7 +76,8 @@ namespace Model.Tests
             {
                 FaultDescription = "It's fucked.",
                 MachineID = 1,
-                Location = "Northumbria Univerity"
+                Location = "Northumbria Univerity",
+                Urgency = 3,
             };
 
             Job job2 = new Job
@@ -81,6 +85,7 @@ namespace Model.Tests
                 FaultDescription = "It's missing a drive.",
                 MachineID = 2,
                 Location = "I don't actually know.",
+                Urgency = 0,
             };
 
             m_db.RegisterJob(job1);
