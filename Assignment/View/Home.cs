@@ -85,7 +85,7 @@ namespace View
 
                 newRow[0] = job.JobID;
                 newRow[1] = m_presenter.GetClientNameThroughMachineID(job.MachineID);
-                newRow[2] = m_presenter.GetMachineNameThroughMachineID(job.MachineID);
+                newRow[2] = m_presenter.GetMachineNameThroughMachineID(job.MachineID, true);
                 newRow[3] = job.FaultDescription;
                 newRow[4] = ImageSerializer.Instance.DeserializeImage(job.Attachment);
                 newRow[5] = job.Urgency;

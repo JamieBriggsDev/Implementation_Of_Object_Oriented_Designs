@@ -187,11 +187,9 @@ namespace View.View
             List<string> clientNames = new List<string>();
             List<Client> clients = m_presenter.GetAllClients();
 
-            foreach (var client in clients)
-            {
-                clientNames.Add(client.Name);
-            }
-            ClientsComboBox.DataSource = clients;
+            clientNames = clients.Select(c => c.Name).ToList();
+
+            ClientsComboBox.DataSource = clientNames;
         }
 
 

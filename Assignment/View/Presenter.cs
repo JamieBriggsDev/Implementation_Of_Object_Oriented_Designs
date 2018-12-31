@@ -275,5 +275,30 @@ namespace View
             }
         }
 
+        public string GetMachineNameThroughMachineID(int id, bool fuck)
+        {
+            try
+            {
+                List<Machine> machines = m_databaseController.GetAllMachines();
+                string name = machines.Find(m => m.MachineID == id).MachineName;
+                return name;
+            }
+            catch(Exception)
+            {
+
+                return "";
+            }
+
+        }
+
+        public List<string> GetAllMachines()
+        {
+            List<string> MachineNames = new List<string>();
+            List<Machine> Machines = m_databaseController.GetAllMachines();
+
+            MachineNames = Machines.Select(m => m.MachineName).ToList();
+
+            return MachineNames;
+        }
     }
 }

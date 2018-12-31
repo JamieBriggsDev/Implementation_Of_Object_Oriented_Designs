@@ -41,14 +41,14 @@ namespace View.View
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            int jobID = m_presenter.GetAllJobs().Count + 1;
-            int machineID = 0; // TODO - JAMIE: When get all machines is implemented, get machine ID
+            //int jobID = m_presenter.GetAllJobs().Count + 1;
+            int machineID = m_presenter.GetAllMachines().Count;
             byte[] attachment = ImageSerializer.Instance.SerializeImage(JobPicture.Image);
             int urgency = int.Parse(UrgencyComboBox.Text);
             // Add new job
             Job newJob = new Job()
             {
-                JobID = jobID,
+                //JobID = jobID,
                 MachineID = machineID,
                 FaultDescription = FaultDescriptionTextBox.Text,
                 Attachment = attachment,
