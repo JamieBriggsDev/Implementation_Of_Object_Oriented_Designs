@@ -11,6 +11,8 @@ namespace Model
     {
         List<Job> GetAllJobs();
 
+        Machine GetMachineNameFromID(int ID);
+
         List<Job> GetMachineSpecificJobs(int OID);
 
         bool AssignStaffToJob(int staffID, int jobID);
@@ -34,5 +36,7 @@ namespace Model
         List<Client> GetAllClients();
 
         List<Machine> GetAllMachines();
+
+        bool AddStaff(Staff staff);
     }
 }

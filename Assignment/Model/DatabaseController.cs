@@ -29,6 +29,18 @@ namespace Model
             return listOfJobs;
         }
 
+        // Returns a specific machine.
+        public Machine GetMachineNameFromID(int ID)
+        {
+            Machine machine;
+            using (var db = new DatabaseContext())
+            {
+                machine = db.Machines.Where(m => m.MachineID == ID).First();
+            }
+
+            return machine;
+        }
+
         // Gets the machines specific jobs past and current.
         public List<Job> GetMachineSpecificJobs(int OID)
         {
@@ -190,6 +202,17 @@ namespace Model
 
             return listOfMachines;
         }
+
+        public bool AddStaff(Staff staff)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.Stafflist.Add(staff);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
     }
 
     /// <summary>
@@ -197,12 +220,22 @@ namespace Model
     /// </summary>
     public partial class DatabaseContext : DbContext
     {
+        // Holds all the jobs.
         public DbSet<Job> Jobs { get; set; }
+
+        // Holds all the machines.
         public DbSet<Machine> Machines { get; set; }
+
+        // Holds the members of staff.
         public DbSet<Staff> Stafflist { get; set; }
+
+        // Holds the addresses of the companies.
         public DbSet<Address> Addresses { get; set; }
+
+        // Holds all the clients.
         public DbSet<Client> Clients { get; set; }
 
+        // Helpful test output whenever save changes fails due to validation exceptions.
         public override int SaveChanges()
         {
             try

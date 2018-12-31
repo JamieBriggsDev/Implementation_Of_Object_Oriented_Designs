@@ -265,7 +265,7 @@ namespace View
             try
             {
                 string machineName =
-                    m_databaseController.GetAllMachines().Find(m => m.MachineID == id).MachineName;
+                    m_databaseController.GetMachineNameFromID(id).MachineName;
 
                 return machineName;
             }
