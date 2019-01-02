@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    // TODO - BRANDON: Change Client class to be integrated into the datebase
+    /// <summary>
+    /// Client class designed to hold client information.
+    /// </summary>
     public class Client
     {
         /// <summary>
         /// Clients ID number.
         /// </summary>
-        /// 
         [Key]
         public int ClientID { get; set; } 
 

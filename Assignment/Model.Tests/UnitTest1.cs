@@ -91,6 +91,39 @@ namespace Model.Tests
             m_db.RegisterJob(job1);
             m_db.RegisterJob(job2);
 
+            Staff staff1 = new Staff
+            {
+                Forename = "Brandon",
+                Surname = "Taylor",
+                Role = "Technical Manager",
+            };
+
+            Staff staff2 = new Staff
+            {
+                Forename = "Jamie",
+                Surname = "Briggs",
+                Role = "L33t 420 Pr0gramm3r",
+            };
+
+            Staff staff3 = new Staff
+            {
+                Forename = "Ryan",
+                Surname = "Bervoets",
+                Role = "Technician",
+            };
+
+            Staff staff4 = new Staff
+            {
+                Forename = "Elliot",
+                Surname = "Anderson",
+                Role = "Drug Addict",
+            };
+
+            m_db.AddStaff(staff1);
+            m_db.AddStaff(staff2);
+            m_db.AddStaff(staff3);
+            m_db.AddStaff(staff4);
+
 
         }
 

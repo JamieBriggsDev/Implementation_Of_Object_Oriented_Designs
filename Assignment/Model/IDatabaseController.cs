@@ -24,7 +24,7 @@ namespace Model
 
         bool RegisterJob(Job job);
 
-        bool EditJobEntry(int JobID, string state);
+        bool EditJobEntry(Job jobInfo);
 
         List<Staff> GetAllStaff();
 
@@ -41,5 +41,10 @@ namespace Model
         List<Machine> GetAllMachines();
 
         bool AddStaff(Staff staff);
+
+        bool EditStaffRole(Staff staff);
+
+        Staff GetSpecificStaffMember(int ID);
+
     }
 }

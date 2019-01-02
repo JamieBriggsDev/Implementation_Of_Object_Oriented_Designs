@@ -65,6 +65,7 @@ namespace Model
             }
             return listOfJobs;
         }
+  
 
         /// <summary>
         /// Assigns a staff member to a specified job.
@@ -155,18 +156,15 @@ namespace Model
         /// <summary>
         /// Edits the specified job
         /// </summary>
-        /// <param name="JobID"></param>
-        /// <param name="state"></param>
+        /// <param name="jobInfo"></param>
         /// <returns>Returns true if successfull.</returns>
-        public bool EditJobEntry(int JobID, string state)
+        public bool EditJobEntry(Job jobInfo)
         {
             using (var db = new DatabaseContext())
             {
-                Job job = db.Jobs.SingleOrDefault(j => j.JobID == JobID);
-
-                if (job != null)
+                if (jobInfo != null)
                 {
-                    job.State = state;
+                    db.Entry(jobInfo);
                     db.SaveChanges();
                 }
             }
@@ -305,6 +303,40 @@ namespace Model
 
             return true;
         }
+        
+        /// <summary>
+        /// Edits a staff members role.
+        /// </summary>
+        /// <param name="staff"></param>
+        /// <returns>Returns true if successful.</returns>
+        public bool EditStaffRole(Staff staff)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.Entry(staff);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Gets a staff member by their ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a staff member.</returns>
+        public Staff GetSpecificStaffMember(int id)
+        {
+            Staff staff;
+
+            using (var db = new DatabaseContext())
+            {
+                staff = db.Stafflist.SingleOrDefault(s => s.StaffID == id);
+            }
+
+            return staff;
+        }
+
     }
 
     /// <summary>
@@ -330,7 +362,7 @@ namespace Model
         /// <summary>
         /// Holds all of the addresses in the database.
         /// </summary>
-        public DbSet<Address> Addresses { get; set; }
+        //public DbSet<Address> Addresses { get; set; }
 
         /// <summary>
         /// Holds all of the clients in the database.

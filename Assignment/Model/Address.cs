@@ -10,12 +10,21 @@ namespace Model
     /// <summary>
     /// A class designed to hold information about a machine location.
     /// </summary>
+    
+    /*
     public class Address
     {
+
+        /// <summary>
+        /// The unique identifier of addresses.
+        /// </summary>
+        [Key]
+        public int AddressID { get; set; }
+
         /// <summary>
         /// The first line of the address.
         /// </summary>
-        [MaxLength(100), Key]
+        [MaxLength(100)]
         public string FirstLine { get; set; }
 
         /// <summary>
@@ -32,4 +41,5 @@ namespace Model
 
 
     }
+    */
 }
