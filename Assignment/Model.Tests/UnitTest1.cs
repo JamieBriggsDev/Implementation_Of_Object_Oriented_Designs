@@ -14,7 +14,6 @@ namespace Model.Tests
         [TestInitialize]
         public void Init() => Assert.IsNotNull(m_db = new DatabaseController());
 
-
         /// <summary>
         /// Tests whether the clients are created correctly and not null.
         /// </summary>
@@ -93,7 +92,7 @@ namespace Model.Tests
         {
             Job job1 = new Job
             {
-                FaultDescription = "It's fucked.",
+                FaultDescription = "Machine has faulty network connections.",
                 MachineID = 1,
                 Location = "Northumbria Univerity",
                 Urgency = 3,
@@ -103,7 +102,7 @@ namespace Model.Tests
             {
                 FaultDescription = "It's missing a drive.",
                 MachineID = 2,
-                Location = "I don't actually know.",
+                Location = "Newcastle University",
                 Urgency = 0,
             };
 
@@ -121,7 +120,7 @@ namespace Model.Tests
             {
                 Forename = "Brandon",
                 Surname = "Taylor",
-                Role = "Manager",
+                Role = "Technical Manager",
             };
 
             Staff staff2 = new Staff
@@ -142,14 +141,69 @@ namespace Model.Tests
             {
                 Forename = "Elliot",
                 Surname = "Anderson",
-                Role = "Technical Assistant",
+                Role = "Technical Engineer",
             };
 
+            Staff staff5 = new Staff
+            {
+                Forename = "Matthew",
+                Surname = "Peers",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff6 = new Staff
+            {
+                Forename = "Marcus",
+                Surname = "Cubbage",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff7 = new Staff
+            {
+                Forename = "John",
+                Surname = "Doe",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff8 = new Staff
+            {
+                Forename = "Jane",
+                Surname = "Doe",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff9 = new Staff
+            {
+                Forename = "Newt",
+                Surname = "Scamander",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff10 = new Staff
+            {
+                Forename = "Roy",
+                Surname = "Trainer",
+                Role = "Technical Engineer",
+            };
+
+            Staff staff11 = new Staff
+            {
+                Forename = "Michael",
+                Surname = "Gardner",
+                Role = "Technical Engineer",
+            };
 
             Assert.IsNotNull(m_db.AddStaff(staff1));
             Assert.IsNotNull(m_db.AddStaff(staff2));
             Assert.IsNotNull(m_db.AddStaff(staff3));
             Assert.IsNotNull(m_db.AddStaff(staff4));
+            Assert.IsNotNull(m_db.AddStaff(staff5));
+            Assert.IsNotNull(m_db.AddStaff(staff6));
+            Assert.IsNotNull(m_db.AddStaff(staff7));
+            Assert.IsNotNull(m_db.AddStaff(staff8));
+            Assert.IsNotNull(m_db.AddStaff(staff9));
+            Assert.IsNotNull(m_db.AddStaff(staff10));
+            Assert.IsNotNull(m_db.AddStaff(staff11));
         }
     }
 }

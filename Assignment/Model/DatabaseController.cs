@@ -117,7 +117,7 @@ namespace Model
                 if (job != null)
                 {
                     job.StaffID = staffID;
-                    job.State = "In Progress";
+                    job.State = "Active";
                     job.Open = true;
                     db.SaveChanges();
                 }
@@ -265,7 +265,6 @@ namespace Model
             using (var db = new DatabaseContext())
             {
 
-                // We want to grab the singular value for the staff unique identifier.
                 staffID = db.Stafflist.SingleOrDefault(s => s.Forename == forename && s.Surname == surname).StaffID;
             }
 
