@@ -164,7 +164,7 @@ namespace Model
             {
                 if (jobInfo != null)
                 {
-                    db.Entry(jobInfo);
+                    db.Entry(jobInfo).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
             }
@@ -313,7 +313,7 @@ namespace Model
         {
             using (var db = new DatabaseContext())
             {
-                db.Entry(staff);
+                db.Entry(staff).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
 

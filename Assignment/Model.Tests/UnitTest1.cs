@@ -12,15 +12,27 @@ namespace Model.Tests
         /// Dummy data.
         /// </summary>
         [TestInitialize]
-        public void Init()
+        public void Init() => Assert.IsNotNull(m_db = new DatabaseController());
+
+
+        /// <summary>
+        /// Tests whether the clients are created correctly and not null.
+        /// </summary>
+        [TestMethod]
+        public void RegisterClients()
         {
-            m_db = new DatabaseController();
+            Assert.IsNotNull(m_db.AddClient("Eddie & Co"));
+            Assert.IsNotNull(m_db.AddClient("Rise Newcastle"));
+            Assert.IsNotNull(m_db.AddClient("Pandon 24/7"));
+            Assert.IsNotNull(m_db.AddClient("CIS Sucks INC"));
+        }
 
-            m_db.AddClient("Eddie & Co");
-            m_db.AddClient("Rise Newcastle");
-            m_db.AddClient("Pandon 24/7");
-            m_db.AddClient("CIS Sucks INC");
-
+        /// <summary>
+        /// Tests whether the machines are created correctly and not null.
+        /// </summary>
+        [TestMethod]
+        public void RegisterMachines()
+        {
             Machine machine1 = new Machine
             {
                 MachineDescription = "This is a machine.",
@@ -66,12 +78,19 @@ namespace Model.Tests
 
             };
 
-            m_db.AddMachine(machine1);
-            m_db.AddMachine(machine2);
-            m_db.AddMachine(machine3);
-            m_db.AddMachine(machine4);
-            m_db.AddMachine(machine5);
+            Assert.IsNotNull(m_db.AddMachine(machine1));
+            Assert.IsNotNull(m_db.AddMachine(machine2));
+            Assert.IsNotNull(m_db.AddMachine(machine3));
+            Assert.IsNotNull(m_db.AddMachine(machine4));
+            Assert.IsNotNull(m_db.AddMachine(machine5));
+        }
 
+        /// <summary>
+        ///  Tests whether or not jobs register and are not null.
+        /// </summary>
+        [TestMethod]
+        public void RegisterJobs()
+        {
             Job job1 = new Job
             {
                 FaultDescription = "It's fucked.",
@@ -88,49 +107,49 @@ namespace Model.Tests
                 Urgency = 0,
             };
 
-            m_db.RegisterJob(job1);
-            m_db.RegisterJob(job2);
+            Assert.IsNotNull(m_db.RegisterJob(job1));
+            Assert.IsNotNull(m_db.RegisterJob(job2));
+        }
 
+        /// <summary>
+        /// Tests if staff members register and are not null.
+        /// </summary>
+        [TestMethod]
+        public void RegisterStaffMembers()
+        {
             Staff staff1 = new Staff
             {
                 Forename = "Brandon",
                 Surname = "Taylor",
-                Role = "Technical Manager",
+                Role = "Manager",
             };
 
             Staff staff2 = new Staff
             {
                 Forename = "Jamie",
                 Surname = "Briggs",
-                Role = "L33t 420 Pr0gramm3r",
+                Role = "Technical Engineer",
             };
 
             Staff staff3 = new Staff
             {
                 Forename = "Ryan",
                 Surname = "Bervoets",
-                Role = "Technician",
+                Role = "Technical Engineer",
             };
 
             Staff staff4 = new Staff
             {
                 Forename = "Elliot",
                 Surname = "Anderson",
-                Role = "Drug Addict",
+                Role = "Technical Assistant",
             };
 
-            m_db.AddStaff(staff1);
-            m_db.AddStaff(staff2);
-            m_db.AddStaff(staff3);
-            m_db.AddStaff(staff4);
 
-
-        }
-
-
-        [TestMethod]
-        public void TestMethod1()
-        {
+            Assert.IsNotNull(m_db.AddStaff(staff1));
+            Assert.IsNotNull(m_db.AddStaff(staff2));
+            Assert.IsNotNull(m_db.AddStaff(staff3));
+            Assert.IsNotNull(m_db.AddStaff(staff4));
         }
     }
 }

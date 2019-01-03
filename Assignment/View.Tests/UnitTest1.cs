@@ -24,5 +24,20 @@ namespace View.Tests
             Assert.IsTrue(m_presenter.ValidateDatabaseController(), "Database controller failed to initialise.");
         }
 
+        [TestMethod]
+        public void TestRegisterClientOpens() => Assert.IsTrue(m_presenter.OpenRegisterClient(), "Presenter failed to open the register client form.");
+
+        [TestMethod]
+        public void TestRegisterJobOpens()
+        {
+            Assert.IsTrue(m_presenter.OpenRegisterJob(), "Presenter failed to open the register job form.");
+        }
+
+        [TestMethod]
+        public void TestAddNewMachineOpens()
+        {
+            Assert.IsTrue(m_presenter.OpenRegisterMachine(), "Presenter failed to ppen the register new machine form.");
+        }
+
     }
 }
