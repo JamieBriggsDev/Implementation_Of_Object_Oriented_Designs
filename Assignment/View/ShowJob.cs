@@ -141,7 +141,7 @@ namespace View
 
             if(delete == DialogResult.Yes)
             {
-                // TODO - Jamie: Delete job
+                m_presenter.DeleteJob(m_job.JobID);
                 this.DialogResult = DialogResult.OK;
             }
 

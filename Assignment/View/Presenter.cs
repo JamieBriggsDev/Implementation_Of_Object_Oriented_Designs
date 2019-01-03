@@ -302,5 +302,10 @@ namespace View
         {
             m_databaseController.EditJobEntry(job);
         }
+
+        public void DeleteJob(int id)
+        {
+            m_databaseController.DeleteJobByJobID(id);
+        }
     }
 }

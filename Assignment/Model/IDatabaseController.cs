@@ -46,5 +46,7 @@ namespace Model
 
         Staff GetSpecificStaffMember(int ID);
 
+        bool DeleteJobByJobID(int ID);
+
     }
 }

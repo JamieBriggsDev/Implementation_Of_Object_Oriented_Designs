@@ -337,6 +337,26 @@ namespace Model
             return staff;
         }
 
+        /// <summary>
+        ///  Deletes a job from the ID given.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns>Returns true if successful.</returns>
+        public bool DeleteJobByJobID(int ID)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var job = db.Jobs.SingleOrDefault(j => j.JobID == ID);
+
+                if (job != null)
+                {
+                    db.Jobs.Remove(job);
+                    db.SaveChanges();
+                }
+            }
+            return true;
+        }
+
     }
 
     /// <summary>
