@@ -40,5 +40,10 @@ namespace View
             StateLabel.Text = m_job.State;
             DueDateLabel.Text = m_job.CompletionDate.ToShortDateString();
         }
+
+        private void ViewMoreButton_Click(object sender, EventArgs e)
+        {
+            m_presenter.OpenShowJob(m_job);
+        }
     }
 }

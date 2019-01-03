@@ -95,7 +95,7 @@
             this.RegisterCancelButton.UseVisualStyleBackColor = true;
             this.RegisterCancelButton.Click += new System.EventHandler(this.RegisterCancelButton_Click);
             // 
-            // RegisterClientForm
+            // RegisterClient
             // 
             this.AcceptButton = this.RegisterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,7 +111,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RegisterClientForm";
+            this.Name = "RegisterClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterClient_FormClosing);
             this.ResumeLayout(false);

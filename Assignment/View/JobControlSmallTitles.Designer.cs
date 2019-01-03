@@ -37,15 +37,13 @@
             this.OpenLabel = new System.Windows.Forms.Label();
             this.StateLabel = new System.Windows.Forms.Label();
             this.DueDateLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.JobTableLayout.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // JobTableLayout
             // 
             this.JobTableLayout.AutoSize = true;
-            this.JobTableLayout.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.JobTableLayout.BackColor = System.Drawing.SystemColors.ControlLight;
             this.JobTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.JobTableLayout.ColumnCount = 9;
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -65,122 +63,121 @@
             this.JobTableLayout.Controls.Add(this.OpenLabel, 5, 0);
             this.JobTableLayout.Controls.Add(this.StateLabel, 6, 0);
             this.JobTableLayout.Controls.Add(this.DueDateLabel, 7, 0);
-            this.JobTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.JobTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JobTableLayout.Location = new System.Drawing.Point(0, 0);
             this.JobTableLayout.Name = "JobTableLayout";
             this.JobTableLayout.RowCount = 1;
             this.JobTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.JobTableLayout.Size = new System.Drawing.Size(1153, 29);
-            this.JobTableLayout.TabIndex = 0;
+            this.JobTableLayout.Size = new System.Drawing.Size(1128, 31);
+            this.JobTableLayout.TabIndex = 1;
             // 
             // JobIDLabel
             // 
             this.JobIDLabel.AutoSize = true;
-            this.JobIDLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.JobIDLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JobIDLabel.Location = new System.Drawing.Point(17, 3);
+            this.JobIDLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JobIDLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JobIDLabel.Location = new System.Drawing.Point(6, 3);
             this.JobIDLabel.Name = "JobIDLabel";
-            this.JobIDLabel.Size = new System.Drawing.Size(39, 23);
+            this.JobIDLabel.Size = new System.Drawing.Size(48, 25);
             this.JobIDLabel.TabIndex = 0;
-            this.JobIDLabel.Text = "Job ID";
+            this.JobIDLabel.Text = "JobID";
+            this.JobIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ClientNameLabel
             // 
             this.ClientNameLabel.AutoSize = true;
-            this.ClientNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientNameLabel.Location = new System.Drawing.Point(102, 3);
+            this.ClientNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientNameLabel.Location = new System.Drawing.Point(63, 3);
             this.ClientNameLabel.Name = "ClientNameLabel";
-            this.ClientNameLabel.Size = new System.Drawing.Size(69, 23);
+            this.ClientNameLabel.Size = new System.Drawing.Size(103, 25);
             this.ClientNameLabel.TabIndex = 1;
             this.ClientNameLabel.Text = "Client Name";
+            this.ClientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MachineNameLabel
             // 
             this.MachineNameLabel.AutoSize = true;
-            this.MachineNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MachineNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MachineNameLabel.Location = new System.Drawing.Point(204, 3);
+            this.MachineNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MachineNameLabel.Location = new System.Drawing.Point(175, 3);
             this.MachineNameLabel.Name = "MachineNameLabel";
-            this.MachineNameLabel.Size = new System.Drawing.Size(82, 23);
+            this.MachineNameLabel.Size = new System.Drawing.Size(103, 25);
             this.MachineNameLabel.TabIndex = 2;
             this.MachineNameLabel.Text = "Machine Name";
+            this.MachineNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FaultLabel
             // 
             this.FaultLabel.AutoSize = true;
-            this.FaultLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.FaultLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FaultLabel.Location = new System.Drawing.Point(477, 3);
+            this.FaultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FaultLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultLabel.Location = new System.Drawing.Point(287, 3);
             this.FaultLabel.Name = "FaultLabel";
-            this.FaultLabel.Size = new System.Drawing.Size(92, 23);
+            this.FaultLabel.Size = new System.Drawing.Size(268, 25);
             this.FaultLabel.TabIndex = 3;
             this.FaultLabel.Text = "Fault Description";
+            this.FaultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UrgencyLabel
             // 
             this.UrgencyLabel.AutoSize = true;
-            this.UrgencyLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.UrgencyLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UrgencyLabel.Location = new System.Drawing.Point(580, 3);
+            this.UrgencyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UrgencyLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UrgencyLabel.Location = new System.Drawing.Point(564, 3);
             this.UrgencyLabel.Name = "UrgencyLabel";
-            this.UrgencyLabel.Size = new System.Drawing.Size(48, 23);
+            this.UrgencyLabel.Size = new System.Drawing.Size(48, 25);
             this.UrgencyLabel.TabIndex = 4;
             this.UrgencyLabel.Text = "Urgency";
+            this.UrgencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OpenLabel
             // 
             this.OpenLabel.AutoSize = true;
-            this.OpenLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.OpenLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabel.Location = new System.Drawing.Point(709, 3);
+            this.OpenLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OpenLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenLabel.Location = new System.Drawing.Point(621, 3);
             this.OpenLabel.Name = "OpenLabel";
-            this.OpenLabel.Size = new System.Drawing.Size(34, 23);
+            this.OpenLabel.Size = new System.Drawing.Size(103, 25);
             this.OpenLabel.TabIndex = 5;
             this.OpenLabel.Text = "Open";
+            this.OpenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StateLabel
             // 
             this.StateLabel.AutoSize = true;
-            this.StateLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.StateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StateLabel.Location = new System.Drawing.Point(825, 3);
+            this.StateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateLabel.Location = new System.Drawing.Point(733, 3);
             this.StateLabel.Name = "StateLabel";
-            this.StateLabel.Size = new System.Drawing.Size(33, 23);
+            this.StateLabel.Size = new System.Drawing.Size(103, 25);
             this.StateLabel.TabIndex = 6;
             this.StateLabel.Text = "State";
+            this.StateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DueDateLabel
             // 
             this.DueDateLabel.AutoSize = true;
-            this.DueDateLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DueDateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DueDateLabel.Location = new System.Drawing.Point(942, 3);
+            this.DueDateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DueDateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DueDateLabel.Location = new System.Drawing.Point(845, 3);
             this.DueDateLabel.Name = "DueDateLabel";
-            this.DueDateLabel.Size = new System.Drawing.Size(31, 23);
+            this.DueDateLabel.Size = new System.Drawing.Size(103, 25);
             this.DueDateLabel.TabIndex = 7;
             this.DueDateLabel.Text = "Date";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.JobTableLayout);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1226, 53);
-            this.panel1.TabIndex = 1;
+            this.DueDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // JobControlSmallTitles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.JobTableLayout);
             this.Name = "JobControlSmallTitles";
-            this.Size = new System.Drawing.Size(1226, 53);
+            this.Size = new System.Drawing.Size(1128, 31);
             this.JobTableLayout.ResumeLayout(false);
             this.JobTableLayout.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,6 +192,5 @@
         private System.Windows.Forms.Label OpenLabel;
         private System.Windows.Forms.Label StateLabel;
         private System.Windows.Forms.Label DueDateLabel;
-        private System.Windows.Forms.Panel panel1;
     }
 }

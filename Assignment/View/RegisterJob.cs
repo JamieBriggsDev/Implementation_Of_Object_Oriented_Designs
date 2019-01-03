@@ -42,7 +42,7 @@ namespace View.View
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             //int jobID = m_presenter.GetAllJobs().Count + 1;
-            int machineID = m_presenter.GetAllMachines().Count;
+            int machineID = m_presenter.GetAllMachineNames().Count;
             byte[] attachment = ImageSerializer.Instance.SerializeImage(JobPicture.Image);
             int urgency = int.Parse(UrgencyComboBox.Text);
             // Add new job

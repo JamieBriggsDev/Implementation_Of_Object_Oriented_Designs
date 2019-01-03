@@ -237,6 +237,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterJob";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register Job";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterJob_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.RemoveImageButton)).EndInit();

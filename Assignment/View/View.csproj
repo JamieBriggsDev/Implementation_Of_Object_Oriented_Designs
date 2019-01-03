@@ -65,6 +65,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="IShowJob.cs" />
     <Compile Include="JobControlSmallTitles.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +104,12 @@
     <Compile Include="RegisterJob.Designer.cs">
       <DependentUpon>RegisterJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowJob.Designer.cs">
+      <DependentUpon>ShowJob.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="JobControlSmall.resx">
       <DependentUpon>JobControlSmall.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterJob.resx">
       <DependentUpon>RegisterJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowJob.resx">
+      <DependentUpon>ShowJob.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -19,6 +19,7 @@ namespace View
         private IRegisterJob m_registerJob;
         private IAssignStaffToJob m_assignStaff;
         private IRegisterMachine m_registerMachine;
+        private IShowJob m_showJob;
 
         public Presenter()
         {
@@ -179,20 +180,25 @@ namespace View
 
             m_assignStaff.FillStaffNames(Names);
 
-            //List<string> JobNames = new List<string>();
-            //List<Job> AllJobs = new List<Job>();
-            //foreach (var job in AllJobs)
-            //{
-
-            //}
-
-            //jobs.Add("Egg");
-            //m_assignStaff.FillJobs(jobs);
-
-
             m_assignStaff.OpenForm(m_home as Home);
         }
 
+        public bool OpenShowJob(Job job)
+        {
+            try
+            {
+                m_showJob = new ShowJob();
+                m_showJob.RegisterPresenter(this);
+                m_showJob.LoadJob(job);
+                m_showJob.OpenForm(m_home as Home);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
         // Register Client Stuff
         public void RegisterClient(string name)
         {
@@ -276,7 +282,7 @@ namespace View
 
         }
 
-        public List<string> GetAllMachines()
+        public List<string> GetAllMachineNames()
         {
             List<string> MachineNames = new List<string>();
             List<Machine> Machines = m_databaseController.GetAllMachines();
@@ -284,6 +290,17 @@ namespace View
             MachineNames = Machines.Select(m => m.MachineName).ToList();
 
             return MachineNames;
+        }
+
+        public List<Machine> GetAllMachines()
+        {
+            List<Machine> Machines = m_databaseController.GetAllMachines();
+            return Machines;
+        }
+
+        public void EditJob(Job job)
+        {
+            m_databaseController.EditJobEntry(job);
         }
     }
 }

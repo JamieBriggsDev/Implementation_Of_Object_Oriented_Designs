@@ -46,19 +46,34 @@ namespace View
         public void GetAllJobs()
         {
             //TODO List<Job> AllJobs = m_presenter.GetAllJobs();
+            // Clear all controls
+            JobPanel.Controls.Clear();
+
             List<Job> AllJobs = new List<Job>();
             AllJobs = m_presenter.GetAllJobs();
 
-            JobPanel.Controls.Clear();
+            var titles = new JobControlSmallTitles();
+            titles.Dock = DockStyle.Top;
+            JobPanel.Controls.Add(titles, 0, 0);
+            JobPanel.RowCount = AllJobs.Count + 1;
+            JobPanel.HorizontalScroll.Enabled = false;
+            JobPanel.HorizontalScroll.Visible = false;
 
-            JobPanel.Controls.Add(new JobControlSmallTitles());
-
-            foreach(var job in AllJobs)
+            int row = 1;
+            foreach (var job in AllJobs)
             {
                 var newJob = new JobControlSmall(m_presenter, job);
-                //newJob.Dock = DockStyle.Fill;
-                JobPanel.Controls.Add(newJob);
+                //newJob.Dock = DockStyle.Top;
+                JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52));
+
+                //JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52.0f));
+                newJob.Dock = DockStyle.Top;
+                JobPanel.Controls.Add(newJob, 0, row);
+
+                row++;
             }
+
+
         }
 
 
@@ -80,6 +95,16 @@ namespace View
         private void Home_Load(object sender, EventArgs e)
         {
             Initialise();
+        }
+
+        private void Home_Enter(object sender, EventArgs e)
+        {
+            GetAllJobs();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            GetAllJobs();
         }
     }
 }

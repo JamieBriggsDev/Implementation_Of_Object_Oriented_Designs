@@ -35,7 +35,8 @@
             this.RegisterJob = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
-            this.JobPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.JobPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.HomeToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.toolStripSeparator1,
             this.RegisterJob,
             this.toolStripSeparator2,
-            this.AssignStaffButton});
+            this.AssignStaffButton,
+            this.RefreshButton});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
             this.HomeToolStrip.Size = new System.Drawing.Size(1272, 25);
@@ -96,12 +98,27 @@
             // JobPanel
             // 
             this.JobPanel.AutoScroll = true;
-            this.JobPanel.AutoSize = true;
+            this.JobPanel.ColumnCount = 1;
+            this.JobPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.JobPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.JobPanel.Location = new System.Drawing.Point(0, 25);
             this.JobPanel.Name = "JobPanel";
+            this.JobPanel.RowCount = 3;
+            this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.JobPanel.Size = new System.Drawing.Size(1272, 431);
-            this.JobPanel.TabIndex = 1;
+            this.JobPanel.TabIndex = 2;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RefreshButton.Image = ((System.Drawing.Image)(resources.GetObject("RefreshButton.Image")));
+            this.RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(76, 22);
+            this.RefreshButton.Text = "Refresh Jobs";
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // Home
             // 
@@ -110,11 +127,14 @@
             this.ClientSize = new System.Drawing.Size(1272, 456);
             this.Controls.Add(this.JobPanel);
             this.Controls.Add(this.HomeToolStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
+            this.Enter += new System.EventHandler(this.Home_Enter);
             this.HomeToolStrip.ResumeLayout(false);
             this.HomeToolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -130,6 +150,8 @@
         private System.Windows.Forms.ToolStripButton RegisterJob;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton AssignStaffButton;
-        private System.Windows.Forms.FlowLayoutPanel JobPanel;
+        private System.Windows.Forms.TableLayoutPanel JobPanel;
+        private System.Windows.Forms.ToolStripButton RefreshButton;
+        //private View.JobControlSmallTitles jobControlSmallTitles1;
     }
 }
