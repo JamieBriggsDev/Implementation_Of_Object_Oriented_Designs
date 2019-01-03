@@ -34,6 +34,41 @@ namespace Model
         }
 
         /// <summary>
+        /// Calculates the due date time based on urgency and registry date.
+        /// </summary>
+        /// <param name="job"></param>
+        /// <returns>Returns the number of days the job is due in.</returns>
+        public int CalculateJobDueDate(Job job)
+        {
+            int days;
+
+            switch (job.Urgency)
+            {
+                case 1:
+                    days = 40;
+                    break;
+                case 2:
+                    days = 14;
+                    break;
+                case 3:
+                    days = 7;
+                    break;
+                case 4:
+                    days = 3;
+                    break;
+                case 5:
+                    days = 1;
+                    break;
+
+                default:
+                    days = 90;
+                    break;
+            }
+
+            return days;
+        }
+
+        /// <summary>
         /// Returns a specific machine.
         /// </summary>
         /// <param name="ID"></param>
@@ -82,6 +117,7 @@ namespace Model
                 if (job != null)
                 {
                     job.StaffID = staffID;
+                    job.Open = true;
                     db.SaveChanges();
                 }
             }
@@ -120,29 +156,7 @@ namespace Model
                 {
 
                     // Need to make sure that the completion date is automated based on urgency.
-                    int days;
-                    switch (job.Urgency)
-                    {
-                        case 1:
-                            days = 40;
-                            break;
-                        case 2:
-                            days = 14;
-                            break;
-                        case 3:
-                            days = 7;
-                            break;
-                        case 4:
-                            days = 3;
-                            break;
-                        case 5:
-                            days = 1;
-                            break;
-
-                        default:
-                            days = 90;
-                            break;
-                    }
+                    int days = CalculateJobDueDate(job);
 
                     job.CompletionDate = job.JobCreated.AddDays(days);
                     db.Jobs.Add(job);
@@ -164,6 +178,7 @@ namespace Model
             {
                 if (jobInfo != null)
                 {
+                    jobInfo.CompletionDate = jobInfo.JobCreated.AddDays(CalculateJobDueDate(jobInfo));
                     db.Entry(jobInfo).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }

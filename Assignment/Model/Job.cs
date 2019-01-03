@@ -49,7 +49,7 @@ namespace Model
         /// <summary>
         /// The state the job is currently in.
         /// </summary>
-        public string State { get; set; } = "estimate needed";
+        public string State { get; set; } = "Estimate needed";
 
         /// <summary>
         /// An image of the issue described.

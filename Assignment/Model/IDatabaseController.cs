@@ -14,6 +14,8 @@ namespace Model
     {
         List<Job> GetAllJobs();
 
+        int CalculateJobDueDate(Job job);
+
         Machine GetMachineNameFromID(int ID);
 
         List<Job> GetMachineSpecificJobs(int OID);
