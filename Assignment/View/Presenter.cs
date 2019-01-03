@@ -151,36 +151,34 @@ namespace View
             return true;
         }
 
-        public void OpenAssignStaff()
+        public bool OpenAssignStaff(int jobID)
         {
-            m_assignStaff = new AssignStaffToJob();
-            m_assignStaff.RegisterPresenter(this);
-
-            // TODO - JAMIE: Fill staff names and jobs
-            List<string> Names = new List<string>();
-            List<Staff> StaffMembers = m_databaseController.GetAllStaff();
-
-            // TODO - JAMIE: Remove temp staff class
-            Staff temp = new Staff()
+            try
             {
-                //StaffID = 123,
-                Forename = "Jamie",
-                Surname = "Briggs"
+                m_assignStaff = new AssignStaffToJob(jobID);
+                m_assignStaff.RegisterPresenter(this);
 
-            };
-            StaffMembers.Add(temp);
+                List<string> Names = new List<string>();
+                List<Staff> StaffMembers = m_databaseController.GetAllStaff();
 
-            foreach (var Staff in StaffMembers)
-            {
-                string ID = Staff.StaffID.ToString();
-                string Forname = Staff.Forename;
-                string Surname = Staff.Surname;
-                Names.Add($"{ID}: {Surname}, {Forname}");
+                foreach (var Staff in StaffMembers)
+                {
+                    string ID = Staff.StaffID.ToString();
+                    string Forname = Staff.Forename;
+                    string Surname = Staff.Surname;
+                    Names.Add($"{ID}: {Surname}, {Forname}");
+                }
+
+                m_assignStaff.FillStaffNames(Names);
+                m_assignStaff.OpenForm(m_home as Home);
+                m_home.UpdateJobs();
             }
+            catch (Exception)
+            {
 
-            m_assignStaff.FillStaffNames(Names);
-
-            m_assignStaff.OpenForm(m_home as Home);
+                return false;
+            }
+            return true;
         }
 
         public bool OpenShowJob(Job job)
@@ -231,12 +229,11 @@ namespace View
         }
 
         // Assign staff to job stuff
-        public bool AssignStaffToJob(string forename, string surname)
+        public bool AssignStaffToJob(int staffID, int jobID)
         {
             try
             {
-                int StaffID = m_databaseController.GetStaffID(forename, surname);
-                m_databaseController.AssignStaffToJob(StaffID, 1);
+                m_databaseController.AssignStaffToJob(staffID, jobID);
             }
             catch (Exception)
             {
@@ -307,6 +304,17 @@ namespace View
         public void DeleteJob(int id)
         {
             m_databaseController.DeleteJobByJobID(id);
+        }
+
+        public string GetStaffInitials(int id)
+        {
+            if (id == 0)
+                return "Unassigned";
+            else
+            {
+                Staff staff = m_databaseController.GetAllStaff().Find(s => s.StaffID == id);
+                return string.Format("{0}. {1}", staff.Forename.Substring(0, 1), staff.Surname);
+            }
         }
     }
 }

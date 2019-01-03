@@ -66,7 +66,6 @@ namespace View
             FaultDescriptionTextBox.ReadOnly = false;
             StateTextBox.ReadOnly = false;
             UrgencyComboBox.Enabled = true;
-            OpenCheckBox.Enabled = true;
 
             SaveButton.Visible = true;
             SaveButton.Enabled = true;
@@ -84,7 +83,6 @@ namespace View
             FaultDescriptionTextBox.ReadOnly = true;
             StateTextBox.ReadOnly = true;
             UrgencyComboBox.Enabled = false;
-            OpenCheckBox.Enabled = false;
 
             SaveButton.Visible = false;
             SaveButton.Enabled = false;

@@ -46,25 +46,26 @@
             this.JobTableLayout.AutoSize = true;
             this.JobTableLayout.BackColor = System.Drawing.Color.Transparent;
             this.JobTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-            this.JobTableLayout.ColumnCount = 9;
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.JobTableLayout.Controls.Add(this.ViewMoreButton, 8, 0);
+            this.JobTableLayout.ColumnCount = 10;
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.549545F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72773F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.549545F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.089091F));
+            this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.63864F));
+            this.JobTableLayout.Controls.Add(this.ViewMoreButton, 9, 0);
             this.JobTableLayout.Controls.Add(this.JobIDLabel, 0, 0);
             this.JobTableLayout.Controls.Add(this.ClientNameLabel, 1, 0);
             this.JobTableLayout.Controls.Add(this.MachineNameLabel, 2, 0);
-            this.JobTableLayout.Controls.Add(this.FaultLabel, 3, 0);
-            this.JobTableLayout.Controls.Add(this.UrgencyLabel, 4, 0);
-            this.JobTableLayout.Controls.Add(this.OpenLabel, 5, 0);
-            this.JobTableLayout.Controls.Add(this.StateLabel, 6, 0);
-            this.JobTableLayout.Controls.Add(this.DueDateLabel, 7, 0);
+            this.JobTableLayout.Controls.Add(this.FaultLabel, 4, 0);
+            this.JobTableLayout.Controls.Add(this.UrgencyLabel, 5, 0);
+            this.JobTableLayout.Controls.Add(this.OpenLabel, 6, 0);
+            this.JobTableLayout.Controls.Add(this.StateLabel, 7, 0);
+            this.JobTableLayout.Controls.Add(this.DueDateLabel, 8, 0);
             this.JobTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.JobTableLayout.Location = new System.Drawing.Point(0, 0);
             this.JobTableLayout.Name = "JobTableLayout";
@@ -76,10 +77,10 @@
             // ViewMoreButton
             // 
             this.ViewMoreButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewMoreButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewMoreButton.Location = new System.Drawing.Point(957, 6);
+            this.ViewMoreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewMoreButton.Location = new System.Drawing.Point(973, 6);
             this.ViewMoreButton.Name = "ViewMoreButton";
-            this.ViewMoreButton.Size = new System.Drawing.Size(165, 40);
+            this.ViewMoreButton.Size = new System.Drawing.Size(149, 40);
             this.ViewMoreButton.TabIndex = 9;
             this.ViewMoreButton.Text = "More...";
             this.ViewMoreButton.UseVisualStyleBackColor = true;
@@ -89,10 +90,10 @@
             // 
             this.JobIDLabel.AutoSize = true;
             this.JobIDLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JobIDLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JobIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JobIDLabel.Location = new System.Drawing.Point(6, 3);
             this.JobIDLabel.Name = "JobIDLabel";
-            this.JobIDLabel.Size = new System.Drawing.Size(48, 46);
+            this.JobIDLabel.Size = new System.Drawing.Size(43, 46);
             this.JobIDLabel.TabIndex = 0;
             this.JobIDLabel.Text = "JobID";
             this.JobIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,10 +102,10 @@
             // 
             this.ClientNameLabel.AutoSize = true;
             this.ClientNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientNameLabel.Location = new System.Drawing.Point(63, 3);
+            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientNameLabel.Location = new System.Drawing.Point(58, 3);
             this.ClientNameLabel.Name = "ClientNameLabel";
-            this.ClientNameLabel.Size = new System.Drawing.Size(103, 46);
+            this.ClientNameLabel.Size = new System.Drawing.Size(93, 46);
             this.ClientNameLabel.TabIndex = 1;
             this.ClientNameLabel.Text = "Client Name";
             this.ClientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,10 +114,10 @@
             // 
             this.MachineNameLabel.AutoSize = true;
             this.MachineNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MachineNameLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MachineNameLabel.Location = new System.Drawing.Point(175, 3);
+            this.MachineNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MachineNameLabel.Location = new System.Drawing.Point(160, 3);
             this.MachineNameLabel.Name = "MachineNameLabel";
-            this.MachineNameLabel.Size = new System.Drawing.Size(103, 46);
+            this.MachineNameLabel.Size = new System.Drawing.Size(93, 46);
             this.MachineNameLabel.TabIndex = 2;
             this.MachineNameLabel.Text = "Machine Name";
             this.MachineNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,10 +126,10 @@
             // 
             this.FaultLabel.AutoSize = true;
             this.FaultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FaultLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FaultLabel.Location = new System.Drawing.Point(287, 3);
+            this.FaultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultLabel.Location = new System.Drawing.Point(364, 3);
             this.FaultLabel.Name = "FaultLabel";
-            this.FaultLabel.Size = new System.Drawing.Size(268, 46);
+            this.FaultLabel.Size = new System.Drawing.Size(242, 46);
             this.FaultLabel.TabIndex = 3;
             this.FaultLabel.Text = "Fault Description";
             this.FaultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,10 +138,10 @@
             // 
             this.UrgencyLabel.AutoSize = true;
             this.UrgencyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UrgencyLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UrgencyLabel.Location = new System.Drawing.Point(564, 3);
+            this.UrgencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UrgencyLabel.Location = new System.Drawing.Point(615, 3);
             this.UrgencyLabel.Name = "UrgencyLabel";
-            this.UrgencyLabel.Size = new System.Drawing.Size(48, 46);
+            this.UrgencyLabel.Size = new System.Drawing.Size(43, 46);
             this.UrgencyLabel.TabIndex = 4;
             this.UrgencyLabel.Text = "Urgency";
             this.UrgencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,10 +150,10 @@
             // 
             this.OpenLabel.AutoSize = true;
             this.OpenLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OpenLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabel.Location = new System.Drawing.Point(621, 3);
+            this.OpenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenLabel.Location = new System.Drawing.Point(667, 3);
             this.OpenLabel.Name = "OpenLabel";
-            this.OpenLabel.Size = new System.Drawing.Size(103, 46);
+            this.OpenLabel.Size = new System.Drawing.Size(93, 46);
             this.OpenLabel.TabIndex = 5;
             this.OpenLabel.Text = "Open";
             this.OpenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,10 +162,10 @@
             // 
             this.StateLabel.AutoSize = true;
             this.StateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StateLabel.Location = new System.Drawing.Point(733, 3);
+            this.StateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateLabel.Location = new System.Drawing.Point(769, 3);
             this.StateLabel.Name = "StateLabel";
-            this.StateLabel.Size = new System.Drawing.Size(103, 46);
+            this.StateLabel.Size = new System.Drawing.Size(93, 46);
             this.StateLabel.TabIndex = 6;
             this.StateLabel.Text = "State";
             this.StateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,10 +174,10 @@
             // 
             this.DueDateLabel.AutoSize = true;
             this.DueDateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DueDateLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DueDateLabel.Location = new System.Drawing.Point(845, 3);
+            this.DueDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DueDateLabel.Location = new System.Drawing.Point(871, 3);
             this.DueDateLabel.Name = "DueDateLabel";
-            this.DueDateLabel.Size = new System.Drawing.Size(103, 46);
+            this.DueDateLabel.Size = new System.Drawing.Size(93, 46);
             this.DueDateLabel.TabIndex = 7;
             this.DueDateLabel.Text = "Date";
             this.DueDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

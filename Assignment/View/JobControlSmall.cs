@@ -40,30 +40,57 @@ namespace View
             StateLabel.Text = m_job.State;
             DueDateLabel.Text = m_job.CompletionDate.ToShortDateString();
 
-
             // Update color of control depending on date
             DateTime due = m_job.CompletionDate.Date;
             DateTime today = DateTime.Today.Date;
-            if (today.CompareTo(due) > 0)
+
+            if(m_job.StaffID != 0)
             {
-                BackColor = Color.IndianRed;
-                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
-            }
-            else if((due - today).TotalDays < 5)
-            {
-                BackColor = Color.PaleGoldenrod;
-                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+                Label StaffNameLabel = new Label();
+                StaffNameLabel.Dock = DockStyle.Fill;
+                StaffNameLabel.Text = m_presenter.GetStaffInitials(m_job.StaffID);
+                StaffNameLabel.AutoSize = true;
+                StaffNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+                JobTableLayout.Controls.Add(StaffNameLabel, 3, 0);
+
+                if (today.CompareTo(due) > 0)
+                {
+                    BackColor = Color.IndianRed;
+                    ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+                }
+                else if((due - today).TotalDays < 5)
+                {
+                    BackColor = Color.PaleGoldenrod;
+                    ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+                }
+                else
+                {
+                    BackColor = Color.LightGreen;
+                    ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+                }
             }
             else
             {
-                BackColor = Color.LightGreen;
-                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+                Button button = new Button();
+                button.Dock = DockStyle.Fill;
+                button.Text = "Assign";
+                button.Click += new EventHandler(AssignStaff_Click);
+                JobTableLayout.Controls.Add(button, 3, 0);
             }
+
+            
         }
 
         private void ViewMoreButton_Click(object sender, EventArgs e)
         {
             m_presenter.OpenShowJob(m_job);
         }
+
+        private void AssignStaff_Click(object sender, EventArgs e)
+        {
+            m_presenter.OpenAssignStaff(m_job.JobID);
+        }
+
+
     }
 }

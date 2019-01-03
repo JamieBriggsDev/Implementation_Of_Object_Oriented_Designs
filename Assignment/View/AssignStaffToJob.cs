@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace View.View
 {
@@ -14,9 +15,12 @@ namespace View.View
     {
         private Presenter m_presenter;
 
-        public AssignStaffToJob()
+        private int m_jobID;
+
+        public AssignStaffToJob(int id)
         {
             InitializeComponent();
+            m_jobID = id;
         }
 
         public void OpenForm(Home home)
@@ -38,8 +42,9 @@ namespace View.View
 
         private void AssignButton_Click(object sender, EventArgs e)
         {
-            // Close this form and focus parent
-            // TODO: JAMIE: Be able to grab name from form on 'Assign' button clicked
+            char[] split = { ' ', ':' };
+            int staffID = int.Parse(StaffNameComboBox.Text.Split(split)[0]);
+            m_presenter.AssignStaffToJob(staffID, m_jobID);
             this.DialogResult = DialogResult.OK;
         }
 
@@ -55,8 +60,7 @@ namespace View.View
 
         private void ValidateAssignButton()
         {
-            if(!string.IsNullOrEmpty(StaffNameComboBox.Text) &&
-                !string.IsNullOrEmpty(JobComboBox.Text))
+            if(!string.IsNullOrEmpty(StaffNameComboBox.Text))
             {
                 AssignButton.Enabled = true;
             }
@@ -71,14 +75,6 @@ namespace View.View
             foreach (var name in _names)
             {
                 StaffNameComboBox.Items.Add(name);
-            }
-        }
-
-        public void FillJobs(List<string> _jobs)
-        {
-            foreach (var job in _jobs)
-            {
-                JobComboBox.Items.Add(job);
             }
         }
 

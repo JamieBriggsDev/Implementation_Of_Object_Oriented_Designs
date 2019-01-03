@@ -14,16 +14,14 @@ namespace View.View
     public partial class RegisterJob : Form, IRegisterJob
     {
         private Presenter m_presenter;
-
-        private bool m_pictureGiven;
         // TODO: JAMIE: Add component to add attachments to the job listing to RegisterJob.
         public RegisterJob()
         {
             InitializeComponent();
 
-            m_pictureGiven = false;
             RemoveImageButton.Enabled = false;
             RemoveImageButton.Visible = false;
+            UrgencyComboBox.SelectedIndex = 0;
         }
 
         public void Initialise()
@@ -76,7 +74,6 @@ namespace View.View
 
         private void ValidateRegisterButton()
         {
-            //TODO: JAMIE: Make sure ValidateRegisterButton works
             if (FaultDescriptionTextBox.TextLength > 0 &&
                 FaultDescriptionTextBox.TextLength <= 155)
             {
@@ -142,14 +139,12 @@ namespace View.View
                     JobPicture.Image = new Bitmap(dlg.FileName);
                     RemoveImageButton.Enabled = true;
                     RemoveImageButton.Visible = true;
-                    m_pictureGiven = true;
                 }
             }
         }
 
         private void RemoveImageButton_Click(object sender, EventArgs e)
         {
-            m_pictureGiven = false;
             RemoveImageButton.Visible = false;
             RemoveImageButton.Enabled = false;
 

@@ -16,12 +16,10 @@ namespace View
     {
         // TODO: JAMIE: Create form to close a job (DO LAST ONCE DATABASE IS WORKING)
         private Presenter m_presenter;
-        private int m_filterIndex;
 
         public Home()
         {
             InitializeComponent();
-            m_filterIndex = 0;
             FilterComboBox.SelectedIndex = 0;
         }
 
@@ -29,7 +27,6 @@ namespace View
         {
             m_presenter = presenter;
             InitializeComponent();
-            m_filterIndex = 0;
             FilterComboBox.SelectedIndex = 0;
         }
 
@@ -47,12 +44,6 @@ namespace View
             UpdateJobs();
         }
 
-        private void AssignStaffButton_Click(object sender, EventArgs e)
-        {
-            // Open the assign job form as a dialog
-            m_presenter.OpenAssignStaff();
-        }
-
         public void UpdateJobs()
         {
             // Clear all controls
@@ -65,15 +56,19 @@ namespace View
             // Filter items by open/ closed/ all]
             if (FilterComboBox.SelectedIndex == 0)
             {
-                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == true).ToList();
+                AllJobs = m_presenter.GetAllJobs();
             }
             else if (FilterComboBox.SelectedIndex == 1)
             {
-                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == false).ToList();
+                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == true).ToList();
             }
-            else
+            else if (FilterComboBox.SelectedIndex == 2)
             {
-                AllJobs = m_presenter.GetAllJobs();
+                AllJobs = m_presenter.GetAllJobs().Where(j => j.StaffID == 0).ToList();
+            }
+            else if (FilterComboBox.SelectedIndex == 3)
+            {
+                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == false).ToList();
             }
 
             // Sort jobs by due date

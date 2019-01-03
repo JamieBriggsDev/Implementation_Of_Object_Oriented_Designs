@@ -34,11 +34,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.RegisterJob = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
-            this.JobPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.FilterComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.FilterLabel = new System.Windows.Forms.ToolStripLabel();
+            this.FilterComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.JobPanel = new System.Windows.Forms.TableLayoutPanel();
             this.HomeToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,8 +47,6 @@
             this.toolStripSeparator1,
             this.RegisterJob,
             this.toolStripSeparator2,
-            this.AssignStaffButton,
-            this.toolStripSeparator3,
             this.FilterLabel,
             this.FilterComboBox});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
@@ -89,15 +85,23 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // AssignStaffButton
+            // FilterLabel
             // 
-            this.AssignStaffButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.AssignStaffButton.Image = ((System.Drawing.Image)(resources.GetObject("AssignStaffButton.Image")));
-            this.AssignStaffButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AssignStaffButton.Name = "AssignStaffButton";
-            this.AssignStaffButton.Size = new System.Drawing.Size(73, 22);
-            this.AssignStaffButton.Text = "Assign Staff";
-            this.AssignStaffButton.Click += new System.EventHandler(this.AssignStaffButton_Click);
+            this.FilterLabel.Name = "FilterLabel";
+            this.FilterLabel.Size = new System.Drawing.Size(39, 22);
+            this.FilterLabel.Text = "Filter: ";
+            // 
+            // FilterComboBox
+            // 
+            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FilterComboBox.Items.AddRange(new object[] {
+            "All Jobs",
+            "Open Jobs",
+            "Unassigned",
+            "Closed Jobs"});
+            this.FilterComboBox.Name = "FilterComboBox";
+            this.FilterComboBox.Size = new System.Drawing.Size(121, 25);
+            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
             // 
             // JobPanel
             // 
@@ -113,28 +117,6 @@
             this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.JobPanel.Size = new System.Drawing.Size(1272, 431);
             this.JobPanel.TabIndex = 2;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // FilterComboBox
-            // 
-            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterComboBox.Items.AddRange(new object[] {
-            "Open Jobs",
-            "Closed Jobs",
-            "All Jobs"});
-            this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.Size = new System.Drawing.Size(121, 25);
-            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
-            // 
-            // FilterLabel
-            // 
-            this.FilterLabel.Name = "FilterLabel";
-            this.FilterLabel.Size = new System.Drawing.Size(39, 22);
-            this.FilterLabel.Text = "Filter: ";
             // 
             // Home
             // 
@@ -165,9 +147,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton RegisterJob;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton AssignStaffButton;
         private System.Windows.Forms.TableLayoutPanel JobPanel;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel FilterLabel;
         private System.Windows.Forms.ToolStripComboBox FilterComboBox;
         //private View.JobControlSmallTitles jobControlSmallTitles1;
