@@ -50,10 +50,18 @@ namespace View.View
                 MachineName = GeneratedNameLabel.Text
             };
 
-
-            m_presenter.RegisterMachine(newMachine);
-            // Accept register machine, close this form and focus parent
             DialogResult = DialogResult.OK;
+
+            if (m_presenter.RegisterMachine(newMachine))
+                this.DialogResult = DialogResult.OK;
+            else
+            {
+                DialogResult error = MessageBox.Show("Error registering machine.", "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                this.DialogResult = DialogResult.Abort;
+            }
         }
         
         /// <summary>

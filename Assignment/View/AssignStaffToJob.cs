@@ -44,8 +44,19 @@ namespace View.View
         {
             char[] split = { ' ', ':' };
             int staffID = int.Parse(StaffNameComboBox.Text.Split(split)[0]);
-            m_presenter.AssignStaffToJob(staffID, m_jobID);
-            this.DialogResult = DialogResult.OK;
+
+            DialogResult = DialogResult.OK;
+
+            if (m_presenter.AssignStaffToJob(staffID, m_jobID))
+                this.DialogResult = DialogResult.OK;
+            else
+            {
+                DialogResult error = MessageBox.Show("Error assigning staff.", "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                this.DialogResult = DialogResult.Abort;
+            }
         }
 
         private void StaffNameComboBox_SelectedIndexChanged(object sender, EventArgs e)

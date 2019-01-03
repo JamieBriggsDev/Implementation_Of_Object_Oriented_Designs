@@ -106,8 +106,7 @@ namespace View
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            {    
                 m_job.JobCreated = JobRegisteredDateTime.Value;
                 m_job.MachineID = m_presenter.GetAllMachines().Find(m => m.MachineName == MachineNameTextBox.Text).MachineID;
                 m_job.FaultDescription = FaultDescriptionTextBox.Text;
@@ -123,13 +122,20 @@ namespace View
                 EditButton.Enabled = true;
                 DeleteButton.Enabled = true;
 
-                m_presenter.EditJob(m_job);
 
+                if (!m_presenter.EditJob(m_job))
+                {
+                    return;
+                }
                 
             }
             catch
             {
-                MessageBox.Show("Please check all information!");
+                DialogResult error = MessageBox.Show("Error editing job.", "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                this.DialogResult = DialogResult.Abort;
             }
 
         }
@@ -143,8 +149,16 @@ namespace View
 
             if(delete == DialogResult.Yes)
             {
-                m_presenter.DeleteJob(m_job.JobID);
-                this.DialogResult = DialogResult.OK;
+                if (m_presenter.DeleteJob(m_job.JobID))
+                    this.DialogResult = DialogResult.OK;
+                else
+                {
+                    DialogResult error = MessageBox.Show("Error deleting job.", "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    this.DialogResult = DialogResult.Abort;
+                }
             }
 
         }

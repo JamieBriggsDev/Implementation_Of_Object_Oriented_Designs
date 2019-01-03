@@ -55,9 +55,20 @@ namespace View.View
                 JobCreated = DatePicker.Value
             };
 
-            m_presenter.RegisterJob(newJob);
+            
 
             DialogResult = DialogResult.OK;
+
+            if (m_presenter.RegisterJob(newJob))
+                this.DialogResult = DialogResult.OK;
+            else
+            {
+                DialogResult error = MessageBox.Show("Error registering job.", "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                this.DialogResult = DialogResult.Abort;
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

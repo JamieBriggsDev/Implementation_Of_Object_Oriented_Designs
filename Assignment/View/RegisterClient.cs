@@ -75,8 +75,16 @@ namespace View.View
             if (delete == DialogResult.Yes)
             {
                 // Add new client
-                m_presenter.RegisterClient(ClientNameTextBox.Text.ToString());
-                this.DialogResult = DialogResult.OK;
+                if (m_presenter.RegisterClient(ClientNameTextBox.Text.ToString()))
+                    this.DialogResult = DialogResult.OK;
+                else
+                {
+                    DialogResult error = MessageBox.Show("Error registering client.", "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    this.DialogResult = DialogResult.OK;
+                }
             }
 
         } 

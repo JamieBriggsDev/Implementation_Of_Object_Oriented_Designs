@@ -16,7 +16,6 @@ namespace View
         static void Main()
         {
             Presenter presenter = new Presenter();
-
         }
     }
 }
