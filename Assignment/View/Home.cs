@@ -34,7 +34,7 @@ namespace View
             // Open the register job form as a dialog
             m_presenter.OpenRegisterJob();
 
-            GetAllJobs();
+            UpdateJobs();
         }
 
         private void AssignStaffButton_Click(object sender, EventArgs e)
@@ -43,14 +43,18 @@ namespace View
             m_presenter.OpenAssignStaff();
         }
 
-        public void GetAllJobs()
+        public void UpdateJobs()
         {
             //TODO List<Job> AllJobs = m_presenter.GetAllJobs();
             // Clear all controls
             JobPanel.Controls.Clear();
+            JobPanel.Visible = false;
+            JobPanel.SuspendLayout();
 
             List<Job> AllJobs = new List<Job>();
-            AllJobs = m_presenter.GetAllJobs();
+            AllJobs = m_presenter.GetAllJobs().OrderBy(j => j.CompletionDate).ToList();
+
+            Queue<JobControlSmall> jobControls = new Queue<JobControlSmall>();
 
             var titles = new JobControlSmallTitles();
             titles.Dock = DockStyle.Top;
@@ -59,20 +63,26 @@ namespace View
             JobPanel.HorizontalScroll.Enabled = false;
             JobPanel.HorizontalScroll.Visible = false;
 
-            int row = 1;
+
+
+
             foreach (var job in AllJobs)
             {
                 var newJob = new JobControlSmall(m_presenter, job);
-                //newJob.Dock = DockStyle.Top;
-                JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52));
-
-                //JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52.0f));
                 newJob.Dock = DockStyle.Top;
-                JobPanel.Controls.Add(newJob, 0, row);
-
-                row++;
+                jobControls.Enqueue(newJob);
+                //newJob.Dock = DockStyle.Top;
             }
 
+            for(int i = 1; i <= AllJobs.Count; i++)
+            {
+                JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52));
+                //JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52.0f));
+                JobPanel.Controls.Add(jobControls.Dequeue(), 0, i);
+            }
+
+            JobPanel.ResumeLayout();
+            JobPanel.Visible = true;
 
         }
 
@@ -89,7 +99,7 @@ namespace View
 
         public void Initialise()
         {
-            GetAllJobs();
+            UpdateJobs();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -99,12 +109,12 @@ namespace View
 
         private void Home_Enter(object sender, EventArgs e)
         {
-            GetAllJobs();
+            UpdateJobs();
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            GetAllJobs();
+            UpdateJobs();
         }
     }
 }

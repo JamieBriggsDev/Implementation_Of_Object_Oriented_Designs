@@ -32,6 +32,8 @@ namespace View
             m_job = job;
 
             LoadJob();
+
+            Text = string.Format("Job ID: {0} Overview", m_job.JobID);
         }
 
         public void LoadJob()
@@ -72,7 +74,7 @@ namespace View
             CancelButton.Enabled = true;
             BackButton.Enabled = false;
             EditButton.Enabled = false;
-
+            DeleteButton.Enabled = false;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -90,6 +92,7 @@ namespace View
             CancelButton.Enabled = false;
             BackButton.Enabled = true;
             EditButton.Enabled = true;
+            DeleteButton.Enabled = true;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -120,6 +123,7 @@ namespace View
                 CancelButton.Enabled = false;
                 BackButton.Enabled = true;
                 EditButton.Enabled = true;
+                DeleteButton.Enabled = true;
 
                 m_presenter.EditJob(m_job);
 

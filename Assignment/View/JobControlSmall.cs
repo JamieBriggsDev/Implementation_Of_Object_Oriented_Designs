@@ -39,6 +39,26 @@ namespace View
             OpenLabel.Text = m_job.Open == true ? "Open" : "Closed";
             StateLabel.Text = m_job.State;
             DueDateLabel.Text = m_job.CompletionDate.ToShortDateString();
+
+
+            // Update color of control depending on date
+            DateTime due = m_job.CompletionDate.Date;
+            DateTime today = DateTime.Today.Date;
+            if (today.CompareTo(due) > 0)
+            {
+                BackColor = Color.IndianRed;
+                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+            }
+            else if((due - today).TotalDays < 5)
+            {
+                BackColor = Color.PaleGoldenrod;
+                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+            }
+            else
+            {
+                BackColor = Color.LightGreen;
+                ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
+            }
         }
 
         private void ViewMoreButton_Click(object sender, EventArgs e)

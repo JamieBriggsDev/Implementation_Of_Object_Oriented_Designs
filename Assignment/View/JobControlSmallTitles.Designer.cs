@@ -43,7 +43,7 @@
             // JobTableLayout
             // 
             this.JobTableLayout.AutoSize = true;
-            this.JobTableLayout.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.JobTableLayout.BackColor = System.Drawing.SystemColors.Control;
             this.JobTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.JobTableLayout.ColumnCount = 9;
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -110,6 +110,7 @@
             // FaultLabel
             // 
             this.FaultLabel.AutoSize = true;
+            this.FaultLabel.BackColor = System.Drawing.SystemColors.Control;
             this.FaultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FaultLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FaultLabel.Location = new System.Drawing.Point(287, 3);
@@ -164,7 +165,7 @@
             this.DueDateLabel.Name = "DueDateLabel";
             this.DueDateLabel.Size = new System.Drawing.Size(103, 25);
             this.DueDateLabel.TabIndex = 7;
-            this.DueDateLabel.Text = "Date";
+            this.DueDateLabel.Text = "Due Date";
             this.DueDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // JobControlSmallTitles

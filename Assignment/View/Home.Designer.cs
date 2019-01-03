@@ -36,7 +36,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
             this.JobPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.HomeToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +46,7 @@
             this.toolStripSeparator1,
             this.RegisterJob,
             this.toolStripSeparator2,
-            this.AssignStaffButton,
-            this.RefreshButton});
+            this.AssignStaffButton});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
             this.HomeToolStrip.Size = new System.Drawing.Size(1272, 25);
@@ -110,16 +108,6 @@
             this.JobPanel.Size = new System.Drawing.Size(1272, 431);
             this.JobPanel.TabIndex = 2;
             // 
-            // RefreshButton
-            // 
-            this.RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.RefreshButton.Image = ((System.Drawing.Image)(resources.GetObject("RefreshButton.Image")));
-            this.RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(76, 22);
-            this.RefreshButton.Text = "Refresh Jobs";
-            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,7 +139,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton AssignStaffButton;
         private System.Windows.Forms.TableLayoutPanel JobPanel;
-        private System.Windows.Forms.ToolStripButton RefreshButton;
         //private View.JobControlSmallTitles jobControlSmallTitles1;
     }
 }

@@ -44,7 +44,7 @@
             // JobTableLayout
             // 
             this.JobTableLayout.AutoSize = true;
-            this.JobTableLayout.BackColor = System.Drawing.SystemColors.Control;
+            this.JobTableLayout.BackColor = System.Drawing.Color.Transparent;
             this.JobTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.JobTableLayout.ColumnCount = 9;
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));

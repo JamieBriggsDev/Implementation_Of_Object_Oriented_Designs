@@ -191,6 +191,7 @@ namespace View
                 m_showJob.RegisterPresenter(this);
                 m_showJob.LoadJob(job);
                 m_showJob.OpenForm(m_home as Home);
+                m_home.UpdateJobs();
             }
             catch (Exception)
             {

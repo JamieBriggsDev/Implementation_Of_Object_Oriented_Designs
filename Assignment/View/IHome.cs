@@ -8,7 +8,7 @@ namespace View.View
 {
     interface IHome
     {
-        void GetAllJobs();
+        void UpdateJobs();
 
         void RegisterPresenter(Presenter presenter);
 
