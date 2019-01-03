@@ -117,6 +117,7 @@ namespace Model
                 if (job != null)
                 {
                     job.StaffID = staffID;
+                    job.State = "In Progress";
                     job.Open = true;
                     db.SaveChanges();
                 }
