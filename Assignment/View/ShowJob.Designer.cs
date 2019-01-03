@@ -52,6 +52,7 @@
             this.StateTextBox = new System.Windows.Forms.TextBox();
             this.OpenLabel = new System.Windows.Forms.Label();
             this.OpenCheckBox = new System.Windows.Forms.CheckBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -277,11 +278,22 @@
             this.OpenCheckBox.TabIndex = 23;
             this.OpenCheckBox.UseVisualStyleBackColor = true;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(93, 381);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 24;
+            this.DeleteButton.Text = "Delete...";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // ShowJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 419);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.OpenCheckBox);
             this.Controls.Add(this.OpenLabel);
             this.Controls.Add(this.StateTextBox);
@@ -344,5 +356,6 @@
         private System.Windows.Forms.TextBox StateTextBox;
         private System.Windows.Forms.Label OpenLabel;
         private System.Windows.Forms.CheckBox OpenCheckBox;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

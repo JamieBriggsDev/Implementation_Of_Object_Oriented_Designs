@@ -60,9 +60,7 @@ namespace View
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            JobIDTextBox.ReadOnly = false;
             JobRegisteredDateTime.Enabled = true;
-            MachineNameTextBox.ReadOnly = false;
             FaultDescriptionTextBox.ReadOnly = false;
             StateTextBox.ReadOnly = false;
             UrgencyComboBox.Enabled = true;
@@ -80,10 +78,7 @@ namespace View
         private void CancelButton_Click(object sender, EventArgs e)
         {
             LoadJob();
-
-            JobIDTextBox.ReadOnly = true;
             JobRegisteredDateTime.Enabled = true;
-            MachineNameTextBox.ReadOnly = true;
             FaultDescriptionTextBox.ReadOnly = true;
             StateTextBox.ReadOnly = true;
             UrgencyComboBox.Enabled = false;
@@ -111,7 +106,7 @@ namespace View
         {
             try
             {
-                m_job.JobID = int.Parse(JobIDTextBox.Text);
+                
                 m_job.JobCreated = JobRegisteredDateTime.Value;
                 m_job.MachineID = m_presenter.GetAllMachines().Find(m => m.MachineName == MachineNameTextBox.Text).MachineID;
                 m_job.FaultDescription = FaultDescriptionTextBox.Text;
@@ -133,6 +128,21 @@ namespace View
             catch
             {
                 MessageBox.Show("Please check all information!");
+            }
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult delete = MessageBox.Show("Do you sure you would like to delete this job?", "Important!", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+
+            if(delete == DialogResult.Yes)
+            {
+                // TODO - Jamie: Delete job
+                this.DialogResult = DialogResult.OK;
             }
 
         }
