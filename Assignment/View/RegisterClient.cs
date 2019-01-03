@@ -66,11 +66,19 @@ namespace View.View
         /// <param name="e"></param>
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            // Add new client
-            m_presenter.RegisterClient(ClientNameTextBox.Text.ToString());
 
-            // Close this form and focus parent
-            this.DialogResult = DialogResult.OK;
+            DialogResult delete = MessageBox.Show("Does the client agree to the terms and conditions?", "Terms and Conditions",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button2);
+
+            if (delete == DialogResult.Yes)
+            {
+                // Add new client
+                m_presenter.RegisterClient(ClientNameTextBox.Text.ToString());
+                this.DialogResult = DialogResult.OK;
+            }
+
         } 
 
         /// <summary>
@@ -91,7 +99,7 @@ namespace View.View
         private void ValidateRegisterButton()
         {
             // Check both client name text box and the terms and conditions check box.
-            if(AgreeTermsConditionsCheckBox.Checked && !string.IsNullOrWhiteSpace(ClientNameTextBox.Text))
+            if(!string.IsNullOrWhiteSpace(ClientNameTextBox.Text))
             {
                 RegisterButton.Enabled = true;
             }
