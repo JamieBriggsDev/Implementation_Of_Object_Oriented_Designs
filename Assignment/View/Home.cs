@@ -16,11 +16,21 @@ namespace View
     {
         // TODO: JAMIE: Create form to close a job (DO LAST ONCE DATABASE IS WORKING)
         private Presenter m_presenter;
+        private int m_filterIndex;
 
         public Home()
         {
             InitializeComponent();
-       
+            m_filterIndex = 0;
+            FilterComboBox.SelectedIndex = 0;
+        }
+
+        public Home(Presenter presenter)
+        {
+            m_presenter = presenter;
+            InitializeComponent();
+            m_filterIndex = 0;
+            FilterComboBox.SelectedIndex = 0;
         }
 
         private void RegisterClientButton_Click(object sender, EventArgs e)
@@ -45,14 +55,29 @@ namespace View
 
         public void UpdateJobs()
         {
-            //TODO List<Job> AllJobs = m_presenter.GetAllJobs();
             // Clear all controls
             JobPanel.Controls.Clear();
             JobPanel.Visible = false;
             JobPanel.SuspendLayout();
 
+
             List<Job> AllJobs = new List<Job>();
-            AllJobs = m_presenter.GetAllJobs().OrderBy(j => j.CompletionDate).ToList();
+            // Filter items by open/ closed/ all]
+            if (FilterComboBox.SelectedIndex == 0)
+            {
+                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == true).ToList();
+            }
+            else if (FilterComboBox.SelectedIndex == 1)
+            {
+                AllJobs = m_presenter.GetAllJobs().Where(j => j.Open == false).ToList();
+            }
+            else
+            {
+                AllJobs = m_presenter.GetAllJobs();
+            }
+
+            // Sort jobs by due date
+            AllJobs = AllJobs.OrderBy(j => j.CompletionDate).ToList();
 
             Queue<JobControlSmall> jobControls = new Queue<JobControlSmall>();
 
@@ -113,6 +138,11 @@ namespace View
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            UpdateJobs();
+        }
+
+        private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateJobs();
         }

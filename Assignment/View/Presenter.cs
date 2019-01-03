@@ -30,8 +30,8 @@ namespace View
             // Initialise Database Controller
             m_databaseController = new DatabaseController();
 
-            m_home = new Home();
-            m_home.RegisterPresenter(this);
+            m_home = new Home(this);
+            //m_home.RegisterPresenter(this);
             m_home.OpenForm();
         }
         public bool ValidateDatabaseController()

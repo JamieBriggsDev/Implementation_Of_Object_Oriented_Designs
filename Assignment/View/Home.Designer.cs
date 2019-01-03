@@ -36,6 +36,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignStaffButton = new System.Windows.Forms.ToolStripButton();
             this.JobPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.FilterComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.FilterLabel = new System.Windows.Forms.ToolStripLabel();
             this.HomeToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +49,10 @@
             this.toolStripSeparator1,
             this.RegisterJob,
             this.toolStripSeparator2,
-            this.AssignStaffButton});
+            this.AssignStaffButton,
+            this.toolStripSeparator3,
+            this.FilterLabel,
+            this.FilterComboBox});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
             this.HomeToolStrip.Size = new System.Drawing.Size(1272, 25);
@@ -108,6 +114,28 @@
             this.JobPanel.Size = new System.Drawing.Size(1272, 431);
             this.JobPanel.TabIndex = 2;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // FilterComboBox
+            // 
+            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FilterComboBox.Items.AddRange(new object[] {
+            "Open Jobs",
+            "Closed Jobs",
+            "All Jobs"});
+            this.FilterComboBox.Name = "FilterComboBox";
+            this.FilterComboBox.Size = new System.Drawing.Size(121, 25);
+            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
+            // 
+            // FilterLabel
+            // 
+            this.FilterLabel.Name = "FilterLabel";
+            this.FilterLabel.Size = new System.Drawing.Size(39, 22);
+            this.FilterLabel.Text = "Filter: ";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +167,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton AssignStaffButton;
         private System.Windows.Forms.TableLayoutPanel JobPanel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel FilterLabel;
+        private System.Windows.Forms.ToolStripComboBox FilterComboBox;
         //private View.JobControlSmallTitles jobControlSmallTitles1;
     }
 }
