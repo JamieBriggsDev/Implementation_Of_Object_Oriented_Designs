@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
     <Compile Include="DatabaseController.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="IDatabaseController.cs" />
