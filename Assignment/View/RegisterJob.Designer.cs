@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterJob));
             this.ClientNameLabel = new System.Windows.Forms.Label();
             this.ClientComboBox = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.ClientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClientComboBox.FormattingEnabled = true;
             this.ClientComboBox.Location = new System.Drawing.Point(137, 7);
-            this.ClientComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.ClientComboBox.Name = "ClientComboBox";
             this.ClientComboBox.Size = new System.Drawing.Size(291, 24);
             this.ClientComboBox.TabIndex = 1;
@@ -84,7 +85,7 @@
             this.ExistingMachineComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ExistingMachineComboBox.FormattingEnabled = true;
             this.ExistingMachineComboBox.Location = new System.Drawing.Point(137, 39);
-            this.ExistingMachineComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExistingMachineComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.ExistingMachineComboBox.Name = "ExistingMachineComboBox";
             this.ExistingMachineComboBox.Size = new System.Drawing.Size(291, 24);
             this.ExistingMachineComboBox.TabIndex = 5;
@@ -102,7 +103,7 @@
             // FaultDescriptionTextBox
             // 
             this.FaultDescriptionTextBox.Location = new System.Drawing.Point(144, 146);
-            this.FaultDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FaultDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FaultDescriptionTextBox.Name = "FaultDescriptionTextBox";
             this.FaultDescriptionTextBox.Size = new System.Drawing.Size(284, 164);
             this.FaultDescriptionTextBox.TabIndex = 8;
@@ -131,7 +132,7 @@
             "4",
             "5"});
             this.UrgencyComboBox.Location = new System.Drawing.Point(144, 577);
-            this.UrgencyComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UrgencyComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.UrgencyComboBox.Name = "UrgencyComboBox";
             this.UrgencyComboBox.Size = new System.Drawing.Size(71, 24);
             this.UrgencyComboBox.TabIndex = 10;
@@ -140,7 +141,7 @@
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Location = new System.Drawing.Point(329, 612);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 11;
@@ -152,7 +153,7 @@
             // 
             this.RegisterButton.Enabled = false;
             this.RegisterButton.Location = new System.Drawing.Point(221, 612);
-            this.RegisterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RegisterButton.Margin = new System.Windows.Forms.Padding(4);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(100, 28);
             this.RegisterButton.TabIndex = 12;
@@ -163,7 +164,7 @@
             // CreateNewMachine
             // 
             this.CreateNewMachine.Location = new System.Drawing.Point(289, 73);
-            this.CreateNewMachine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CreateNewMachine.Margin = new System.Windows.Forms.Padding(4);
             this.CreateNewMachine.Name = "CreateNewMachine";
             this.CreateNewMachine.Size = new System.Drawing.Size(140, 28);
             this.CreateNewMachine.TabIndex = 13;
@@ -174,7 +175,7 @@
             // BrowsePictureButton
             // 
             this.BrowsePictureButton.Location = new System.Drawing.Point(33, 320);
-            this.BrowsePictureButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BrowsePictureButton.Margin = new System.Windows.Forms.Padding(4);
             this.BrowsePictureButton.Name = "BrowsePictureButton";
             this.BrowsePictureButton.Size = new System.Drawing.Size(100, 28);
             this.BrowsePictureButton.TabIndex = 15;
@@ -187,7 +188,7 @@
             this.RemoveImageButton.Enabled = false;
             this.RemoveImageButton.Image = global::View.Properties.Resources.cancel;
             this.RemoveImageButton.Location = new System.Drawing.Point(93, 356);
-            this.RemoveImageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RemoveImageButton.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveImageButton.Name = "RemoveImageButton";
             this.RemoveImageButton.Size = new System.Drawing.Size(40, 37);
             this.RemoveImageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,7 +202,7 @@
             this.JobPicture.Image = global::View.Properties.Resources.NoJobPicture;
             this.JobPicture.InitialImage = global::View.Properties.Resources.NoJobPicture;
             this.JobPicture.Location = new System.Drawing.Point(144, 320);
-            this.JobPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.JobPicture.Margin = new System.Windows.Forms.Padding(4);
             this.JobPicture.Name = "JobPicture";
             this.JobPicture.Size = new System.Drawing.Size(285, 249);
             this.JobPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -222,7 +223,7 @@
             // 
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DatePicker.Location = new System.Drawing.Point(137, 108);
-            this.DatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(291, 22);
             this.DatePicker.TabIndex = 18;
@@ -250,7 +251,8 @@
             this.Controls.Add(this.ClientComboBox);
             this.Controls.Add(this.ClientNameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterJob";

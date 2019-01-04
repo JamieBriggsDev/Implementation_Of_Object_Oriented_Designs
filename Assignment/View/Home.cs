@@ -95,6 +95,7 @@ namespace View
             JobPanel.Visible = true;
 
         }
+
         /// <summary>
         /// Opens the form.
         /// </summary>
@@ -102,6 +103,7 @@ namespace View
         {
             Application.Run(this);
         }
+
         /// <summary>
         /// Sets up any controls initialised after the presenter 
         /// has been registered.
@@ -112,7 +114,11 @@ namespace View
             if (!m_presenter.IsValidUser())
                 this.Close();
             else
+            {
+                LoggedInAsLabel.Text = "Logged in as: " + m_presenter.GetUserLoggedIn();
                 UpdateJobs();
+            }
+                
         }
 
 
@@ -128,6 +134,7 @@ namespace View
             // Open the register client as a dialog
             m_presenter.OpenRegisterClient();
         }
+
         /// <summary>
         /// Opens the register job form.
         /// </summary>
@@ -140,6 +147,7 @@ namespace View
 
             UpdateJobs();
         }
+
         /// <summary>
         /// Initialises the form when the form loads.
         /// </summary>
@@ -168,5 +176,13 @@ namespace View
             UpdateJobs();
         }
         #endregion
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            m_presenter.OpenLogin();
+            this.Show();
+            LoggedInAsLabel.Text = "Logged in as: " + m_presenter.GetUserLoggedIn();
+        }
     }
 }

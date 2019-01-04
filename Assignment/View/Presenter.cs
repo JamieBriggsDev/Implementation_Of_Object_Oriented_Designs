@@ -49,6 +49,13 @@ namespace View
             }
         }
 
+        public string GetUserLoggedIn()
+        {
+            Staff staff = GetAllStaff().Where(s => s.StaffID == m_loggedInUser).First();
+
+            return staff.Forename[0] + ". " + staff.Surname;
+        }
+
 
 
         #region OpenFormMethods These methods allow the opening of other forms.

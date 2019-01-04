@@ -80,6 +80,7 @@ namespace View
                 s.Surname == surname);
 
                 int ID = staffToLogin.StaffID;
+                
                 if (!m_presenter.SetUser(ID))
                 {
                     return;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignStaffToJob));
             this.StaffNameLabel = new System.Windows.Forms.Label();
             this.StaffNameComboBox = new System.Windows.Forms.ComboBox();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -37,9 +38,10 @@
             // StaffNameLabel
             // 
             this.StaffNameLabel.AutoSize = true;
-            this.StaffNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.StaffNameLabel.Location = new System.Drawing.Point(16, 11);
+            this.StaffNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StaffNameLabel.Name = "StaffNameLabel";
-            this.StaffNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.StaffNameLabel.Size = new System.Drawing.Size(82, 17);
             this.StaffNameLabel.TabIndex = 0;
             this.StaffNameLabel.Text = "Staff Name:";
             // 
@@ -47,9 +49,10 @@
             // 
             this.StaffNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StaffNameComboBox.FormattingEnabled = true;
-            this.StaffNameComboBox.Location = new System.Drawing.Point(81, 6);
+            this.StaffNameComboBox.Location = new System.Drawing.Point(108, 7);
+            this.StaffNameComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StaffNameComboBox.Name = "StaffNameComboBox";
-            this.StaffNameComboBox.Size = new System.Drawing.Size(237, 21);
+            this.StaffNameComboBox.Size = new System.Drawing.Size(315, 24);
             this.StaffNameComboBox.TabIndex = 1;
             this.StaffNameComboBox.SelectedIndexChanged += new System.EventHandler(this.StaffNameComboBox_SelectedIndexChanged);
             // 
@@ -57,9 +60,10 @@
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(243, 37);
+            this.CancelButton.Location = new System.Drawing.Point(324, 46);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 4;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -69,9 +73,10 @@
             // 
             this.AssignButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AssignButton.Enabled = false;
-            this.AssignButton.Location = new System.Drawing.Point(162, 37);
+            this.AssignButton.Location = new System.Drawing.Point(216, 46);
+            this.AssignButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AssignButton.Name = "AssignButton";
-            this.AssignButton.Size = new System.Drawing.Size(75, 23);
+            this.AssignButton.Size = new System.Drawing.Size(100, 28);
             this.AssignButton.TabIndex = 5;
             this.AssignButton.Text = "Assign";
             this.AssignButton.UseVisualStyleBackColor = true;
@@ -80,14 +85,16 @@
             // AssignStaffToJob
             // 
             this.AcceptButton = this.AssignButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 70);
+            this.ClientSize = new System.Drawing.Size(440, 86);
             this.Controls.Add(this.AssignButton);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.StaffNameComboBox);
             this.Controls.Add(this.StaffNameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AssignStaffToJob";

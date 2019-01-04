@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterClient));
             this.ClientNameLabel = new System.Windows.Forms.Label();
             this.ClientNameTextBox = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
@@ -37,26 +38,29 @@
             // ClientNameLabel
             // 
             this.ClientNameLabel.AutoSize = true;
-            this.ClientNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.ClientNameLabel.Location = new System.Drawing.Point(16, 11);
+            this.ClientNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientNameLabel.Name = "ClientNameLabel";
-            this.ClientNameLabel.Size = new System.Drawing.Size(67, 13);
+            this.ClientNameLabel.Size = new System.Drawing.Size(88, 17);
             this.ClientNameLabel.TabIndex = 0;
             this.ClientNameLabel.Text = "Client Name:";
             // 
             // ClientNameTextBox
             // 
-            this.ClientNameTextBox.Location = new System.Drawing.Point(85, 6);
+            this.ClientNameTextBox.Location = new System.Drawing.Point(113, 7);
+            this.ClientNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClientNameTextBox.Name = "ClientNameTextBox";
-            this.ClientNameTextBox.Size = new System.Drawing.Size(230, 20);
+            this.ClientNameTextBox.Size = new System.Drawing.Size(305, 22);
             this.ClientNameTextBox.TabIndex = 1;
             this.ClientNameTextBox.TextChanged += new System.EventHandler(this.ClientNameTextBox_TextChanged);
             // 
             // RegisterButton
             // 
             this.RegisterButton.Enabled = false;
-            this.RegisterButton.Location = new System.Drawing.Point(162, 32);
+            this.RegisterButton.Location = new System.Drawing.Point(216, 39);
+            this.RegisterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(75, 23);
+            this.RegisterButton.Size = new System.Drawing.Size(100, 28);
             this.RegisterButton.TabIndex = 4;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
@@ -65,9 +69,10 @@
             // RegisterCancelButton
             // 
             this.RegisterCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.RegisterCancelButton.Location = new System.Drawing.Point(243, 32);
+            this.RegisterCancelButton.Location = new System.Drawing.Point(324, 39);
+            this.RegisterCancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RegisterCancelButton.Name = "RegisterCancelButton";
-            this.RegisterCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.RegisterCancelButton.Size = new System.Drawing.Size(100, 28);
             this.RegisterCancelButton.TabIndex = 5;
             this.RegisterCancelButton.Text = "Cancel";
             this.RegisterCancelButton.UseVisualStyleBackColor = true;
@@ -76,15 +81,17 @@
             // RegisterClient
             // 
             this.AcceptButton = this.RegisterButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.RegisterCancelButton;
-            this.ClientSize = new System.Drawing.Size(330, 64);
+            this.ClientSize = new System.Drawing.Size(440, 79);
             this.Controls.Add(this.RegisterCancelButton);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.ClientNameTextBox);
             this.Controls.Add(this.ClientNameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterClient";

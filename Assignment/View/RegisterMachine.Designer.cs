@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterMachine));
             this.ClientLabel = new System.Windows.Forms.Label();
             this.MachineComplexityLabel = new System.Windows.Forms.Label();
             this.MachineDescriptionLabel = new System.Windows.Forms.Label();
@@ -43,27 +44,30 @@
             // ClientLabel
             // 
             this.ClientLabel.AutoSize = true;
-            this.ClientLabel.Location = new System.Drawing.Point(80, 17);
+            this.ClientLabel.Location = new System.Drawing.Point(107, 21);
+            this.ClientLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientLabel.Name = "ClientLabel";
-            this.ClientLabel.Size = new System.Drawing.Size(36, 13);
+            this.ClientLabel.Size = new System.Drawing.Size(47, 17);
             this.ClientLabel.TabIndex = 0;
             this.ClientLabel.Text = "Client:";
             // 
             // MachineComplexityLabel
             // 
             this.MachineComplexityLabel.AutoSize = true;
-            this.MachineComplexityLabel.Location = new System.Drawing.Point(12, 40);
+            this.MachineComplexityLabel.Location = new System.Drawing.Point(16, 49);
+            this.MachineComplexityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MachineComplexityLabel.Name = "MachineComplexityLabel";
-            this.MachineComplexityLabel.Size = new System.Drawing.Size(104, 13);
+            this.MachineComplexityLabel.Size = new System.Drawing.Size(136, 17);
             this.MachineComplexityLabel.TabIndex = 1;
             this.MachineComplexityLabel.Text = "Machine Complexity:";
             // 
             // MachineDescriptionLabel
             // 
             this.MachineDescriptionLabel.AutoSize = true;
-            this.MachineDescriptionLabel.Location = new System.Drawing.Point(53, 66);
+            this.MachineDescriptionLabel.Location = new System.Drawing.Point(71, 81);
+            this.MachineDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MachineDescriptionLabel.Name = "MachineDescriptionLabel";
-            this.MachineDescriptionLabel.Size = new System.Drawing.Size(63, 13);
+            this.MachineDescriptionLabel.Size = new System.Drawing.Size(83, 17);
             this.MachineDescriptionLabel.TabIndex = 2;
             this.MachineDescriptionLabel.Text = "Description:";
             // 
@@ -71,9 +75,10 @@
             // 
             this.ClientsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClientsComboBox.FormattingEnabled = true;
-            this.ClientsComboBox.Location = new System.Drawing.Point(123, 13);
+            this.ClientsComboBox.Location = new System.Drawing.Point(164, 16);
+            this.ClientsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClientsComboBox.Name = "ClientsComboBox";
-            this.ClientsComboBox.Size = new System.Drawing.Size(178, 21);
+            this.ClientsComboBox.Size = new System.Drawing.Size(236, 24);
             this.ClientsComboBox.TabIndex = 3;
             this.ClientsComboBox.SelectedIndexChanged += new System.EventHandler(this.ClientsComboBox_SelectedIndexChanged);
             // 
@@ -88,17 +93,19 @@
             "3",
             "4",
             "5"});
-            this.ComplexityComboBox.Location = new System.Drawing.Point(123, 37);
+            this.ComplexityComboBox.Location = new System.Drawing.Point(164, 46);
+            this.ComplexityComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ComplexityComboBox.Name = "ComplexityComboBox";
-            this.ComplexityComboBox.Size = new System.Drawing.Size(51, 21);
+            this.ComplexityComboBox.Size = new System.Drawing.Size(67, 24);
             this.ComplexityComboBox.TabIndex = 4;
             this.ComplexityComboBox.SelectedIndexChanged += new System.EventHandler(this.ComplexityComboBox_SelectedIndexChanged);
             // 
             // MachineDescriptionTextBox
             // 
-            this.MachineDescriptionTextBox.Location = new System.Drawing.Point(123, 63);
+            this.MachineDescriptionTextBox.Location = new System.Drawing.Point(164, 78);
+            this.MachineDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MachineDescriptionTextBox.Name = "MachineDescriptionTextBox";
-            this.MachineDescriptionTextBox.Size = new System.Drawing.Size(178, 158);
+            this.MachineDescriptionTextBox.Size = new System.Drawing.Size(236, 194);
             this.MachineDescriptionTextBox.TabIndex = 5;
             this.MachineDescriptionTextBox.Text = "";
             this.MachineDescriptionTextBox.TextChanged += new System.EventHandler(this.MachineDescriptionTextBox_TextChanged);
@@ -106,9 +113,10 @@
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(226, 266);
+            this.CancelButton.Location = new System.Drawing.Point(301, 327);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 6;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -117,9 +125,10 @@
             // AcceptButton
             // 
             this.AcceptButton.Enabled = false;
-            this.AcceptButton.Location = new System.Drawing.Point(145, 266);
+            this.AcceptButton.Location = new System.Drawing.Point(193, 327);
+            this.AcceptButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AcceptButton.Name = "AcceptButton";
-            this.AcceptButton.Size = new System.Drawing.Size(75, 23);
+            this.AcceptButton.Size = new System.Drawing.Size(100, 28);
             this.AcceptButton.TabIndex = 7;
             this.AcceptButton.Text = "Accept";
             this.AcceptButton.UseVisualStyleBackColor = true;
@@ -128,26 +137,28 @@
             // MachineNameLabel
             // 
             this.MachineNameLabel.AutoSize = true;
-            this.MachineNameLabel.Location = new System.Drawing.Point(34, 234);
+            this.MachineNameLabel.Location = new System.Drawing.Point(45, 288);
+            this.MachineNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MachineNameLabel.Name = "MachineNameLabel";
-            this.MachineNameLabel.Size = new System.Drawing.Size(82, 13);
+            this.MachineNameLabel.Size = new System.Drawing.Size(106, 17);
             this.MachineNameLabel.TabIndex = 8;
             this.MachineNameLabel.Text = "Machine Name:";
             // 
             // GeneratedNameLabel
             // 
             this.GeneratedNameLabel.AutoSize = true;
-            this.GeneratedNameLabel.Location = new System.Drawing.Point(123, 234);
+            this.GeneratedNameLabel.Location = new System.Drawing.Point(164, 288);
+            this.GeneratedNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GeneratedNameLabel.Name = "GeneratedNameLabel";
-            this.GeneratedNameLabel.Size = new System.Drawing.Size(87, 13);
+            this.GeneratedNameLabel.Size = new System.Drawing.Size(108, 17);
             this.GeneratedNameLabel.TabIndex = 9;
             this.GeneratedNameLabel.Text = "MACHINENAME";
             // 
             // RegisterMachine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 301);
+            this.ClientSize = new System.Drawing.Size(409, 370);
             this.Controls.Add(this.GeneratedNameLabel);
             this.Controls.Add(this.MachineNameLabel);
             this.Controls.Add(this.AcceptButton);
@@ -159,6 +170,8 @@
             this.Controls.Add(this.MachineComplexityLabel);
             this.Controls.Add(this.ClientLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterMachine";

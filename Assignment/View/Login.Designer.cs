@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.StaffComboBox = new System.Windows.Forms.ComboBox();
             this.StaffLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             this.StaffComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StaffComboBox.FormattingEnabled = true;
             this.StaffComboBox.Location = new System.Drawing.Point(68, 207);
-            this.StaffComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StaffComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.StaffComboBox.Name = "StaffComboBox";
             this.StaffComboBox.Size = new System.Drawing.Size(268, 24);
             this.StaffComboBox.TabIndex = 0;
@@ -58,7 +59,7 @@
             // LoginButton
             // 
             this.LoginButton.Location = new System.Drawing.Point(13, 246);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(324, 28);
             this.LoginButton.TabIndex = 2;
@@ -87,7 +88,8 @@
             this.Controls.Add(this.StaffLabel);
             this.Controls.Add(this.StaffComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
