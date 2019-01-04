@@ -8,11 +8,11 @@ namespace View.View
 {
     public interface ILogin
     {
-        void RegisterPresenter(Presenter presenter);
+        void OpenForm(Home home);
 
         void FillStaffComboBox();
 
-        void OpenForm(Home home);
+        void RegisterPresenter(Presenter presenter);
 
     }
 }

@@ -10,9 +10,9 @@ namespace View.View
     {
         void OpenForm(RegisterJob job);
 
-        void Initialise();
-
         void RegisterPresenter(Presenter presenter);
+
+        void Initialise();
 
         void FillClients();
     }

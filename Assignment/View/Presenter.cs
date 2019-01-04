@@ -49,11 +49,20 @@ namespace View
             }
         }
 
+
+
+        #region OpenFormMethods These methods allow the opening of other forms.
+        /// <summary>
+        /// Opens the open form.
+        /// </summary>
+        /// <returns>Returns true or false depending on 
+        /// if the form opened successfully.</returns>
         public bool OpenHome()
         {
             try
-            {     
-                m_home = new Home(this);
+            {
+                m_home = new Home();
+                m_home.RegisterPresenter(this);
                 m_home.OpenForm();
             }
             catch (Exception)
@@ -63,14 +72,19 @@ namespace View
 
             return true;
         }
-
+        /// <summary>
+        /// Opens the login form.
+        /// </summary>
+        /// <returns>Returns true or false depending on 
+        /// if the form opened successfully.</returns>
         public bool OpenLogin()
         {
             try
             {
-                m_login = new Login(this);
+                m_login = new Login();
+                m_login.RegisterPresenter(this);
                 m_login.OpenForm(m_home as Home);
-                
+
             }
             catch (Exception)
             {
@@ -79,9 +93,6 @@ namespace View
 
             return true;
         }
-
-
-        #region OpenFormMethods These methods allow the opening of other forms.
         /// <summary>
         /// Opens the register client form.
         /// </summary>

@@ -8,12 +8,12 @@ namespace View.View
 {
     interface IHome
     {
-        void UpdateJobs();
+        void OpenForm();
 
         void RegisterPresenter(Presenter presenter);
 
-        void Initialise();
+        void UpdateJobs();
 
-        void OpenForm();
+        void Initialise();
     }
 }

@@ -11,6 +11,5 @@ namespace View.View
         void OpenForm(Home home);
 
         void RegisterPresenter(Presenter presenter);
-
     }
 }

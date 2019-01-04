@@ -12,23 +12,35 @@ using Model;
 
 namespace View
 {
+    /// <summary>
+    /// Form shown to let the staff login.
+    /// </summary>
     public partial class Login : Form, ILogin
     {
         Presenter m_presenter;
 
-        public Login(Presenter presenter)
+        /// <summary>
+        /// Sets up control, registers the presenter then fills
+        /// the StaffComboBox.
+        /// </summary>
+        /// <param name="presenter">Presenter to register.</param>
+        public Login()
         {
             InitializeComponent();
-            RegisterPresenter(presenter);
-            FillStaffComboBox();
         }
-
+        /// <summary>
+        /// Registers the presenter to the form. Also fills staff combo box 
+        /// as staff combo box needs to presenter before it is filled.
+        /// </summary>
+        /// <param name="presenter"></param>
         public void RegisterPresenter(Presenter presenter)
         {
             m_presenter = presenter;
+            FillStaffComboBox();
         }
-
-
+        /// <summary>
+        /// Fills in the StaffComboBox
+        /// </summary>
         public void FillStaffComboBox()
         {
             List<string> AllStaff = new List<string>();
@@ -41,7 +53,22 @@ namespace View
 
             StaffComboBox.DataSource = AllStaff;
         }
+        /// <summary>
+        /// Opens forms as a child to the Home form.
+        /// </summary>
+        /// <param name="home">Home form.</param>
+        public void OpenForm(Home home)
+        {
+            ShowDialog(home);
+        }
 
+        #region FormEvents Various events for the form.
+        /// <summary>
+        /// Saves the staff ID to the presenter so the rest of the program
+        /// can alter depending on the member of staff logged in.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
 
@@ -70,9 +97,8 @@ namespace View
             }
         }
 
-        public void OpenForm(Home home)
-        {
-            ShowDialog(home);
-        }
+        #endregion
+
+
     }
 }

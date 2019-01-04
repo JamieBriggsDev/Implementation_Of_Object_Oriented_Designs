@@ -12,10 +12,17 @@ using Model;
 
 namespace View
 {
+    /// <summary>
+    /// Show job form.
+    /// </summary>
     public partial class ShowJob : Form, IShowJob
     {
         Presenter m_presenter;
         Job m_job;
+
+        /// <summary>
+        /// Sets up the show job form.
+        /// </summary>
         public ShowJob()
         {
             InitializeComponent();
@@ -25,7 +32,18 @@ namespace View
             CancelButton.Visible = false;
             CancelButton.Enabled = false;
         }
-
+        /// <summary>
+        /// Registers the presenter to this form.
+        /// </summary>
+        /// <param name="presenter"></param>
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
+        }
+        /// <summary>
+        /// Loads a job into the form.
+        /// </summary>
+        /// <param name="job"></param>
         public void LoadJob(Job job)
         {
             m_job = new Job();
@@ -35,7 +53,9 @@ namespace View
 
             Text = string.Format("Job ID: {0} Overview", m_job.JobID);
         }
-
+        /// <summary>
+        /// Loads a job into the form.
+        /// </summary>
         public void LoadJob()
         {
             JobIDTextBox.Text = m_job.JobID.ToString();
@@ -49,17 +69,24 @@ namespace View
             JobRegisteredDateTime.Value = m_job.JobCreated;
             JobDueDateTime.Value = m_job.CompletionDate;
         }
-
+        /// <summary>
+        /// Opens the form as a child to the Home form.
+        /// </summary>
+        /// <param name="home"></param>
         public void OpenForm(Home home)
         {
             ShowDialog(home);
         }
 
-        public void RegisterPresenter(Presenter presenter)
-        {
-            m_presenter = presenter;
-        }
 
+
+        #region FormEvents Various events for the form.
+        /// <summary>
+        /// Allows the controls in the form to be editable and
+        /// shows the save and cancel buttons.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
             JobRegisteredDateTime.Enabled = true;
@@ -75,7 +102,12 @@ namespace View
             EditButton.Enabled = false;
             DeleteButton.Enabled = false;
         }
-
+        /// <summary>
+        /// Makes all the controls in the form uneditable and doesn't save 
+        /// any changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             LoadJob();
@@ -92,17 +124,29 @@ namespace View
             EditButton.Enabled = true;
             DeleteButton.Enabled = true;
         }
-
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
-
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShowJob_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
-
+        /// <summary>
+        /// Saves the job in the form through the database controller.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -139,7 +183,11 @@ namespace View
             }
 
         }
-
+        /// <summary>
+        /// Tells the database controller to delete the job within the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             DialogResult delete = MessageBox.Show("Do you sure you would like to delete this job?", "Important!", 
@@ -162,5 +210,7 @@ namespace View
             }
 
         }
+
+        #endregion
     }
 }

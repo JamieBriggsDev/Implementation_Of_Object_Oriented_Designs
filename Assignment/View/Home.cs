@@ -12,44 +12,37 @@ using View.View;
 
 namespace View
 {
+    /// <summary>
+    /// Home form.
+    /// </summary>
     public partial class Home : Form, IHome
     {
         private Presenter m_presenter;
-
+        /// <summary>
+        /// Sets up Home form and sets FilterComboBox index to 0.
+        /// </summary>
         public Home()
         {
             InitializeComponent();
             FilterComboBox.SelectedIndex = 0;
         }
-
-        public Home(Presenter presenter)
+        /// <summary>
+        /// Registers the presenter to the form.
+        /// </summary>
+        /// <param name="presenter"></param>
+        public void RegisterPresenter(Presenter presenter)
         {
             m_presenter = presenter;
-            InitializeComponent();
-            FilterComboBox.SelectedIndex = 0;      
         }
-
-        private void RegisterClientButton_Click(object sender, EventArgs e)
-        {
-            // Open the register client as a dialog
-            m_presenter.OpenRegisterClient();
-        }
-
-        private void RegisterJob_Click(object sender, EventArgs e)
-        {
-            // Open the register job form as a dialog
-            m_presenter.OpenRegisterJob();
-
-            UpdateJobs();
-        }
-
+        /// <summary>
+        /// Updates all the jobs shown in the form.
+        /// </summary>
         public void UpdateJobs()
         {
             // Clear all controls
             JobPanel.Controls.Clear();
             JobPanel.Visible = false;
             JobPanel.SuspendLayout();
-
 
             List<Job> AllJobs = new List<Job>();
             // Filter items by open/ closed/ all]
@@ -82,9 +75,6 @@ namespace View
             JobPanel.HorizontalScroll.Enabled = false;
             JobPanel.HorizontalScroll.Visible = false;
 
-
-
-
             foreach (var job in AllJobs)
             {
                 var newJob = new JobControlSmall(m_presenter, job);
@@ -93,7 +83,7 @@ namespace View
                 //newJob.Dock = DockStyle.Top;
             }
 
-            for(int i = 1; i <= AllJobs.Count; i++)
+            for (int i = 1; i <= AllJobs.Count; i++)
             {
                 JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52));
                 //JobPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52.0f));
@@ -104,18 +94,17 @@ namespace View
             JobPanel.Visible = true;
 
         }
-
-
-        public void RegisterPresenter(Presenter presenter)
-        {
-            m_presenter = presenter;
-        }
-
+        /// <summary>
+        /// Opens the form.
+        /// </summary>
         public void OpenForm()
         {
             Application.Run(this);
         }
-
+        /// <summary>
+        /// Sets up any controls initialised after the presenter 
+        /// has been registered.
+        /// </summary>
         public void Initialise()
         {
             m_presenter.OpenLogin();
@@ -125,24 +114,58 @@ namespace View
                 UpdateJobs();
         }
 
+
+
+        #region FormEvents Various events for the form.
+        /// <summary>
+        /// Opens the register client form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterClientButton_Click(object sender, EventArgs e)
+        {
+            // Open the register client as a dialog
+            m_presenter.OpenRegisterClient();
+        }
+        /// <summary>
+        /// Opens the register job form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterJob_Click(object sender, EventArgs e)
+        {
+            // Open the register job form as a dialog
+            m_presenter.OpenRegisterJob();
+
+            UpdateJobs();
+        }
+        /// <summary>
+        /// Initialises the form when the form loads.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Home_Load(object sender, EventArgs e)
         {
             Initialise();
         }
-
+        /// <summary>
+        /// Updates all the jobs on the form when the form is entered.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Home_Enter(object sender, EventArgs e)
         {
             UpdateJobs();
         }
-
-        private void RefreshButton_Click(object sender, EventArgs e)
-        {
-            UpdateJobs();
-        }
-
+        /// <summary>
+        /// Updates the jobs when the FilterComboBox index has been changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateJobs();
         }
+        #endregion
     }
 }

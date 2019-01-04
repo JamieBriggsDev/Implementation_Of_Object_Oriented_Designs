@@ -14,18 +14,49 @@ namespace View.View
     {
         private Presenter m_presenter;
         /// <summary>
-        /// RegisterClient constructor
+        /// Sets up Register Client form and registers presenter.
         /// </summary>
         public RegisterClient()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Registers the presenter to the form.
+        /// </summary>
+        /// <param name="presenter"></param>
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
+        }
+
+        /// <summary>
+        /// Opens the form as a child form to the Home form.
+        /// </summary>
+        /// <param name="home"></param>
         public void OpenForm(Home home)
         {
             ShowDialog(home);
         }
 
+        /// <summary>
+        /// Changes the status of the Register button depending on if text was entered into the client 
+        /// name text box and if the terms and conditions check box has been ticked.
+        /// </summary>
+        private void ValidateRegisterButton()
+        {
+            // Check both client name text box and the terms and conditions check box.
+            if (!string.IsNullOrWhiteSpace(ClientNameTextBox.Text))
+            {
+                RegisterButton.Enabled = true;
+            }
+            else
+            {
+                RegisterButton.Enabled = false;
+            }
+        }
+
+        #region FormEvents Various events for the form.
         /// <summary>
         /// AgreeTermsConditionsCheckBox checked changed.
         /// </summary>
@@ -100,27 +131,6 @@ namespace View.View
             this.DialogResult = DialogResult.Cancel;
         }
 
-        /// <summary>
-        /// Changes the status of the Register button depending on if text was entered into the client 
-        /// name text box and if the terms and conditions check box has been ticked.
-        /// </summary>
-        private void ValidateRegisterButton()
-        {
-            // Check both client name text box and the terms and conditions check box.
-            if(!string.IsNullOrWhiteSpace(ClientNameTextBox.Text))
-            {
-                RegisterButton.Enabled = true;
-            }
-            else
-            {
-                RegisterButton.Enabled = false;
-            }
-        }
-
-
-        public void RegisterPresenter(Presenter presenter)
-        {
-            m_presenter = presenter;
-        }
+        #endregion
     }
 }

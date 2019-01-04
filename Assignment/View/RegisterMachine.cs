@@ -22,6 +22,77 @@ namespace View.View
         private Presenter m_presenter;
 
         /// <summary>
+        /// Registers the presenter with this form.
+        /// </summary>
+        /// <param name="presenter">Presenter to be registered with this form.</param>
+        public void RegisterPresenter(Presenter presenter)
+        {
+            m_presenter = presenter;
+        }
+
+        /// <summary>
+        /// Fills the clients combobox on initialise.
+        /// </summary>
+        public void FillClients()
+        {
+            List<string> clientNames = new List<string>();
+            List<Client> clients = m_presenter.GetAllClients();
+
+            clientNames = clients.Select(c => c.Name).ToList();
+
+            ClientsComboBox.DataSource = clientNames;
+        }
+
+        /// <summary>
+        /// Initialises the form. Contents of which are to be called after the presenter
+        /// is first set within the class.
+        /// </summary>
+        public void Initialise()
+        {
+            // Fill clients combo box
+            FillClients();
+        }
+
+        /// <summary>
+        /// Tells the presenter to register a new machine with the selected options.
+        /// </summary>
+        public RegisterMachine()
+        {
+            InitializeComponent();
+
+            // Empty generated name field
+            GeneratedNameLabel.Text = "";
+        }
+
+        /// <summary>
+        /// Opens the form as a dialogue.
+        /// </summary>
+        /// <param name="job">Register Job form.</param>
+        public void OpenForm(RegisterJob job)
+        {
+            Initialise();
+            ShowDialog(job);
+
+        }
+
+        /// <summary>
+        /// Validates the Accept button to make sure it should be enabled or not.
+        /// </summary>
+        public void ValidateAcceptButton()
+        {
+            if (!string.IsNullOrWhiteSpace(ClientsComboBox.Text) &&
+                !string.IsNullOrWhiteSpace(ComplexityComboBox.Text) &&
+                !string.IsNullOrWhiteSpace(MachineDescriptionTextBox.Text))
+            {
+                AcceptButton.Enabled = true;
+            }
+            else
+            {
+                AcceptButton.Enabled = false;
+            }
+        }
+
+        /// <summary>
         /// Closes the form when the cancel button is clicked
         /// </summary>
         /// <param name="sender"></param>
@@ -128,78 +199,6 @@ namespace View.View
             else
                 GeneratedNameLabel.Text = name + (TotalMachines + 1).ToString();
         }
-
-        /// <summary>
-        /// Initialises the form. Contents of which are to be called after the presenter
-        /// is first set within the class.
-        /// </summary>
-        public void Initialise()
-        {
-            // Fill clients combo box
-            FillClients();
-        }
-
-        /// <summary>
-        /// Tells the presenter to register a new machine with the selected options.
-        /// </summary>
-        public RegisterMachine()
-        {
-            InitializeComponent();
-
-            // Empty generated name field
-            GeneratedNameLabel.Text = "";
-        }
-        
-        /// <summary>
-        /// Opens the form as a dialogue.
-        /// </summary>
-        /// <param name="job">Register Job form.</param>
-        public void OpenForm(RegisterJob job)
-        {
-            Initialise();
-            ShowDialog(job);
-
-        }
-        
-        /// <summary>
-        /// Validates the Accept button to make sure it should be enabled or not.
-        /// </summary>
-        public void ValidateAcceptButton()
-        {
-            if(!string.IsNullOrWhiteSpace(ClientsComboBox.Text) &&
-                !string.IsNullOrWhiteSpace(ComplexityComboBox.Text) &&
-                !string.IsNullOrWhiteSpace(MachineDescriptionTextBox.Text))
-            {
-                AcceptButton.Enabled = true;
-            }
-            else
-            {
-                AcceptButton.Enabled = false;
-            }
-        }
-        
-        /// <summary>
-        /// Registers the presenter with this form.
-        /// </summary>
-        /// <param name="presenter">Presenter to be registered with this form.</param>
-        public void RegisterPresenter(Presenter presenter)
-        {
-            m_presenter = presenter;
-        }
-        
-        /// <summary>
-        /// Fills the clients combobox on initialise.
-        /// </summary>
-        public void FillClients()
-        {
-            List<string> clientNames = new List<string>();
-            List<Client> clients = m_presenter.GetAllClients();
-
-            clientNames = clients.Select(c => c.Name).ToList();
-
-            ClientsComboBox.DataSource = clientNames;
-        }
-
 
     }
 }

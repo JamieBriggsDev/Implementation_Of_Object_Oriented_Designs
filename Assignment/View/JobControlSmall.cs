@@ -11,15 +11,19 @@ using Model;
 
 namespace View
 {
+    /// <summary>
+    /// Control used in the Home form to display seperate jobs.
+    /// </summary>
     public partial class JobControlSmall : UserControl
     {
         Job m_job;
         Presenter m_presenter;
-        public JobControlSmall()
-        {
-            InitializeComponent();
-        }
 
+        /// <summary>
+        /// Sets up control, registers the presenter and also adds a job.
+        /// </summary>
+        /// <param name="presenter">Presenter to register.</param>
+        /// <param name="job">Job to set up</param>
         public JobControlSmall(Presenter presenter, Job job)
         {
             InitializeComponent();
@@ -27,6 +31,10 @@ namespace View
             AddJob(job);
         }
 
+        /// <summary>
+        /// Adds a job to the control and fills in the text,
+        /// </summary>
+        /// <param name="job">Job to add to control.</param>
         private void AddJob(Job job)
         {
             m_job = job;
@@ -81,11 +89,23 @@ namespace View
             
         }
 
+        #region ControlEvents Various events for the controls.
+
+        /// <summary>
+        /// Opens the show job form for the specific job.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewMoreButton_Click(object sender, EventArgs e)
         {
             m_presenter.OpenShowJob(m_job);
         }
 
+        /// <summary>
+        /// Opens the assign staff form for the specific job.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AssignStaff_Click(object sender, EventArgs e)
         {
             // Check if user has permisions
@@ -100,6 +120,7 @@ namespace View
             }
         }
 
+        #endregion
 
     }
 }

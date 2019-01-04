@@ -11,9 +11,14 @@ using Model;
 
 namespace View
 {
+    /// <summary>
+    /// Control which includes titles to show on the Home form.
+    /// </summary>
     public partial class JobControlSmallTitles : UserControl
     {
-
+        /// <summary>
+        /// Sets up the control.
+        /// </summary>
         public JobControlSmallTitles()
         {
             InitializeComponent();
