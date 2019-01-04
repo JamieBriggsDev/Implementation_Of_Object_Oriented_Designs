@@ -14,7 +14,7 @@ namespace View
     /// controller. Also alows the forms and database controller to talk
     /// to each other indirectly.
     /// </summary>
-    public class Presenter
+    public class Presenter : IPresenter
     {
         // Database controller
         private IDatabaseController m_databaseController;
@@ -25,6 +25,10 @@ namespace View
         private IAssignStaffToJob m_assignStaff;
         private IRegisterMachine m_registerMachine;
         private IShowJob m_showJob;
+        private ILogin m_login;
+        // Logged in user ID
+        private int? m_loggedInUser;
+        
         /// <summary>
         /// Contructor enables visual styles, creates the Database Controller,
         /// creates the Home form and opens it. Only opens Home form if
@@ -41,18 +45,40 @@ namespace View
 
             if(ValidateDatabaseController())
             {
+                OpenHome();
+            }
+        }
+
+        public bool OpenHome()
+        {
+            try
+            {     
                 m_home = new Home(this);
                 m_home.OpenForm();
             }
-        }
-        public bool ValidateDatabaseController()
-        {
-            if (m_databaseController == null)
+            catch (Exception)
+            {
                 return false;
-            else
-                return true;
+            }
+
+            return true;
         }
 
+        public bool OpenLogin()
+        {
+            try
+            {
+                m_login = new Login(this);
+                m_login.OpenForm(m_home as Home);
+                
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
 
 
         #region OpenFormMethods These methods allow the opening of other forms.
@@ -252,6 +278,25 @@ namespace View
             }
         }
         /// <summary>
+        /// Grabs all stff using the database controller.
+        /// </summary>
+        /// <returns>Returns a list of staff if successful. If not then
+        /// null is returned.</returns>
+        public List<Staff> GetAllStaff()
+        {
+            try
+            {
+                List<Staff> Staff = m_databaseController.GetAllStaff();
+                return Staff;
+            }
+            catch (Exception)
+            {
+
+                return null;
+
+            }
+        }
+        /// <summary>
         ///  Grabs all the machines specific to a lusing the database controller.
         /// </summary>
         /// <param name="clientID">Client ID to use to find specific machines.</param>
@@ -357,6 +402,19 @@ namespace View
                 return string.Format("{0}. {1}", staff.Forename.Substring(0, 1), staff.Surname);
             }
         }
+        /// <summary>
+        /// Gets the tecnhical manager.
+        /// </summary>
+        /// <returns>Returns a staff object who is the
+        /// technical manager.</returns>
+        public Staff GetTechnicaManager()
+        {
+
+            Staff manager = m_databaseController.GetAllStaff()
+                .Find(s => s.Role == "Technical Manager");
+
+            return manager;
+        }
         #endregion
 
 
@@ -402,6 +460,63 @@ namespace View
         public bool DeleteJob(int id) => m_databaseController.DeleteJobByJobID(id) ? true : false;
 
 
+
+        #endregion
+
+
+
+        #region Misc These methods are used for checking information in the presenter.
+        /// <summary>
+        /// Returns bool if technical manager is logged in.
+        /// </summary>
+        /// <returns>Returns true or false depending
+        /// on if technical manager is logged in.</returns>
+        public bool IsTechnicalManager()
+        {
+            Staff manager = GetTechnicaManager();
+
+            if (m_loggedInUser == manager.StaffID)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Validates if the database controller is initilised.
+        /// </summary>
+        /// <returns>Returns true or false depending on if the database controller
+        /// is initialised.</returns>
+        public bool ValidateDatabaseController()
+        {
+            if (m_databaseController == null)
+                return false;
+            else
+                return true;
+        }
+        /// <summary>
+        /// Sets the logged in user whilst checking the user exists.
+        /// </summary>
+        /// <param name="staffID">Staff ID to login</param>
+        /// <returns>Returns true or false depending on if the user
+        /// successfully logged in.</returns>
+        public bool SetUser(int staffID)
+        {
+            if (m_databaseController.GetAllStaff()
+                .Exists(s => s.StaffID == staffID))
+            {
+                m_loggedInUser = staffID;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Checks if the logged in user is valid or not.
+        /// </summary>
+        /// <returns>Returns true or false depending on if the user
+        /// successfully logged in.</returns>
+        public bool IsValidUser() => m_loggedInUser != null ? true : false;
 
         #endregion
     }

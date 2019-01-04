@@ -88,7 +88,16 @@ namespace View
 
         private void AssignStaff_Click(object sender, EventArgs e)
         {
-            m_presenter.OpenAssignStaff(m_job.JobID);
+            // Check if user has permisions
+            if(m_presenter.IsTechnicalManager())
+                m_presenter.OpenAssignStaff(m_job.JobID);
+            else
+            {
+                DialogResult error = MessageBox.Show("You don't have permission to do this!",
+                    "Permission not granted!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+            }
         }
 
 

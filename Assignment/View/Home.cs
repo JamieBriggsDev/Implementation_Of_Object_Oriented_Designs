@@ -14,7 +14,6 @@ namespace View
 {
     public partial class Home : Form, IHome
     {
-        // TODO: JAMIE: Create form to close a job (DO LAST ONCE DATABASE IS WORKING)
         private Presenter m_presenter;
 
         public Home()
@@ -27,7 +26,7 @@ namespace View
         {
             m_presenter = presenter;
             InitializeComponent();
-            FilterComboBox.SelectedIndex = 0;
+            FilterComboBox.SelectedIndex = 0;      
         }
 
         private void RegisterClientButton_Click(object sender, EventArgs e)
@@ -119,7 +118,11 @@ namespace View
 
         public void Initialise()
         {
-            UpdateJobs();
+            m_presenter.OpenLogin();
+            if (!m_presenter.IsValidUser())
+                this.Close();
+            else
+                UpdateJobs();
         }
 
         private void Home_Load(object sender, EventArgs e)
