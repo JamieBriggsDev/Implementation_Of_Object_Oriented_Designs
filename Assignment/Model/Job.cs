@@ -36,11 +36,6 @@ namespace Model
         public int StaffID { get; set; }
 
         /// <summary>
-        /// Holds the location of the job.
-        /// </summary>
-        public string Location { get; set; }
-
-        /// <summary>
         /// Description for the job requested.
         /// </summary>
         [MinLength(0), MaxLength(255)]

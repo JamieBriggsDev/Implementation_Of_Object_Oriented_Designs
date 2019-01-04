@@ -77,6 +77,15 @@ namespace View
                     ViewMoreButton.BackColor = Color.LightGoldenrodYellow;
                 }
             }
+            else if (today.CompareTo(due) > 0)
+            {
+                Button button = new Button();
+                button.Dock = DockStyle.Fill;
+                button.Text = "Assign";
+                button.Click += new EventHandler(AssignStaff_Click);
+                JobTableLayout.Controls.Add(button, 3, 0);
+                BackColor = Color.IndianRed;
+            }
             else
             {
                 Button button = new Button();

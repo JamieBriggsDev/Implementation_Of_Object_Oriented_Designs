@@ -49,14 +49,16 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Returns the string of the user currently logged in.
+        /// </summary>
+        /// <returns></returns>
         public string GetUserLoggedIn()
         {
             Staff staff = GetAllStaff().Where(s => s.StaffID == m_loggedInUser).First();
 
             return staff.Forename[0] + ". " + staff.Surname;
         }
-
-
 
         #region OpenFormMethods These methods allow the opening of other forms.
         /// <summary>

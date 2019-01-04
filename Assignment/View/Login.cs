@@ -86,7 +86,7 @@ namespace View
                     return;
                 }
 
-                DialogResult = DialogResult.OK;
+               this.Hide();
 
             }
             catch (Exception)

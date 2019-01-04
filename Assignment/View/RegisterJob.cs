@@ -105,6 +105,7 @@ namespace View.View
             List<string> AllMachines = m_presenter.GetAllClientSpecificMachines(ClientID);
 
             ExistingMachineComboBox.DataSource = AllMachines;
+           // ExistingMachineComboBox.SelectedIndex = 1;
         }
 
         #region FormEvents Various events for the form.
@@ -116,13 +117,15 @@ namespace View.View
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             //int jobID = m_presenter.GetAllJobs().Count + 1;
-            int machineID = m_presenter.GetAllMachineNames().Count;
+
+            int machineID = m_presenter.GetAllMachines().Where(m => m.MachineName
+                == ExistingMachineComboBox.Text).First().MachineID;
+
             byte[] attachment = ImageSerializer.Instance.SerializeImage(JobPicture.Image);
             int urgency = int.Parse(UrgencyComboBox.Text);
             // Add new job
             Job newJob = new Job()
             {
-                //JobID = jobID,
                 MachineID = machineID,
                 FaultDescription = FaultDescriptionTextBox.Text,
                 Attachment = attachment,

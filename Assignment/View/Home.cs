@@ -27,6 +27,7 @@ namespace View
             InitializeComponent();
             FilterComboBox.SelectedIndex = 0;
         }
+
         /// <summary>
         /// Registers the presenter to the form.
         /// </summary>
