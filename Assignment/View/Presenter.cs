@@ -61,8 +61,8 @@ namespace View
         {
             try
             {
-                m_home = new Home();
-                m_home.RegisterPresenter(this);
+                m_home = new Home(this);
+                //m_home.RegisterPresenter(this);
                 m_home.OpenForm();
             }
             catch (Exception)

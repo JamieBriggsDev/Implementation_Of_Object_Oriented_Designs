@@ -21,8 +21,9 @@ namespace View
         /// <summary>
         /// Sets up Home form and sets FilterComboBox index to 0.
         /// </summary>
-        public Home()
+        public Home(Presenter presenter)
         {
+            RegisterPresenter(presenter);
             InitializeComponent();
             FilterComboBox.SelectedIndex = 0;
         }
