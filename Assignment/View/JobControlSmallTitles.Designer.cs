@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.JobTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.JobIDLabel = new System.Windows.Forms.Label();
             this.ClientNameLabel = new System.Windows.Forms.Label();
+            this.JobIDLabel = new System.Windows.Forms.Label();
+            this.MachineNameLabel = new System.Windows.Forms.Label();
             this.StaffNameLabel = new System.Windows.Forms.Label();
             this.FaultLabel = new System.Windows.Forms.Label();
             this.UrgencyLabel = new System.Windows.Forms.Label();
             this.OpenLabel = new System.Windows.Forms.Label();
             this.StateLabel = new System.Windows.Forms.Label();
             this.DueDateLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.JobTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,9 +57,9 @@
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.JobTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.63636F));
-            this.JobTableLayout.Controls.Add(this.label1, 0, 0);
+            this.JobTableLayout.Controls.Add(this.ClientNameLabel, 0, 0);
             this.JobTableLayout.Controls.Add(this.JobIDLabel, 0, 0);
-            this.JobTableLayout.Controls.Add(this.ClientNameLabel, 1, 0);
+            this.JobTableLayout.Controls.Add(this.MachineNameLabel, 1, 0);
             this.JobTableLayout.Controls.Add(this.StaffNameLabel, 2, 0);
             this.JobTableLayout.Controls.Add(this.FaultLabel, 4, 0);
             this.JobTableLayout.Controls.Add(this.UrgencyLabel, 5, 0);
@@ -74,6 +74,18 @@
             this.JobTableLayout.Size = new System.Drawing.Size(1128, 31);
             this.JobTableLayout.TabIndex = 1;
             // 
+            // ClientNameLabel
+            // 
+            this.ClientNameLabel.AutoSize = true;
+            this.ClientNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientNameLabel.Location = new System.Drawing.Point(58, 3);
+            this.ClientNameLabel.Name = "ClientNameLabel";
+            this.ClientNameLabel.Size = new System.Drawing.Size(93, 25);
+            this.ClientNameLabel.TabIndex = 8;
+            this.ClientNameLabel.Text = "Client Name";
+            this.ClientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // JobIDLabel
             // 
             this.JobIDLabel.AutoSize = true;
@@ -86,17 +98,17 @@
             this.JobIDLabel.Text = "JobID";
             this.JobIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ClientNameLabel
+            // MachineNameLabel
             // 
-            this.ClientNameLabel.AutoSize = true;
-            this.ClientNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientNameLabel.Location = new System.Drawing.Point(160, 3);
-            this.ClientNameLabel.Name = "ClientNameLabel";
-            this.ClientNameLabel.Size = new System.Drawing.Size(93, 25);
-            this.ClientNameLabel.TabIndex = 1;
-            this.ClientNameLabel.Text = "Client Name";
-            this.ClientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MachineNameLabel.AutoSize = true;
+            this.MachineNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MachineNameLabel.Location = new System.Drawing.Point(160, 3);
+            this.MachineNameLabel.Name = "MachineNameLabel";
+            this.MachineNameLabel.Size = new System.Drawing.Size(93, 25);
+            this.MachineNameLabel.TabIndex = 1;
+            this.MachineNameLabel.Text = "Machine Name";
+            this.MachineNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StaffNameLabel
             // 
@@ -171,18 +183,6 @@
             this.DueDateLabel.Text = "Due Date";
             this.DueDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Machine Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // JobControlSmallTitles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,13 +201,13 @@
 
         private System.Windows.Forms.TableLayoutPanel JobTableLayout;
         private System.Windows.Forms.Label JobIDLabel;
-        private System.Windows.Forms.Label ClientNameLabel;
+        private System.Windows.Forms.Label MachineNameLabel;
         private System.Windows.Forms.Label StaffNameLabel;
         private System.Windows.Forms.Label FaultLabel;
         private System.Windows.Forms.Label UrgencyLabel;
         private System.Windows.Forms.Label OpenLabel;
         private System.Windows.Forms.Label StateLabel;
         private System.Windows.Forms.Label DueDateLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ClientNameLabel;
     }
 }

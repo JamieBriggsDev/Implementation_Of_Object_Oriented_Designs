@@ -14,7 +14,7 @@ namespace View
     /// controller. Also alows the forms and database controller to talk
     /// to each other indirectly.
     /// </summary>
-    public class Presenter : IPresenter
+    public class Presenter
     {
         // Database controller
         private IDatabaseController m_databaseController;
