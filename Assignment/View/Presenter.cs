@@ -142,7 +142,7 @@ namespace View
         /// </summary>
         /// <returns>Returns true or false depending on 
         /// if the form opened successfully.</returns>
-        public bool OpenRegisterMachine()
+        public bool OpenRegisterMachine(string text)
         {
             try
             {
@@ -150,7 +150,8 @@ namespace View
                 //  and then opens the form as a dialogue to home.
                 m_registerMachine = new RegisterMachine();
                 m_registerMachine.RegisterPresenter(this);
-                m_registerMachine.OpenForm(m_registerJob as RegisterJob);
+                m_registerMachine.ClientSelected = text;
+                    m_registerMachine.OpenForm(m_registerJob as RegisterJob);
             }
             catch (Exception)
             {

@@ -174,7 +174,7 @@ namespace View.View
         /// <param name="e"></param>
         private void CreateNewMachine_Click(object sender, EventArgs e)
         {
-            m_presenter.OpenRegisterMachine();
+            m_presenter.OpenRegisterMachine(ClientComboBox.SelectedItem.ToString());
             UpdateMachinesComboBox();
         }
 

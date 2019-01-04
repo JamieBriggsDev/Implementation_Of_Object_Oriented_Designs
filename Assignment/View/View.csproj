@@ -183,5 +183,11 @@
   <ItemGroup>
     <None Include="Resources\NoJobPicture.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

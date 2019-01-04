@@ -15,5 +15,7 @@ namespace View.View
         void Initialise();
 
         void FillClients();
+    
+        string ClientSelected { get; set; }
     }
 }

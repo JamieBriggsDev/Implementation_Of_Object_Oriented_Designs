@@ -22,6 +22,11 @@ namespace View.View
         private Presenter m_presenter;
 
         /// <summary>
+        /// Getter setter for client selected when asssigning a new machine.
+        /// </summary>
+        public string ClientSelected { get; set; }
+
+        /// <summary>
         /// Registers the presenter with this form.
         /// </summary>
         /// <param name="presenter">Presenter to be registered with this form.</param>
@@ -41,6 +46,7 @@ namespace View.View
             clientNames = clients.Select(c => c.Name).ToList();
 
             ClientsComboBox.DataSource = clientNames;
+            ClientsComboBox.SelectedItem = ClientSelected;
         }
 
         /// <summary>
