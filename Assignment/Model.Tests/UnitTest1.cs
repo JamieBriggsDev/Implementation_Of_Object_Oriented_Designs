@@ -94,7 +94,6 @@ namespace Model.Tests
             {
                 FaultDescription = "Machine has faulty network connections.",
                 MachineID = 1,
-                Location = "Northumbria Univerity",
                 Urgency = 3,
             };
 
@@ -102,7 +101,6 @@ namespace Model.Tests
             {
                 FaultDescription = "It's missing a drive.",
                 MachineID = 2,
-                Location = "Newcastle University",
                 Urgency = 0,
             };
 

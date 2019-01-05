@@ -31,6 +31,7 @@ namespace View
             SaveButton.Enabled = false;
             CancelButton.Visible = false;
             CancelButton.Enabled = false;
+            FaultDescriptionTextBox.BackColor = FaultDescriptionTextBox.BackColor = Color.LightGray;
         }
         /// <summary>
         /// Registers the presenter to this form.
@@ -56,13 +57,13 @@ namespace View
         /// <summary>
         /// Loads a job into the form.
         /// </summary>
-        public void LoadJob()
+        private void LoadJob()
         {
             JobIDTextBox.Text = m_job.JobID.ToString();
             ClientNameTextBox.Text = m_presenter.GetClientNameThroughMachineID(m_job.MachineID);
             MachineNameTextBox.Text = m_presenter.GetMachineNameThroughMachineID(m_job.MachineID);
             FaultDescriptionTextBox.Text = m_job.FaultDescription;
-            UrgencyComboBox.SelectedIndex = m_job.Urgency - 1;
+            UrgencyComboBox.SelectedIndex = m_job.Urgency;
             AttachmentPictureBox.Image = ImageSerializer.Instance.DeserializeImage(m_job.Attachment);
             OpenCheckBox.Checked = m_job.Open == true ? true : false;
             StateTextBox.Text = m_job.State;
@@ -93,6 +94,7 @@ namespace View
             FaultDescriptionTextBox.ReadOnly = false;
             StateTextBox.ReadOnly = false;
             UrgencyComboBox.Enabled = true;
+            FaultDescriptionTextBox.BackColor = Color.White;
 
             SaveButton.Visible = true;
             SaveButton.Enabled = true;
@@ -110,11 +112,12 @@ namespace View
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            LoadJob();
             JobRegisteredDateTime.Enabled = true;
             FaultDescriptionTextBox.ReadOnly = true;
             StateTextBox.ReadOnly = true;
             UrgencyComboBox.Enabled = false;
+            FaultDescriptionTextBox.BackColor = FaultDescriptionTextBox.BackColor = Color.LightGray;
+            LoadJob();
 
             SaveButton.Visible = false;
             SaveButton.Enabled = false;
@@ -157,6 +160,12 @@ namespace View
                 m_job.State = StateTextBox.Text;
                 m_job.Urgency = int.Parse(UrgencyComboBox.Text);
                 m_job.Open = OpenCheckBox.Checked;
+
+                JobRegisteredDateTime.Enabled = true;
+                FaultDescriptionTextBox.ReadOnly = true;
+                StateTextBox.ReadOnly = true;
+                UrgencyComboBox.Enabled = false;
+                FaultDescriptionTextBox.BackColor = FaultDescriptionTextBox.BackColor = Color.LightGray;
 
                 SaveButton.Visible = false;
                 SaveButton.Enabled = false;

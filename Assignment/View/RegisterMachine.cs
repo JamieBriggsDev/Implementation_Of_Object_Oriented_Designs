@@ -84,7 +84,7 @@ namespace View.View
         /// <summary>
         /// Validates the Accept button to make sure it should be enabled or not.
         /// </summary>
-        public void ValidateAcceptButton()
+        private void ValidateAcceptButton()
         {
             if (!string.IsNullOrWhiteSpace(ClientsComboBox.Text) &&
                 !string.IsNullOrWhiteSpace(ComplexityComboBox.Text) &&

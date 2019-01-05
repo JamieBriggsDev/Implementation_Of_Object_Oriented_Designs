@@ -99,7 +99,7 @@ namespace View.View
         /// Updates the MachineComboBox depending on the selected
         /// text in the ClientComboBox.
         /// </summary>
-        public void UpdateMachinesComboBox()
+        private void UpdateMachinesComboBox()
         {
             int ClientID = m_presenter.GetClientID(ClientComboBox.Text);
             List<string> AllMachines = m_presenter.GetAllClientSpecificMachines(ClientID);
