@@ -1,4 +1,10 @@
-﻿using Model;
+﻿// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Jamie Briggs
+// Brandon Taylor
+// 07/01/2019
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace View.View
 {
+    /// <summary>
+    /// IShowJob Interface for form
+    /// </summary>
     public interface IShowJob
     {
         void OpenForm(Home home);

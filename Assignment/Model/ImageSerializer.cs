@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Jamie Briggs
+// Brandon Taylor
+// 07/01/2019
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

@@ -1,4 +1,10 @@
-﻿using Model;
+﻿// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Jamie Briggs
+// Brandon Taylor
+// 07/01/2019
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
