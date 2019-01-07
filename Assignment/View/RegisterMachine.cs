@@ -88,7 +88,8 @@ namespace View.View
         {
             if (!string.IsNullOrWhiteSpace(ClientsComboBox.Text) &&
                 !string.IsNullOrWhiteSpace(ComplexityComboBox.Text) &&
-                !string.IsNullOrWhiteSpace(MachineDescriptionTextBox.Text))
+                !string.IsNullOrWhiteSpace(MachineDescriptionTextBox.Text) &&
+                MachineDescriptionTextBox.Text.Length <= 255)
             {
                 AcceptButton.Enabled = true;
             }
@@ -98,6 +99,8 @@ namespace View.View
             }
         }
 
+
+        #region FormEventMethods Events the form uses for its controls.
         /// <summary>
         /// Closes the form when the cancel button is clicked
         /// </summary>
@@ -205,6 +208,8 @@ namespace View.View
             else
                 GeneratedNameLabel.Text = name + (TotalMachines + 1).ToString();
         }
+
+        #endregion
 
     }
 }

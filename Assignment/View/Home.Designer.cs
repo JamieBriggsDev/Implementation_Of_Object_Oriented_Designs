@@ -58,7 +58,7 @@
             this.LoggedInAsLabel});
             this.HomeToolStrip.Location = new System.Drawing.Point(0, 0);
             this.HomeToolStrip.Name = "HomeToolStrip";
-            this.HomeToolStrip.Size = new System.Drawing.Size(1696, 28);
+            this.HomeToolStrip.Size = new System.Drawing.Size(1272, 25);
             this.HomeToolStrip.TabIndex = 0;
             this.HomeToolStrip.Text = "toolStrip1";
             // 
@@ -68,14 +68,14 @@
             this.RegisterClientButton.Image = ((System.Drawing.Image)(resources.GetObject("RegisterClientButton.Image")));
             this.RegisterClientButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RegisterClientButton.Name = "RegisterClientButton";
-            this.RegisterClientButton.Size = new System.Drawing.Size(109, 25);
+            this.RegisterClientButton.Size = new System.Drawing.Size(87, 22);
             this.RegisterClientButton.Text = "Register Client";
             this.RegisterClientButton.Click += new System.EventHandler(this.RegisterClientButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // RegisterJob
             // 
@@ -83,19 +83,19 @@
             this.RegisterJob.Image = ((System.Drawing.Image)(resources.GetObject("RegisterJob.Image")));
             this.RegisterJob.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RegisterJob.Name = "RegisterJob";
-            this.RegisterJob.Size = new System.Drawing.Size(94, 25);
+            this.RegisterJob.Size = new System.Drawing.Size(74, 22);
             this.RegisterJob.Text = "Register Job";
             this.RegisterJob.Click += new System.EventHandler(this.RegisterJob_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // FilterLabel
             // 
             this.FilterLabel.Name = "FilterLabel";
-            this.FilterLabel.Size = new System.Drawing.Size(49, 25);
+            this.FilterLabel.Size = new System.Drawing.Size(39, 22);
             this.FilterLabel.Text = "Filter: ";
             // 
             // FilterComboBox
@@ -107,7 +107,7 @@
             "Unassigned",
             "Closed Jobs"});
             this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.Size = new System.Drawing.Size(160, 28);
+            this.FilterComboBox.Size = new System.Drawing.Size(121, 25);
             this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
             // 
             // LogoutButton
@@ -117,19 +117,19 @@
             this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
             this.LogoutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(60, 25);
+            this.LogoutButton.Size = new System.Drawing.Size(49, 22);
             this.LogoutButton.Text = "Logout";
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // LoggedInAsLabel
             // 
             this.LoggedInAsLabel.Name = "LoggedInAsLabel";
-            this.LoggedInAsLabel.Size = new System.Drawing.Size(101, 25);
+            this.LoggedInAsLabel.Size = new System.Drawing.Size(80, 22);
             this.LoggedInAsLabel.Text = "Logged in as: ";
             // 
             // JobPanel
@@ -138,26 +138,25 @@
             this.JobPanel.ColumnCount = 1;
             this.JobPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.JobPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JobPanel.Location = new System.Drawing.Point(0, 28);
-            this.JobPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.JobPanel.Location = new System.Drawing.Point(0, 25);
             this.JobPanel.Name = "JobPanel";
+            this.JobPanel.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
             this.JobPanel.RowCount = 3;
             this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.JobPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.JobPanel.Size = new System.Drawing.Size(1696, 533);
+            this.JobPanel.Size = new System.Drawing.Size(1272, 431);
             this.JobPanel.TabIndex = 2;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1696, 561);
+            this.ClientSize = new System.Drawing.Size(1272, 456);
             this.Controls.Add(this.JobPanel);
             this.Controls.Add(this.HomeToolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Home";

@@ -74,6 +74,7 @@ namespace View
             titles.Dock = DockStyle.Top;
             JobPanel.Controls.Add(titles, 0, 0);
             JobPanel.RowCount = AllJobs.Count + 1;
+            JobPanel.HorizontalScroll.Maximum = 0;
             JobPanel.HorizontalScroll.Enabled = false;
             JobPanel.HorizontalScroll.Visible = false;
 
@@ -176,8 +177,12 @@ namespace View
         {
             UpdateJobs();
         }
-        #endregion
-
+        /// <summary>
+        /// Logs the current user out and allows the user to login to a different
+        /// account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -185,5 +190,6 @@ namespace View
             this.Show();
             LoggedInAsLabel.Text = "Logged in as: " + m_presenter.GetUserLoggedIn();
         }
+        #endregion
     }
 }

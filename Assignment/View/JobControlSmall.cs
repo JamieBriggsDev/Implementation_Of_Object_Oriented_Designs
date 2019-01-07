@@ -61,7 +61,7 @@ namespace View
                 StaffNameLabel.TextAlign = ContentAlignment.MiddleCenter;
                 JobTableLayout.Controls.Add(StaffNameLabel, 3, 0);
 
-                if (today.CompareTo(due) > 0)
+                if (today.CompareTo(due) >= 0)
                 {
                     BackColor = Color.IndianRed;
                     ViewMoreButton.BackColor = Color.LightGoldenrodYellow;

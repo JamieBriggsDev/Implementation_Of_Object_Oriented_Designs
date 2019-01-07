@@ -43,11 +43,15 @@ namespace View
             // Initialise Database Controller
             m_databaseController = new DatabaseController();
 
+
             if(ValidateDatabaseController())
             {
+#if !DEBUG
                 OpenHome();
+#endif
             }
         }
+
 
         /// <summary>
         /// Returns the string of the user currently logged in.

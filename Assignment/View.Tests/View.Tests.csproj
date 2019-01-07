@@ -62,6 +62,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{f4626845-42ec-4f5e-9675-49d33f1f45af}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\View\View.csproj">
       <Project>{f5e467da-3c42-4feb-a0a2-6ef7dc965923}</Project>
       <Name>View</Name>
